@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxajfs5sef2rp"]
+
+[sub_resource type="GDScript" id="GDScript_4sji6"]
+script/source = "extends RigidBody2D
+
+@export var shootStrength: float
+@export var shootAngle: int #using degrees for convenience
+@export var bulletsPerShot: int
+
+var bullet: PackedScene
+
+func _ready() -> void:
+	bullet = preload(\"res://Objects/bullet.tscn\")
+
+func shoot() -> void:
+	
+	# Get the current rotation, and apply force to the opposite way.
+	var dir: float = rotation
+	apply_central_force(Vector2.from_angle(dir) * shootStrength)
+	
+	# Create some bullets to shoot from
+	var anglesPerBullet: float = 2*shootAngle / bulletsPerShot
+	for angle: int in range(-shootAngle, shootAngle, anglesPerBullet):
+		var newBullet: RigidBody2D = bullet.instantiate()
+		# rotate the bullet accordingly
+		newBullet.rotation_degrees = angle
+		# Apply Strength to bullet
+		newBullet.initialForce = shootStrength / bulletsPerShot
+		add_child(newBullet) # Spawn in the bullet
+
+func _input(event: InputEvent) -> void:
+	if event.is_action(\"Fire\"):
+		shoot()
+"
+
+[sub_resource type="PrismMesh" id="PrismMesh_tfb3y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s1kyi"]
+radius = 13.0
+
+[node name="Player" type="RigidBody2D"]
+script = SubResource("GDScript_4sji6")
+shootStrength = 10000.0
+shootAngle = 50
+bulletsPerShot = 5
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(2, 0)
+rotation = -1.5708
+scale = Vector2(20, 20)
+mesh = SubResource("PrismMesh_tfb3y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_s1kyi")

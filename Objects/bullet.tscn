@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3lv6qet5o1cg"]
+
+[ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_1ng2v"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2q6jg"]
+bounce = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_bo8y2"]
+size = Vector3(50, 10, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n3kmb"]
+radius = 26.0192
+
+[node name="Bullet" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_2q6jg")
+script = ExtResource("1_1ng2v")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("BoxMesh_bo8y2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_n3kmb")

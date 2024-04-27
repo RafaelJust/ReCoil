@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1u4h03v4523r"]
+
+[ext_resource type="PackedScene" uid="uid://bxajfs5sef2rp" path="res://Objects/player.tscn" id="1_o7uc8"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_o7uc8")]
+shootStrength = 20.0
+bulletsPerShot = 10
+
+[node name="Camera2D" type="Camera2D" parent="."]
