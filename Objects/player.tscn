@@ -1,9 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxajfs5sef2rp"]
+[gd_scene load_steps=5 format=3 uid="uid://bxajfs5sef2rp"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://c1llynuxjtqbn" path="res://Reflect.tres" id="1_1gi8i"]
 
 [sub_resource type="GDScript" id="GDScript_4sji6"]
 script/source = "extends RigidBody2D
 
-@export var shootStrength: float
+@export var shootStrength: int = 1000
 @export var shootAngle: int #using degrees for convenience
 @export var bulletsPerShot: int
 
@@ -15,18 +17,9 @@ func _ready() -> void:
 func shoot() -> void:
 	
 	# Get the current rotation, and apply force to the opposite way.
-	var dir: float = rotation
-	apply_central_force(Vector2.from_angle(dir) * shootStrength)
-	
-	# Create some bullets to shoot from
-	var anglesPerBullet: float = 2*shootAngle / bulletsPerShot
-	for angle: int in range(-shootAngle, shootAngle, anglesPerBullet):
-		var newBullet: RigidBody2D = bullet.instantiate()
-		# rotate the bullet accordingly
-		newBullet.rotation_degrees = angle
-		# Apply Strength to bullet
-		newBullet.initialForce = shootStrength / bulletsPerShot
-		add_child(newBullet) # Spawn in the bullet
+	var dir: Vector2 = Vector2.RIGHT.from_angle(rotation)
+	print(dir * shootStrength)
+	apply_central_impulse(dir * -shootStrength) # Make the force negative to simulate recoil
 
 func _input(event: InputEvent) -> void:
 	if event.is_action(\"Fire\"):
@@ -39,8 +32,11 @@ func _input(event: InputEvent) -> void:
 radius = 13.0
 
 [node name="Player" type="RigidBody2D"]
+collision_mask = 5
+physics_material_override = ExtResource("1_1gi8i")
+can_sleep = false
 script = SubResource("GDScript_4sji6")
-shootStrength = 10000.0
+shootStrength = 1
 shootAngle = 50
 bulletsPerShot = 5
 

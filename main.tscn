@@ -5,7 +5,7 @@
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_o7uc8")]
-shootStrength = 20.0
+shootStrength = 1000
 bulletsPerShot = 10
 
 [node name="Camera2D" type="Camera2D" parent="."]
