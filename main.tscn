@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1u4h03v4523r"]
+[gd_scene load_steps=5 format=3 uid="uid://c1u4h03v4523r"]
 
 [ext_resource type="PackedScene" uid="uid://bxajfs5sef2rp" path="res://Objects/player.tscn" id="1_o7uc8"]
+[ext_resource type="PackedScene" uid="uid://cl8c4msa5g48w" path="res://Objects/enemy.tscn" id="2_sh2ix"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4r7wu"]
 
@@ -71,3 +72,5 @@ mesh = SubResource("BoxMesh_4r7wu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall4"]
 shape = SubResource("RectangleShape2D_400rp")
+
+[node name="Enemy" parent="." instance=ExtResource("2_sh2ix")]

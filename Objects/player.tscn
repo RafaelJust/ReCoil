@@ -27,5 +27,4 @@ shape = SubResource("CircleShape2D_s1kyi")
 
 [node name="Cooldown" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 0.5
 one_shot = true
