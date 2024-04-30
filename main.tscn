@@ -1,9 +1,73 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1u4h03v4523r"]
+[gd_scene load_steps=4 format=3 uid="uid://c1u4h03v4523r"]
 
 [ext_resource type="PackedScene" uid="uid://bxajfs5sef2rp" path="res://Objects/player.tscn" id="1_o7uc8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4r7wu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_400rp"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_o7uc8")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" type="StaticBody2D" parent="Walls"]
+position = Vector2(0, 320)
+scale = Vector2(60, 1)
+collision_layer = 4
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Walls/Wall"]
+scale = Vector2(20, 20)
+mesh = SubResource("BoxMesh_4r7wu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall"]
+shape = SubResource("RectangleShape2D_400rp")
+
+[node name="Wall2" type="StaticBody2D" parent="Walls"]
+position = Vector2(0, -320)
+scale = Vector2(60, 1.031)
+collision_layer = 4
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Walls/Wall2"]
+scale = Vector2(20, 20)
+mesh = SubResource("BoxMesh_4r7wu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall2"]
+shape = SubResource("RectangleShape2D_400rp")
+
+[node name="Wall3" type="StaticBody2D" parent="Walls"]
+position = Vector2(-570, 0)
+rotation = 1.5708
+scale = Vector2(35, 1)
+collision_layer = 4
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Walls/Wall3"]
+scale = Vector2(20, 20)
+mesh = SubResource("BoxMesh_4r7wu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall3"]
+shape = SubResource("RectangleShape2D_400rp")
+
+[node name="Wall4" type="StaticBody2D" parent="Walls"]
+position = Vector2(570, 0)
+rotation = 1.5708
+scale = Vector2(35, 1)
+collision_layer = 4
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Walls/Wall4"]
+scale = Vector2(20, 20)
+mesh = SubResource("BoxMesh_4r7wu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall4"]
+shape = SubResource("RectangleShape2D_400rp")
