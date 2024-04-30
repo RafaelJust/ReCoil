@@ -15,14 +15,15 @@ func shoot() -> void:
 	apply_central_force(dir * -STRENGTH) # Make the force negative to simulate recoil
 	
 	var shootAngleRad: float = deg_to_rad(shootAngle)
-	var angle: float = -shootAngleRad
+	var angle: float = rotation - shootAngleRad
 	
 	# Pre-calculations to prevent godot from calculating every loop
-	var angleStep: float = 2*shootAngle / float(bulletsPerShot)
-	var bulletStrength: float = float(STRENGTH) / float(bulletsPerShot)
+	var angleStep: float = 2*shootAngleRad / float(bulletsPerShot) # How many radians each bullet offsets
+	var bulletStrength: float = float(STRENGTH) / float(bulletsPerShot) #how much force each bullet shoots
+	var angleGoal: float = rotation + shootAngleRad # The end goal of the shot
 	
 	#spawn bullets
-	while angle <= shootAngleRad:
+	while angle <= angleGoal:
 		var newBullet: Node2D = bullet.instantiate()
 		newBullet.rotation = angle
 		newBullet.global_position = global_position + Vector2.from_angle(angle)
@@ -34,8 +35,9 @@ func shoot() -> void:
 		angle += angleStep
 
 func _input(event: InputEvent) -> void:
-	if event.is_action("Fire"):
+	if event.is_action("Fire") && %Cooldown.is_stopped():
 		shoot()
+		%Cooldown.start()
 
 func _physics_process(_delta: float) -> void:
 	var MousePos: Vector2 = get_global_mouse_position()
