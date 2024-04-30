@@ -2,6 +2,9 @@ extends RigidBody2D
 
 var initialForce: float
 
+func _ready() -> void:
+	self.add_to_group("Bullets")
+
 func shoot() -> void:
 	apply_central_force(Vector2.from_angle(rotation) * initialForce)
 	%Life.wait_time = randf_range(1,3)
