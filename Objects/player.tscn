@@ -10,9 +10,10 @@ radius = 13.0
 
 [node name="Player" type="RigidBody2D"]
 collision_mask = 5
+mass = 0.5
 physics_material_override = ExtResource("1_1gi8i")
 can_sleep = false
-linear_damp = 1.0
+linear_damp = 0.5
 script = ExtResource("2_jcijo")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
