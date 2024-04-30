@@ -1,9 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d3lv6qet5o1cg"]
 
 [ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_1ng2v"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2q6jg"]
-bounce = 1.0
+[ext_resource type="PhysicsMaterial" uid="uid://c1llynuxjtqbn" path="res://Reflect.tres" id="1_7yl33"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bo8y2"]
 size = Vector3(50, 10, 1)
@@ -14,7 +12,7 @@ radius = 26.0192
 [node name="Bullet" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 4
-physics_material_override = SubResource("PhysicsMaterial_2q6jg")
+physics_material_override = ExtResource("1_7yl33")
 script = ExtResource("1_1ng2v")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
