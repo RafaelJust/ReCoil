@@ -7,7 +7,7 @@ func _ready() -> void:
 
 func shoot() -> void:
 	apply_central_force(Vector2.from_angle(rotation) * initialForce)
-	%Life.wait_time = randf_range(1,3)
+	%Life.wait_time = randf_range(0.5,2)
 	%Life.start()
 
 func _physics_process(_delta: float) -> void:

@@ -4,10 +4,9 @@
 [ext_resource type="PhysicsMaterial" uid="uid://c1llynuxjtqbn" path="res://Reflect.tres" id="1_7yl33"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bo8y2"]
-size = Vector3(10, 2, 0)
+size = Vector3(20, 4, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n3kmb"]
-radius = 5.0
 
 [node name="Bullet" type="RigidBody2D"]
 top_level = true

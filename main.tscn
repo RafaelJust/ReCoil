@@ -1,76 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1u4h03v4523r"]
+[gd_scene load_steps=7 format=3 uid="uid://c1u4h03v4523r"]
 
 [ext_resource type="PackedScene" uid="uid://bxajfs5sef2rp" path="res://Objects/player.tscn" id="1_o7uc8"]
-[ext_resource type="PackedScene" uid="uid://cl8c4msa5g48w" path="res://Objects/enemy.tscn" id="2_sh2ix"]
+[ext_resource type="Script" path="res://Scripts/GameLoop.gd" id="1_w0nf3"]
+[ext_resource type="Script" path="res://Scripts/Walls.gd" id="3_m78b0"]
+[ext_resource type="PackedScene" uid="uid://dgprf0i2fmkqu" path="res://Objects/wall_Horizontal.tscn" id="4_bu7go"]
+[ext_resource type="PackedScene" uid="uid://dv35qxgrprgsk" path="res://Objects/wall_Vertical.tscn" id="5_cytbf"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_4r7wu"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_400rp"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_yek4b"]
+orientation = 2
 
 [node name="Main" type="Node2D"]
-
-[node name="Player" parent="." instance=ExtResource("1_o7uc8")]
+script = ExtResource("1_w0nf3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="Background" type="MeshInstance2D" parent="Camera2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(4.50002, 7)
+scale = Vector2(589.5, 338)
+mesh = SubResource("PlaneMesh_yek4b")
+
+[node name="Player" parent="." instance=ExtResource("1_o7uc8")]
+
 [node name="Walls" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_m78b0")
 
-[node name="Wall" type="StaticBody2D" parent="Walls"]
+[node name="Wall_D" parent="Walls" instance=ExtResource("4_bu7go")]
 position = Vector2(0, 320)
-scale = Vector2(60, 1)
-collision_layer = 4
-collision_mask = 0
-metadata/_edit_group_ = true
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Walls/Wall"]
-scale = Vector2(20, 20)
-mesh = SubResource("BoxMesh_4r7wu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall"]
-shape = SubResource("RectangleShape2D_400rp")
-
-[node name="Wall2" type="StaticBody2D" parent="Walls"]
+[node name="Wall_U" parent="Walls" instance=ExtResource("4_bu7go")]
 position = Vector2(0, -320)
-scale = Vector2(60, 1.031)
-collision_layer = 4
-collision_mask = 0
-metadata/_edit_group_ = true
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Walls/Wall2"]
-scale = Vector2(20, 20)
-mesh = SubResource("BoxMesh_4r7wu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall2"]
-shape = SubResource("RectangleShape2D_400rp")
-
-[node name="Wall3" type="StaticBody2D" parent="Walls"]
+[node name="Wall_L" parent="Walls" instance=ExtResource("5_cytbf")]
 position = Vector2(-570, 0)
-rotation = 1.5708
-scale = Vector2(35, 1)
-collision_layer = 4
-collision_mask = 0
-metadata/_edit_group_ = true
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Walls/Wall3"]
-scale = Vector2(20, 20)
-mesh = SubResource("BoxMesh_4r7wu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall3"]
-shape = SubResource("RectangleShape2D_400rp")
-
-[node name="Wall4" type="StaticBody2D" parent="Walls"]
+[node name="Wall_R" parent="Walls" instance=ExtResource("5_cytbf")]
 position = Vector2(570, 0)
-rotation = 1.5708
-scale = Vector2(35, 1)
-collision_layer = 4
-collision_mask = 0
-metadata/_edit_group_ = true
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Walls/Wall4"]
-scale = Vector2(20, 20)
-mesh = SubResource("BoxMesh_4r7wu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall4"]
-shape = SubResource("RectangleShape2D_400rp")
-
-[node name="Enemy" parent="." instance=ExtResource("2_sh2ix")]

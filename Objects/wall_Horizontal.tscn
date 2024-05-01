@@ -1,0 +1,106 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgprf0i2fmkqu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4r7wu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_400rp"]
+size = Vector2(10, 20)
+
+[sub_resource type="Animation" id="Animation_vfp8t"]
+resource_name = "Open"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wall_1_1:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 3, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-50, 0), Vector2(-50, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wall_1_2:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 3, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(50, 0), Vector2(50, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_c2t00"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wall_1_1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wall_1_2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tyu8u"]
+_data = {
+"Open": SubResource("Animation_vfp8t"),
+"RESET": SubResource("Animation_c2t00")
+}
+
+[node name="Wall_1" type="Node2D"]
+metadata/_edit_group_ = true
+
+[node name="Wall_1_1" type="StaticBody2D" parent="."]
+scale = Vector2(60, 1)
+collision_layer = 4
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Wall_1_1"]
+position = Vector2(-5, 0)
+scale = Vector2(10, 20)
+mesh = SubResource("BoxMesh_4r7wu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_1_1"]
+position = Vector2(-5, 0)
+shape = SubResource("RectangleShape2D_400rp")
+
+[node name="Wall_1_2" type="StaticBody2D" parent="."]
+rotation = 3.14159
+scale = Vector2(60, 1)
+collision_layer = 4
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Wall_1_2"]
+position = Vector2(-5, 0)
+scale = Vector2(10, 20)
+mesh = SubResource("BoxMesh_4r7wu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_1_2"]
+position = Vector2(-5, 0)
+shape = SubResource("RectangleShape2D_400rp")
+
+[node name="Open" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tyu8u")
+}
