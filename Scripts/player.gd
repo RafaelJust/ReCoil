@@ -49,4 +49,6 @@ func _physics_process(_delta: float) -> void:
 
 
 func Reload() -> void: # Timer runs out -> reload
-	usedShots = 0
+	if (usedShots > 0):
+		usedShots -= 1
+		%Cooldown.start()

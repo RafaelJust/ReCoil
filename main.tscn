@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1u4h03v4523r"]
+[gd_scene load_steps=8 format=3 uid="uid://c1u4h03v4523r"]
 
 [ext_resource type="PackedScene" uid="uid://bxajfs5sef2rp" path="res://Objects/player.tscn" id="1_o7uc8"]
 [ext_resource type="Script" path="res://Scripts/GameLoop.gd" id="1_w0nf3"]
+[ext_resource type="PackedScene" uid="uid://biffct7nsk356" path="res://hud.tscn" id="2_hh2gb"]
 [ext_resource type="Script" path="res://Scripts/Walls.gd" id="3_m78b0"]
 [ext_resource type="PackedScene" uid="uid://dgprf0i2fmkqu" path="res://Objects/wall_Horizontal.tscn" id="4_bu7go"]
 [ext_resource type="PackedScene" uid="uid://dv35qxgrprgsk" path="res://Objects/wall_Vertical.tscn" id="5_cytbf"]
@@ -19,8 +20,10 @@ modulate = Color(0, 0, 0, 1)
 position = Vector2(4.50002, 7)
 scale = Vector2(589.5, 338)
 mesh = SubResource("PlaneMesh_yek4b")
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_o7uc8")]
+unique_name_in_owner = true
 
 [node name="Walls" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -41,3 +44,7 @@ rotation = 3.14159
 position = Vector2(570, 0)
 
 [node name="Enemies" type="Node2D" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="UI" instance=ExtResource("2_hh2gb")]
