@@ -94,3 +94,101 @@ stretch_margin_right = 1
 stretch_margin_bottom = 1
 texture_progress = ExtResource("2_mhdpk")
 metadata/_edit_use_anchors_ = true
+
+[node name="Lives" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="live1" type="NinePatchRect" parent="Lives"]
+self_modulate = Color(0.757969, 0.017942, 0, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
+offset_top = 16.0
+offset_right = -20.0
+offset_bottom = 52.0
+grow_horizontal = 0
+texture = ExtResource("1_kmcvl")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+metadata/_edit_group_ = true
+
+[node name="Indicator" type="ColorRect" parent="Lives/live1"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -33.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = 33.0
+grow_horizontal = 0
+color = Color(1, 0, 0, 1)
+
+[node name="live2" type="NinePatchRect" parent="Lives"]
+self_modulate = Color(0.757969, 0.017942, 0, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -95.0
+offset_top = 16.0
+offset_right = -59.0
+offset_bottom = 52.0
+grow_horizontal = 0
+texture = ExtResource("1_kmcvl")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+metadata/_edit_group_ = true
+
+[node name="Indicator" type="ColorRect" parent="Lives/live2"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -33.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = 33.0
+grow_horizontal = 0
+color = Color(1, 0, 0, 1)
+
+[node name="live3" type="NinePatchRect" parent="Lives"]
+self_modulate = Color(0.757969, 0.017942, 0, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -134.0
+offset_top = 16.0
+offset_right = -98.0
+offset_bottom = 52.0
+grow_horizontal = 0
+texture = ExtResource("1_kmcvl")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+metadata/_edit_group_ = true
+
+[node name="Indicator" type="ColorRect" parent="Lives/live3"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -33.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = 33.0
+grow_horizontal = 0
+color = Color(1, 0, 0, 1)

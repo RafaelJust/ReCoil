@@ -7,6 +7,11 @@ extends Control
 @onready var cooldown: Timer = get_node("/root/Main/Player/Cooldown")
 @onready var player: Node2D = get_node("/root/Main/Player")
 
+func show_lives(lives: int) -> void:
+	if lives == 2: $Lives/live3/Indicator.visible = false
+	elif lives == 1: $Lives/live2/Indicator.visible = false
+	elif lives == 0: $Lives/live1/Indicator.visible = false
+
 func _process(_delta: float) -> void:
 	var progress: float = (cooldown.time_left / cooldown.wait_time)
 	#Link reload timer to correct progress bar

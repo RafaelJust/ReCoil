@@ -8,7 +8,7 @@ size = Vector3(20, 4, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n3kmb"]
 
-[node name="Bullet" type="RigidBody2D"]
+[node name="Bullet" type="RigidBody2D" groups=["Bullets"]]
 top_level = true
 collision_layer = 8
 collision_mask = 6

@@ -8,6 +8,8 @@ var usedShots: int = 0 # / 2
 
 var bullet: PackedScene
 
+var lives: int = 3
+
 func _ready() -> void:
 	bullet = preload("res://Objects/bullet.tscn")
 
@@ -47,8 +49,25 @@ func _physics_process(_delta: float) -> void:
 		shoot()
 		%Cooldown.start()
 
+func take_damage():
+	if $Invincibility.is_stopped():
+		#Take damage
+		lives -= 1
+		if lives <= 0:
+			# Die
+			get_tree().quit()
+		else:
+			$Invincibility.start()
+			$AnimationPlayer.play("flicker")
+		
+		# Change Lives amount
+		get_tree().get_root().get_node("/root/Main/UI/Hud").show_lives(lives)
 
 func Reload() -> void: # Timer runs out -> reload
 	if (usedShots > 0):
 		usedShots -= 1
 		%Cooldown.start()
+
+
+func _on_invincibility_timeout() -> void:
+	$AnimationPlayer.play("RESET") # Stop the flickering

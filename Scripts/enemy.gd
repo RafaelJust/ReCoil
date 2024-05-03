@@ -11,8 +11,6 @@ func _ready() -> void:
 	max_contacts_reported = 5
 	
 	player = get_node("/root/Main/Player")
-	
-	self.add_to_group("Enemies")
 
 func  _physics_process(_delta: float) -> void:
 	# Make a Vector2 that points into the direction of the player
@@ -28,3 +26,9 @@ func _on_body_entered(body: Node) -> void:
 		lives -= 1
 		if lives <= 0:
 			queue_free()
+	if body == player:
+		# Tell the player to take damage
+		body.take_damage()
+		
+		#move away from the player
+		apply_central_force((player.global_position - self.global_position).normalized() * -100000)

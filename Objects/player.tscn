@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxajfs5sef2rp"]
+[gd_scene load_steps=9 format=3 uid="uid://bxajfs5sef2rp"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://c1llynuxjtqbn" path="res://Reflect.tres" id="1_1gi8i"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_jcijo"]
@@ -9,6 +9,44 @@
 radius = 13.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_nyjbl"]
+
+[sub_resource type="Animation" id="Animation_52bkv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_03kya"]
+resource_name = "flicker"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance2D:visible")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rx8ct"]
+_data = {
+"RESET": SubResource("Animation_52bkv"),
+"flicker": SubResource("Animation_03kya")
+}
 
 [node name="Player" type="RigidBody2D"]
 collision_mask = 5
@@ -38,4 +76,14 @@ position = Vector2(704.5, 0)
 scale = Vector2(1415, 3)
 mesh = SubResource("BoxMesh_nyjbl")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rx8ct")
+}
+
+[node name="Invincibility" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="timeout" from="Cooldown" to="." method="Reload"]
+[connection signal="timeout" from="Invincibility" to="." method="_on_invincibility_timeout"]
