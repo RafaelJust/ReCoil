@@ -4,6 +4,8 @@ const STRENGTH: int = 10000
 var shootAngle: int = 20 #using degrees for convenience
 var bulletsPerShot: int = 10
 
+var usedShots: int = 0 # / 2
+
 var bullet: PackedScene
 
 func _ready() -> void:
@@ -34,11 +36,17 @@ func shoot() -> void:
 		
 		angle += angleStep
 
-func _input(event: InputEvent) -> void:
-	if event.is_action("Fire") && %Cooldown.is_stopped():
+func _physics_process(_delta: float) -> void:
+	
+	# Aiming
+	var MousePos: Vector2 = get_global_mouse_position()
+	look_at(MousePos)
+	
+	if Input.is_action_just_pressed("Fire") && (usedShots < 2):
+		usedShots += 1
 		shoot()
 		%Cooldown.start()
 
-func _physics_process(_delta: float) -> void:
-	var MousePos: Vector2 = get_global_mouse_position()
-	look_at(MousePos)
+
+func Reload() -> void: # Timer runs out -> reload
+	usedShots = 0

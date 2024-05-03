@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgprf0i2fmkqu"]
+[gd_scene load_steps=7 format=3 uid="uid://dgprf0i2fmkqu"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4r7wu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_400rp"]
 size = Vector2(10, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqoaf"]
+size = Vector2(1.66667, 20)
 
 [sub_resource type="Animation" id="Animation_vfp8t"]
 resource_name = "Open"
@@ -67,7 +70,6 @@ _data = {
 }
 
 [node name="Wall_1" type="Node2D"]
-metadata/_edit_group_ = true
 
 [node name="Wall_1_1" type="StaticBody2D" parent="."]
 scale = Vector2(60, 1)
@@ -99,6 +101,56 @@ mesh = SubResource("BoxMesh_4r7wu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_1_2"]
 position = Vector2(-5, 0)
 shape = SubResource("RectangleShape2D_400rp")
+
+[node name="Wall_1_3" type="StaticBody2D" parent="."]
+position = Vector2(0, 100)
+scale = Vector2(60, 1)
+collision_layer = 4
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Wall_1_3"]
+position = Vector2(-4.47035e-08, 0)
+scale = Vector2(1.66667, 20)
+mesh = SubResource("BoxMesh_4r7wu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_1_3"]
+position = Vector2(-2.98023e-08, 0)
+shape = SubResource("RectangleShape2D_fqoaf")
+
+[node name="Wall_1_4" type="StaticBody2D" parent="."]
+position = Vector2(60, 60)
+rotation = 1.5708
+scale = Vector2(60, 1)
+collision_layer = 4
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Wall_1_4"]
+position = Vector2(-4.47035e-08, 0)
+scale = Vector2(1.66667, 20)
+mesh = SubResource("BoxMesh_4r7wu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_1_4"]
+position = Vector2(-2.98023e-08, 0)
+shape = SubResource("RectangleShape2D_fqoaf")
+
+[node name="Wall_1_5" type="StaticBody2D" parent="."]
+position = Vector2(-60, 60)
+rotation = 1.5708
+scale = Vector2(60, 1)
+collision_layer = 4
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Wall_1_5"]
+position = Vector2(-4.47035e-08, 0)
+scale = Vector2(1.66667, 20)
+mesh = SubResource("BoxMesh_4r7wu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_1_5"]
+position = Vector2(-2.98023e-08, 0)
+shape = SubResource("RectangleShape2D_fqoaf")
 
 [node name="Open" type="AnimationPlayer" parent="."]
 libraries = {

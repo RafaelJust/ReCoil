@@ -31,9 +31,13 @@ position = Vector2(0, 320)
 
 [node name="Wall_U" parent="Walls" instance=ExtResource("4_bu7go")]
 position = Vector2(0, -320)
+rotation = 3.14159
 
 [node name="Wall_L" parent="Walls" instance=ExtResource("5_cytbf")]
 position = Vector2(-570, 0)
+rotation = 3.14159
 
 [node name="Wall_R" parent="Walls" instance=ExtResource("5_cytbf")]
 position = Vector2(570, 0)
+
+[node name="Enemies" type="Node2D" parent="."]

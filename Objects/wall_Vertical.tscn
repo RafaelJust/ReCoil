@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dv35qxgrprgsk"]
+[gd_scene load_steps=8 format=3 uid="uid://dv35qxgrprgsk"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4r7wu"]
 
@@ -66,8 +66,12 @@ _data = {
 "RESET": SubResource("Animation_c2t00")
 }
 
+[sub_resource type="BoxMesh" id="BoxMesh_46nna"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ee3o8"]
+size = Vector2(1.66667, 20)
+
 [node name="Wall_1" type="Node2D"]
-metadata/_edit_group_ = true
 
 [node name="Wall_1_1" type="StaticBody2D" parent="."]
 rotation = 1.5708
@@ -105,3 +109,52 @@ shape = SubResource("RectangleShape2D_400rp")
 libraries = {
 "": SubResource("AnimationLibrary_tyu8u")
 }
+
+[node name="Wall_1_3" type="StaticBody2D" parent="."]
+position = Vector2(100, 9.53674e-07)
+rotation = 1.5708
+scale = Vector2(60, 1)
+collision_layer = 4
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Wall_1_3"]
+position = Vector2(-4.47035e-08, 0)
+scale = Vector2(1.66667, 20)
+mesh = SubResource("BoxMesh_46nna")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_1_3"]
+position = Vector2(-2.98023e-08, 0)
+shape = SubResource("RectangleShape2D_ee3o8")
+
+[node name="Wall_1_4" type="StaticBody2D" parent="."]
+position = Vector2(60, 60)
+scale = Vector2(60, 1)
+collision_layer = 4
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Wall_1_4"]
+position = Vector2(-4.47035e-08, 0)
+scale = Vector2(1.66667, 20)
+mesh = SubResource("BoxMesh_46nna")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_1_4"]
+position = Vector2(-2.98023e-08, 0)
+shape = SubResource("RectangleShape2D_ee3o8")
+
+[node name="Wall_1_5" type="StaticBody2D" parent="."]
+position = Vector2(60, -60)
+scale = Vector2(60, 1)
+collision_layer = 4
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Wall_1_5"]
+position = Vector2(-4.47035e-08, 0)
+scale = Vector2(1.66667, 20)
+mesh = SubResource("BoxMesh_46nna")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_1_5"]
+position = Vector2(-2.98023e-08, 0)
+shape = SubResource("RectangleShape2D_ee3o8")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxajfs5sef2rp"]
+[gd_scene load_steps=6 format=3 uid="uid://bxajfs5sef2rp"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://c1llynuxjtqbn" path="res://Reflect.tres" id="1_1gi8i"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_jcijo"]
@@ -7,6 +7,8 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s1kyi"]
 radius = 13.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_nyjbl"]
 
 [node name="Player" type="RigidBody2D"]
 collision_mask = 5
@@ -28,3 +30,12 @@ shape = SubResource("CircleShape2D_s1kyi")
 [node name="Cooldown" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+modulate = Color(1, 0, 0, 0.247059)
+show_behind_parent = true
+position = Vector2(704.5, 0)
+scale = Vector2(1415, 3)
+mesh = SubResource("BoxMesh_nyjbl")
+
+[connection signal="timeout" from="Cooldown" to="." method="Reload"]
