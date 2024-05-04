@@ -1,11 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://lrkw34r7j5gn"]
+[gd_scene load_steps=7 format=3 uid="uid://lrkw34r7j5gn"]
 
 [ext_resource type="Script" path="res://Scripts/RandomResize.gd" id="1_1gldw"]
 [ext_resource type="Script" path="res://addons/nine_patch_sprite_2d/nine_patch_sprite_2d.gd" id="2_jahhi"]
-[ext_resource type="Texture2D" uid="uid://ufpfu172oye6" path="res://Box_outline.png" id="3_u0rh4"]
+[ext_resource type="Texture2D" uid="uid://ufpfu172oye6" path="res://assets/Box_outline.png" id="3_anse4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_72p1u"]
 bounce = 0.5
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_e1vi0"]
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2dbr4"]
 
@@ -18,12 +21,15 @@ script = ExtResource("1_1gldw")
 rangeX = Vector2(1, 5)
 rangeY = Vector2(1, 5)
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_e1vi0")
+
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2dbr4")
 
 [node name="Texture" type="Node2D" parent="."]
 script = ExtResource("2_jahhi")
-texture = ExtResource("3_u0rh4")
+texture = ExtResource("3_anse4")
 size = Vector2(20, 20)
 patch_margin_left = 5
 patch_margin_top = 5

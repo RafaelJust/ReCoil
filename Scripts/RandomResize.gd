@@ -11,4 +11,5 @@ func _ready() -> void:
 	# Apply random sizes
 	$Collision.scale = newSize
 	$Texture.size = newSize * 20
+	$LightOccluder2D.scale = newSize
 	self.mass = (sizeX * sizeY) * 0.1

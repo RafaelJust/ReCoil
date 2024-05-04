@@ -47,6 +47,7 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Fire") && (usedShots < 2):
 		usedShots += 1
 		shoot()
+		get_node("/root/Main/Camera").shakeScreen(1,2)
 		%Cooldown.start()
 
 func take_damage():
@@ -59,6 +60,7 @@ func take_damage():
 		else:
 			$Invincibility.start()
 			$AnimationPlayer.play("flicker")
+			get_node("/root/Main/Camera").shakeScreen(2,3)
 		
 		# Change Lives amount
 		get_tree().get_root().get_node("/root/Main/UI/Hud").show_lives(lives)

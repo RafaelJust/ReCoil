@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://biffct7nsk356"]
 
 [ext_resource type="Script" path="res://Scripts/hud.gd" id="1_7omw2"]
-[ext_resource type="Texture2D" uid="uid://ufpfu172oye6" path="res://Box_outline.png" id="1_kmcvl"]
+[ext_resource type="Texture2D" uid="uid://ufpfu172oye6" path="res://assets/Box_outline.png" id="1_kmcvl"]
 [ext_resource type="Texture2D" uid="uid://cqsty5mr4pxp3" path="res://Colors/White.png" id="2_mhdpk"]
 
 [sub_resource type="Curve" id="Curve_jhyui"]

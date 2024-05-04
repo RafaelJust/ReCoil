@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cl8c4msa5g48w"]
+[gd_scene load_steps=5 format=3 uid="uid://cl8c4msa5g48w"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_6e3np"]
+[ext_resource type="Texture2D" uid="uid://doenxcoj6jvqo" path="res://assets/light.png" id="2_flhv5"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_op7sj"]
 radius = 10.0
@@ -21,5 +22,11 @@ mesh = SubResource("SphereMesh_op7sj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_b80u8")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0, 0, 1)
+shadow_enabled = true
+texture = ExtResource("2_flhv5")
+texture_scale = 0.6
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
