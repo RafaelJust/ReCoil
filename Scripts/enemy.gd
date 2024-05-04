@@ -31,4 +31,4 @@ func _on_body_entered(body: Node) -> void:
 		body.take_damage()
 		
 		#move away from the player
-		apply_central_force((player.global_position - self.global_position).normalized() * -100000)
+		apply_central_force((player.global_position - self.global_position).normalized() * -50000)

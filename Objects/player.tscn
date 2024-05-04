@@ -5,10 +5,10 @@
 
 [sub_resource type="PrismMesh" id="PrismMesh_tfb3y"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_nyjbl"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_s1kyi"]
 radius = 13.0
-
-[sub_resource type="BoxMesh" id="BoxMesh_nyjbl"]
 
 [sub_resource type="Animation" id="Animation_52bkv"]
 length = 0.001
@@ -62,19 +62,20 @@ rotation = -1.5708
 scale = Vector2(20, 20)
 mesh = SubResource("PrismMesh_tfb3y")
 
+[node name="Recticle" type="MeshInstance2D" parent="MeshInstance2D"]
+modulate = Color(1, 0, 0, 0.247059)
+show_behind_parent = true
+position = Vector2(-0.000127152, 35.125)
+rotation = 1.5708
+scale = Vector2(70.75, 0.15)
+mesh = SubResource("BoxMesh_nyjbl")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_s1kyi")
 
 [node name="Cooldown" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
-
-[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
-modulate = Color(1, 0, 0, 0.247059)
-show_behind_parent = true
-position = Vector2(704.5, 0)
-scale = Vector2(1415, 3)
-mesh = SubResource("BoxMesh_nyjbl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

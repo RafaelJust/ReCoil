@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://lrkw34r7j5gn"]
+
+[ext_resource type="Script" path="res://Scripts/RandomResize.gd" id="1_1gldw"]
+[ext_resource type="Script" path="res://addons/nine_patch_sprite_2d/nine_patch_sprite_2d.gd" id="2_jahhi"]
+[ext_resource type="Texture2D" uid="uid://ufpfu172oye6" path="res://Box_outline.png" id="3_u0rh4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_72p1u"]
+bounce = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2dbr4"]
+
+[node name="MovingBox" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 15
+physics_material_override = SubResource("PhysicsMaterial_72p1u")
+linear_damp = 0.2
+script = ExtResource("1_1gldw")
+rangeX = Vector2(1, 5)
+rangeY = Vector2(1, 5)
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2dbr4")
+
+[node name="Texture" type="Node2D" parent="."]
+script = ExtResource("2_jahhi")
+texture = ExtResource("3_u0rh4")
+size = Vector2(20, 20)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
