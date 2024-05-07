@@ -75,5 +75,5 @@ func _on_invincibility_timeout() -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("Hazards"):
+	if body.get_collision_layer_value(5) == true:
 		take_damage()

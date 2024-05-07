@@ -4,6 +4,7 @@ extends RigidBody2D
 @export var lives: int = 5
 
 @export var followPlayer: bool = true
+@export var canShoot = false
 var currentGoal: Vector2 = Vector2(0,0)
 
 var player: Node2D
@@ -33,7 +34,7 @@ func _on_body_entered(body: Node) -> void:
 		lives -= 1
 		if lives <= 0:
 			queue_free()
-	if body == player && $shootTimer == null:
+	if body == player && !canShoot:
 		#move away from the player
 		apply_central_force((player.global_position - self.global_position).normalized() * -50000)
 

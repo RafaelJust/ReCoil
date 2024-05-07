@@ -10,6 +10,7 @@
 collision_layer = 2
 force = 100
 followPlayer = false
+canShoot = true
 
 [node name="MeshInstance2D" parent="." index="0"]
 self_modulate = Color(1, 0, 1, 1)
