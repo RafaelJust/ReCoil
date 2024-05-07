@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://hn5hqegpj2k4"]
+
+[ext_resource type="PackedScene" uid="uid://d3lv6qet5o1cg" path="res://Objects/bullet.tscn" id="1_7gt2j"]
+
+[node name="Bullet" groups=["Danger"] instance=ExtResource("1_7gt2j")]
+collision_layer = 16
+collision_mask = 7
+
+[node name="Body" parent="." index="0"]
+self_modulate = Color(1, 0, 0, 1)
+
+[node name="Life" parent="." index="2"]
+wait_time = 2.0

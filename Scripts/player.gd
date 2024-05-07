@@ -73,3 +73,8 @@ func Reload() -> void: # Timer runs out -> reload
 
 func _on_invincibility_timeout() -> void:
 	$AnimationPlayer.play("RESET") # Stop the flickering
+
+
+func _on_body_entered(body: Node) -> void:
+	if(body.is_in_group("Danger")):
+		take_damage()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1u4h03v4523r"]
+[gd_scene load_steps=12 format=3 uid="uid://c1u4h03v4523r"]
 
 [ext_resource type="PackedScene" uid="uid://bxajfs5sef2rp" path="res://Objects/player.tscn" id="1_o7uc8"]
 [ext_resource type="Script" path="res://Scripts/GameLoop.gd" id="1_w0nf3"]
@@ -19,6 +19,12 @@ orientation = 2
 glow_enabled = true
 glow_strength = 2.0
 glow_bloom = 1.0
+
+[sub_resource type="Curve2D" id="Curve2D_af16l"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -34, -40, 0, 0, 0, 0, 88, -44, 0, 0, 0, 0, 72, 66, 0, 0, 0, 0, -16, 52, 0, 0, 0, 0, -60, -278, 0, 0, 0, 0, 520, -274, 0, 0, 0, 0, 492, 240, 0, 0, 0, 0, -481, 217, 0, 0, 0, 0, -461, -289, 0, 0, 0, 0, -280, -17, 0, 0, 0, 0, -229, 141, 0, 0, 0, 0, 178, 147, 0, 0, 0, 0, 393, 130, 0, 0, 0, 0, 342, -164, 0, 0, 0, 0, 184, -218, 0, 0, 0, 0, -48, -210, 0, 0, 0, 0, -136, -210, 0, 0, 0, 0, -226, -193, 0, 0, 0, 0, 85, -14)
+}
+point_count = 19
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_w0nf3")
@@ -66,3 +72,10 @@ position = Vector2(570, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vyppd")
+
+[node name="EnemyGoals" type="Path2D" parent="."]
+curve = SubResource("Curve2D_af16l")
+
+[node name="enemyPath" type="PathFollow2D" parent="EnemyGoals"]
+position = Vector2(-34, -40)
+rotation = -0.0327751
