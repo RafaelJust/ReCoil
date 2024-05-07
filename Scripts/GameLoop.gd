@@ -24,7 +24,7 @@ func spawnEnemies(amount: int) -> void:
 		
 		var enemy: Node2D
 		
-		if true: #randi_range(1,5) == 1:
+		if randi_range(1,5) == 1:
 			enemy = preload("res://Objects/enemy_shooting.tscn").instantiate()
 		else:
 			enemy = preload("res://Objects/enemy.tscn").instantiate() #Create enemy

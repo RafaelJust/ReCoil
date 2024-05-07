@@ -7,6 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k2oet"]
 
 [node name="Enemy" instance=ExtResource("1_pxuca")]
+collision_layer = 2
 force = 100
 followPlayer = false
 

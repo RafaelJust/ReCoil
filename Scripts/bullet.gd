@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var initialForce: float = 1000
+var initialForce: float = 500
 
 func shoot() -> void:
 	apply_central_force(Vector2.from_angle(rotation) * initialForce)

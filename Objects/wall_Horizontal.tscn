@@ -73,7 +73,7 @@ _data = {
 
 [node name="Wall_1_1" type="StaticBody2D" parent="."]
 scale = Vector2(60, 1)
-collision_layer = 4
+collision_layer = 8
 collision_mask = 0
 metadata/_edit_group_ = true
 
@@ -89,7 +89,7 @@ shape = SubResource("RectangleShape2D_400rp")
 [node name="Wall_1_2" type="StaticBody2D" parent="."]
 rotation = 3.14159
 scale = Vector2(60, 1)
-collision_layer = 4
+collision_layer = 8
 collision_mask = 0
 metadata/_edit_group_ = true
 
@@ -105,7 +105,7 @@ shape = SubResource("RectangleShape2D_400rp")
 [node name="Wall_1_3" type="StaticBody2D" parent="."]
 position = Vector2(0, 100)
 scale = Vector2(60, 1)
-collision_layer = 4
+collision_layer = 8
 collision_mask = 0
 metadata/_edit_group_ = true
 
@@ -122,7 +122,7 @@ shape = SubResource("RectangleShape2D_fqoaf")
 position = Vector2(60, 60)
 rotation = 1.5708
 scale = Vector2(60, 1)
-collision_layer = 4
+collision_layer = 8
 collision_mask = 0
 metadata/_edit_group_ = true
 
@@ -139,7 +139,7 @@ shape = SubResource("RectangleShape2D_fqoaf")
 position = Vector2(-60, 60)
 rotation = 1.5708
 scale = Vector2(60, 1)
-collision_layer = 4
+collision_layer = 8
 collision_mask = 0
 metadata/_edit_group_ = true
 

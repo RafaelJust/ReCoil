@@ -60,7 +60,6 @@ func take_damage():
 		else:
 			$Invincibility.start()
 			$AnimationPlayer.play("flicker")
-			get_node("/root/Main/Camera").shakeScreen(2,3)
 		
 		# Change Lives amount
 		get_tree().get_root().get_node("/root/Main/UI/Hud").show_lives(lives)
@@ -76,5 +75,5 @@ func _on_invincibility_timeout() -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-	if(body.is_in_group("Danger")):
+	if body.is_in_group("Hazards"):
 		take_damage()
