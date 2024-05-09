@@ -69,4 +69,5 @@ func _on_player_death() -> void:
 	#Clear all nodes first, because collision objects can't be present when changing scene
 	for n: Node in get_children():
 		n.queue_free()
+	await get_tree().process_frame
 	get_tree().change_scene_to_packed(load("res://Scenes/Title.tscn"))

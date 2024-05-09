@@ -15,6 +15,7 @@ func _ready() -> void:
 	max_contacts_reported = 5
 	
 	player = get_node("/root/Main/Player")
+	player.deathSignal.connect(_despawn)
 
 func  _physics_process(_delta: float) -> void:
 	if followPlayer:
@@ -51,3 +52,6 @@ func change_path() -> void:
 	var path: PathFollow2D = get_node("/root/Main/EnemyGoals/enemyPath")
 	path.progress_ratio = randf()
 	currentGoal = path.global_position
+
+func _despawn():
+	queue_free()
