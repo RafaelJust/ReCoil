@@ -12,6 +12,8 @@ func _ready() -> void:
 	while not dead:
 		if not isOnBreak: # Don't spawn enemies if on break (i.e. showing scores)
 			await get_tree().create_timer(randf_range(3,10)).timeout
+			if dead: break # Just to make sure no object spawn AFTER death
+			
 			if randi_range(1,5) == 1: #Have a random chance to spawn something else than enemies
 				spawnMisc()
 			else:
@@ -40,8 +42,9 @@ func spawnEnemies(amount: int) -> void:
 	
 func _input(event: InputEvent) -> void:
 	#quit the game
-	if event.is_action("quit"):
-		get_tree().quit()
+	if event.is_action("quit") && !dead:
+		%Player.deathSignal.emit()
+		#get_tree().quit()
 
 func spawnMisc() -> void:
 	spawnBox() # There are only boxes now, so no need for randomness here.
@@ -57,3 +60,13 @@ func spawnBox() -> void:
 	# Spawn in the box, and move it out of the spawn room
 	$Objects.add_child(box)
 	box.apply_central_force(-LOCATIONS[spawnNumber] * box.mass * 10)
+
+
+func _on_player_death() -> void:
+	dead = true
+	# Here can come the animation for the signal n shit
+	
+	#Clear all nodes first, because collision objects can't be present when changing scene
+	for n: Node in get_children():
+		n.queue_free()
+	get_tree().change_scene_to_packed(load("res://Scenes/Title.tscn"))

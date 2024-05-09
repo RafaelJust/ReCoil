@@ -10,6 +10,8 @@ var bullet: PackedScene
 
 var lives: int = 3
 
+signal deathSignal
+
 func _ready() -> void:
 	bullet = preload("res://Objects/bullet.tscn")
 
@@ -56,7 +58,7 @@ func take_damage():
 		lives -= 1
 		if lives <= 0:
 			# Die
-			get_tree().quit()
+			deathSignal.emit()
 		else:
 			$Invincibility.start()
 			$AnimationPlayer.play("flicker")
