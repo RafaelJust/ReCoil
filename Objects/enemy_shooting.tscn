@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://brvje7l07gfwi"]
+[gd_scene load_steps=5 format=3 uid="uid://brvje7l07gfwi"]
 
 [ext_resource type="PackedScene" uid="uid://cl8c4msa5g48w" path="res://Objects/enemy.tscn" id="1_pxuca"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5wm0d"]
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
 
 [sub_resource type="BoxMesh" id="BoxMesh_aavxv"]
 
@@ -12,17 +15,17 @@ force = 100
 followPlayer = false
 canShoot = true
 
-[node name="MeshInstance2D" parent="." index="0"]
+[node name="LightOccluder2D" parent="." index="0"]
+occluder = SubResource("OccluderPolygon2D_5wm0d")
+
+[node name="MeshInstance2D" parent="." index="1"]
 self_modulate = Color(1, 0, 1, 1)
 position = Vector2(-3.57628e-07, -1.19209e-07)
 scale = Vector2(20, 20)
 mesh = SubResource("BoxMesh_aavxv")
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("RectangleShape2D_k2oet")
-
-[node name="PointLight2D" parent="." index="2"]
-color = Color(1, 0, 1, 1)
 
 [node name="shootTimer" type="Timer" parent="." index="3"]
 wait_time = 2.0

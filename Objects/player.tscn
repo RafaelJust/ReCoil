@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxajfs5sef2rp"]
+[gd_scene load_steps=11 format=3 uid="uid://bxajfs5sef2rp"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://c1llynuxjtqbn" path="res://Reflect.tres" id="1_1gi8i"]
 [ext_resource type="Script" path="res://Scripts/Game/player.gd" id="2_jcijo"]
 [ext_resource type="Texture2D" uid="uid://doenxcoj6jvqo" path="res://assets/light.png" id="3_xn3jy"]
+[ext_resource type="Texture2D" uid="uid://c1ec2a4330ce3" path="res://assets/cone.svg" id="4_dffy7"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_tfb3y"]
 
@@ -66,6 +67,7 @@ scale = Vector2(20, 20)
 mesh = SubResource("PrismMesh_tfb3y")
 
 [node name="Recticle" type="MeshInstance2D" parent="MeshInstance2D"]
+visible = false
 modulate = Color(1, 0, 0, 0.247059)
 show_behind_parent = true
 position = Vector2(-0.000127152, 35.125)
@@ -90,10 +92,17 @@ wait_time = 5.0
 one_shot = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 energy = 0.4
 shadow_enabled = true
 texture = ExtResource("3_xn3jy")
 texture_scale = 30.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.839, 1.028)
+shadow_enabled = true
+texture = ExtResource("4_dffy7")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Cooldown" to="." method="Reload"]
