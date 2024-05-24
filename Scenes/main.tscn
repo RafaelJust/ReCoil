@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://Scripts/Game/GameLoop.gd" id="1_ec0l3"]
 [ext_resource type="Script" path="res://Scripts/Game/Camera.gd" id="2_3w055"]
-[ext_resource type="PackedScene" uid="uid://bxajfs5sef2rp" path="res://Objects/player.tscn" id="3_acvfr"]
+[ext_resource type="PackedScene" uid="uid://bxajfs5sef2rp" path="res://Objects/Controlled/player.tscn" id="3_htpfn"]
 [ext_resource type="Script" path="res://Scripts/Game/Walls.gd" id="4_rnqih"]
-[ext_resource type="PackedScene" uid="uid://dgprf0i2fmkqu" path="res://Objects/wall_Horizontal.tscn" id="5_fe5vf"]
-[ext_resource type="PackedScene" uid="uid://dv35qxgrprgsk" path="res://Objects/wall_Vertical.tscn" id="6_h52vy"]
+[ext_resource type="PackedScene" uid="uid://dgprf0i2fmkqu" path="res://Objects/Static/wall_Horizontal.tscn" id="5_mcyko"]
+[ext_resource type="PackedScene" uid="uid://dv35qxgrprgsk" path="res://Objects/Static/wall_Vertical.tscn" id="6_af863"]
 [ext_resource type="PackedScene" uid="uid://biffct7nsk356" path="res://hud.tscn" id="7_nb6g4"]
 
 [sub_resource type="Curve" id="Curve_gib4q"]
@@ -43,25 +43,25 @@ metadata/_edit_lock_ = true
 [node name="Shaketime" type="Timer" parent="Camera"]
 one_shot = true
 
-[node name="Player" parent="." instance=ExtResource("3_acvfr")]
+[node name="Player" parent="." instance=ExtResource("3_htpfn")]
 unique_name_in_owner = true
 
 [node name="Walls" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_rnqih")
 
-[node name="Wall_D" parent="Walls" instance=ExtResource("5_fe5vf")]
+[node name="Wall_D" parent="Walls" instance=ExtResource("5_mcyko")]
 position = Vector2(0, 320)
 
-[node name="Wall_U" parent="Walls" instance=ExtResource("5_fe5vf")]
+[node name="Wall_U" parent="Walls" instance=ExtResource("5_mcyko")]
 position = Vector2(0, -320)
 rotation = 3.14159
 
-[node name="Wall_L" parent="Walls" instance=ExtResource("6_h52vy")]
+[node name="Wall_L" parent="Walls" instance=ExtResource("6_af863")]
 position = Vector2(-570, 0)
 rotation = 3.14159
 
-[node name="Wall_R" parent="Walls" instance=ExtResource("6_h52vy")]
+[node name="Wall_R" parent="Walls" instance=ExtResource("6_af863")]
 position = Vector2(570, 0)
 
 [node name="Objects" type="Node2D" parent="."]
