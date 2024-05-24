@@ -27,9 +27,9 @@ func spawnEnemies(amount: int) -> void:
 		var enemy: Node2D
 		
 		if randi_range(1,5) == 1:
-			enemy = preload("res://Objects/enemy_shooting.tscn").instantiate()
+			enemy = preload("res://Objects/Controlled/enemy_shooting.tscn").instantiate()
 		else:
-			enemy = preload("res://Objects/enemy.tscn").instantiate() #Create enemy
+			enemy = preload("res://Objects/Controlled/enemy.tscn").instantiate() #Create enemy
 		
 		#Get spawn location from array, and add corresponding wall to the queue
 		enemy.position = LOCATIONS[spawnNumber]
