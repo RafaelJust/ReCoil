@@ -36,7 +36,8 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Shell1"]
+[node name="Shell1_progress" type="TextureProgressBar" parent="Shell1"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.088
@@ -74,7 +75,8 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Shell2"]
+[node name="Shell2_progress" type="TextureProgressBar" parent="Shell2"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.088
@@ -121,7 +123,8 @@ patch_margin_right = 5
 patch_margin_bottom = 5
 metadata/_edit_group_ = true
 
-[node name="Indicator" type="ColorRect" parent="Lives/live1"]
+[node name="life1" type="ColorRect" parent="Lives/live1"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -151,7 +154,8 @@ patch_margin_right = 5
 patch_margin_bottom = 5
 metadata/_edit_group_ = true
 
-[node name="Indicator" type="ColorRect" parent="Lives/live2"]
+[node name="life2" type="ColorRect" parent="Lives/live2"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -181,7 +185,8 @@ patch_margin_right = 5
 patch_margin_bottom = 5
 metadata/_edit_group_ = true
 
-[node name="Indicator" type="ColorRect" parent="Lives/live3"]
+[node name="life3" type="ColorRect" parent="Lives/live3"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -192,3 +197,17 @@ offset_right = -3.0
 offset_bottom = 33.0
 grow_horizontal = 0
 color = Color(1, 0, 0, 1)
+
+[node name="WaveNum" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -73.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true

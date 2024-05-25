@@ -17,3 +17,7 @@ func _physics_process(_delta: float) -> void:
 		var shakeStrength: float = shakeCurve.sample(1 - (shakeTimer.time_left * shakeTimer.wait_time))
 		#Shake the screen
 		self.position = Vector2(randf_range(-1,1) * shakeStrength, randf_range(-1,1) * shakeStrength)
+
+
+func _on_main_wave_start() -> void:
+	pass # Replace with function body.

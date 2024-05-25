@@ -63,13 +63,6 @@ rotation = -1.5708
 scale = Vector2(20, 20)
 mesh = SubResource("PrismMesh_tfb3y")
 
-[node name="Recitcle" type="PointLight2D" parent="MeshInstance2D"]
-position = Vector2(3.61999e-07, -0.1)
-rotation = -3.14159
-scale = Vector2(0.04195, 0.0514)
-shadow_enabled = true
-texture = ExtResource("4_dffy7")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_s1kyi")
 
@@ -85,6 +78,12 @@ libraries = {
 [node name="Invincibility" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="Recitcle" type="PointLight2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.839, 1.028)
+shadow_enabled = true
+texture = ExtResource("4_dffy7")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Cooldown" to="." method="Reload"]

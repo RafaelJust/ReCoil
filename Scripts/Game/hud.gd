@@ -2,15 +2,29 @@ extends Control
 
 @export var colorRamp: Curve
 
-@onready var shell1: TextureProgressBar = $Shell1/TextureProgressBar
-@onready var shell2: TextureProgressBar = $Shell2/TextureProgressBar
+@onready var shell1: TextureProgressBar = %Shell1_progress
+@onready var shell2: TextureProgressBar = %Shell2_progress
+
 @onready var cooldown: Timer = get_node("/root/Main/Player/Cooldown")
 @onready var player: Node2D = get_node("/root/Main/Player")
 
+@onready var WaveText: RichTextLabel = $WaveNum
+
+# Other scripts use this function instead of directly editing it for stability
 func show_lives(lives: int) -> void:
-	if lives == 2: $Lives/live3/Indicator.visible = false
-	elif lives == 1: $Lives/live2/Indicator.visible = false
-	elif lives == 0: $Lives/live1/Indicator.visible = false
+	if lives == 2:   %life1.visible = false
+	elif lives == 1: %life2.visible = false
+	elif lives == 0: %life3.visible = false
+
+# Flashes the correct wave number on the screen.
+func show_wave(waveNum: int) -> void:
+	for i in range(3):
+		WaveText.text = "[center]WAVE"
+		await get_tree().create_timer(0.5).timeout
+		WaveText.text = "[center] %d" % waveNum
+		await get_tree().create_timer(0.5).timeout
+	WaveText.text = ""
+
 
 func _process(_delta: float) -> void:
 	var progress: float = (cooldown.time_left / cooldown.wait_time)
