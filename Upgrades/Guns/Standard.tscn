@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://byggso0s6576e"]
+
+[ext_resource type="Script" path="res://Scripts/Game/smallScripts/Upgrade.gd" id="1_cbqi2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ewb45"]
+radius = 33.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_t4at2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xtl5h"]
+size = Vector2(20, 6)
+
+[node name="Standard" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_cbqi2")
+
+[node name="PickupArea" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ewb45")
+
+[node name="Mesh" type="RigidBody2D" parent="."]
+collision_layer = 8
+collision_mask = 15
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Mesh"]
+position = Vector2(-9.53674e-07, 2.38419e-07)
+scale = Vector2(20, 6)
+mesh = SubResource("BoxMesh_t4at2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mesh"]
+shape = SubResource("RectangleShape2D_xtl5h")
+
+[connection signal="body_entered" from="." to="." method="Collect"]

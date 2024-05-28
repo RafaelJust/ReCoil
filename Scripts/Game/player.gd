@@ -1,8 +1,13 @@
 extends RigidBody2D
 
-const STRENGTH: int = 10000
-var shootAngle: int = 20 #using degrees for convenience
-var bulletsPerShot: int = 10
+
+
+# Gun properties
+@export var strength: int = 10000
+@export var shootAngle: int = 18 #using degrees for convenience
+@export var bulletsPerShot: int = 10
+@export var bulletLifeTime: float = 2
+@export var bulletDamage: float = 1
 
 var usedShots: int = 0 # / 2
 
@@ -18,25 +23,29 @@ func _ready() -> void:
 func shoot() -> void:
 	# Get the current rotation, and apply force to the opposite way.
 	var dir: Vector2 = Vector2.from_angle(rotation)
-	apply_central_force(dir * -STRENGTH) # Make the force negative to simulate recoil
+	apply_central_force(dir * -strength) # Make the force negative to simulate recoil
 	
 	var shootAngleRad: float = deg_to_rad(shootAngle)
 	var angle: float = rotation - shootAngleRad
 	
 	# Pre-calculations to prevent godot from calculating every loop
 	var angleStep: float = 2*shootAngleRad / float(bulletsPerShot) # How many radians each bullet offsets
-	var bulletStrength: float = float(STRENGTH) / float(bulletsPerShot) #how much force each bullet shoots
+	var bulletstrength: float = float(strength) / float(bulletsPerShot) #how much force each bullet shoots
 	var angleGoal: float = rotation + shootAngleRad # The end goal of the shot
 	
 	#spawn bullets
 	while angle <= angleGoal:
-		var newBullet: Node2D = bullet.instantiate()
-		newBullet.rotation = angle
-		newBullet.global_position = global_position + Vector2.from_angle(angle)
-		newBullet.initialForce = bulletStrength
 		
+		var newBullet: Node2D = bullet.instantiate()
+		
+		# Set the angle and position of the bullet to the player
+		newBullet.rotation = angle
+		# move the bullet a little bit to the front
+		newBullet.global_position = global_position + Vector2.from_angle(angle)
+		
+		#finally spawn in the bulleta
 		add_child(newBullet)
-		newBullet.shoot()
+		newBullet.shoot(bulletstrength, bulletLifeTime, bulletDamage)
 		
 		angle += angleStep
 
@@ -46,9 +55,11 @@ func _physics_process(_delta: float) -> void:
 	var MousePos: Vector2 = get_global_mouse_position()
 	look_at(MousePos)
 	
+	# Only shoot when there are bullets in the chamber (usedShots < 2)
 	if Input.is_action_just_pressed("Fire") && (usedShots < 2):
 		usedShots += 1
 		shoot()
+		# Shake the screen, and start a cooldown (reload) timer
 		get_node("/root/Main/Camera").shakeScreen(1,2)
 		%Cooldown.start()
 

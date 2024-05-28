@@ -31,8 +31,8 @@ func  _physics_process(_delta: float) -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Bullets"):
+		lives -= body.damage # Take the amount of damage
 		body.queue_free() #remove the hit bullet
-		lives -= 1
 		if lives <= 0:
 			queue_free()
 	if body == player && !canShoot:
@@ -45,7 +45,7 @@ func shoot_enemy_bullet() -> void:
 	bullet.position = global_position
 	bullet.look_at(player.position)
 	add_child(bullet)
-	bullet.shoot()
+	bullet.shoot(100, 2, 1)
 
 
 func change_path() -> void:

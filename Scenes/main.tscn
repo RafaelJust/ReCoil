@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1u4h03v4523r"]
+[gd_scene load_steps=13 format=3 uid="uid://c1u4h03v4523r"]
 
 [ext_resource type="Script" path="res://Scripts/Game/GameLoop.gd" id="1_ec0l3"]
 [ext_resource type="Script" path="res://Scripts/Game/Camera.gd" id="2_3w055"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dgprf0i2fmkqu" path="res://Objects/Static/wall_Horizontal.tscn" id="5_mcyko"]
 [ext_resource type="PackedScene" uid="uid://dv35qxgrprgsk" path="res://Objects/Static/wall_Vertical.tscn" id="6_af863"]
 [ext_resource type="PackedScene" uid="uid://biffct7nsk356" path="res://hud.tscn" id="7_nb6g4"]
+[ext_resource type="PackedScene" uid="uid://b1q427q37s1jc" path="res://Upgrades/Guns/sniper.tscn" id="8_6ykiu"]
 
 [sub_resource type="Curve" id="Curve_gib4q"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -86,5 +87,8 @@ position = Vector2(-34, -40)
 rotation = -0.0327751
 
 [node name="Enemies" type="Node2D" parent="."]
+
+[node name="Sniper" parent="." instance=ExtResource("8_6ykiu")]
+position = Vector2(255, -116)
 
 [connection signal="deathSignal" from="Player" to="." method="_on_player_death"]
