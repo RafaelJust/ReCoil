@@ -20,8 +20,12 @@ func show_lives(lives: int) -> void:
 func show_wave(waveNum: int) -> void:
 	for i in range(3):
 		WaveText.text = "[center]WAVE"
+		$WAVEANIM.stop()
+		$WAVEANIM.play("WAVE_splash")
 		await get_tree().create_timer(0.5).timeout
 		WaveText.text = "[center] %d" % waveNum
+		$WAVEANIM.stop()
+		$WAVEANIM.play("WAVE_splash")
 		await get_tree().create_timer(0.5).timeout
 	WaveText.text = ""
 
