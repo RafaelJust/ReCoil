@@ -46,7 +46,7 @@ func _ready() -> void:
 			
 			if dead: break # Just to make sure no object spawn AFTER death
 			
-			if randi_range(1,20) == 1: #Have a random chance to spawn something else than enemies
+			if randi_range(1,3) == 1: #Have a random chance to spawn something else than enemies
 				spawnMisc()
 			else:
 				WaveStart.emit()
@@ -83,8 +83,9 @@ func _input(event: InputEvent) -> void:
 
 func spawnMisc() -> void:
 	# make new gun types rarer than boxes
-	if randi_range(1,5) == 1:
+	if randi_range(1,2) == 1:
 		spawnItem()
+
 	else:
 		spawnBox()
 

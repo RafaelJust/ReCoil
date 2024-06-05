@@ -12,11 +12,13 @@ func Collect(player:RigidBody2D):
 	# The player is the only one able to interact with this ared mesh, so it is definitely the player
 	
 	# Apply new gun rules
-	player.strength2 = newStrength
+	player.strength = newStrength
 	player.shootAngle = newShootAngle
 	player.bulletsPerShot = newBulletsPerShot
 	player.bulletLifeTime = newBulletLifeTime
 	player.bulletDamage = newBulletDamage
+	
+	player.changeRecticle(newShootAngle) # tell the player to change it's recticle
 	
 	# Remove the upgrade
 	queue_free()

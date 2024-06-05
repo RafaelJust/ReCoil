@@ -1,7 +1,5 @@
 extends RigidBody2D
 
-
-
 # Gun properties
 @export var strength: int = 10000
 @export var shootAngle: int = 20 #using degrees for convenience
@@ -51,6 +49,8 @@ func shoot() -> void:
 
 func _physics_process(_delta: float) -> void:
 	
+	#Change recitcle wideness based on angle
+	
 	# Aiming
 	var MousePos: Vector2 = get_global_mouse_position()
 	look_at(MousePos)
@@ -90,3 +90,17 @@ func _on_invincibility_timeout() -> void:
 func _on_body_entered(body: Node) -> void:
 	if body.get_collision_layer_value(5) == true:
 		take_damage()
+
+func changeRecticle(newAngle: float):
+	if newAngle >= 60:
+		$Recitcle.visible = false
+	else:
+		var angleRad = deg_to_rad(newAngle) # Godot uses radians, so it needs to be converted first
+		
+		# Using tan(angle) = (hor/2)/4490 we can determine the needed horizontal width of the recticle
+		var newWidth = tan(angleRad) * 4490
+		# Convert the width from pixels to be relative to the default 1588 px
+		var newWidthRelative = newWidth / 1588 
+		
+		$Recitcle.scale = Vector2(newWidthRelative,1)
+		$Recitcle.visible = true

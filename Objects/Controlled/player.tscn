@@ -62,8 +62,8 @@ script = ExtResource("2_jcijo")
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
 visible = false
 modulate = Color(0.215902, 0.215902, 0.215902, 1)
-position = Vector2(525, -23)
-scale = Vector2(1122, 396)
+position = Vector2(173, 193)
+scale = Vector2(4834, 2364)
 mesh = SubResource("BoxMesh_ck3c0")
 
 [node name="Recitcle" type="PointLight2D" parent="."]

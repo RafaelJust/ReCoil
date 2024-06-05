@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://byggso0s6576e"]
+[gd_scene load_steps=7 format=3 uid="uid://byggso0s6576e"]
 
 [ext_resource type="Script" path="res://Scripts/Game/smallScripts/Upgrade.gd" id="1_cbqi2"]
 [ext_resource type="Texture2D" uid="uid://doenxcoj6jvqo" path="res://assets/light.png" id="2_o1j3s"]
@@ -10,6 +10,9 @@ radius = 33.0
 size = Vector2(20, 6)
 
 [sub_resource type="BoxMesh" id="BoxMesh_t4at2"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_84qon"]
+polygon = PackedVector2Array(-10, -3, 10, -3, 10, 3, -10, 3)
 
 [node name="Standard" type="RigidBody2D"]
 collision_layer = 8
@@ -35,5 +38,8 @@ shape = SubResource("RectangleShape2D_xtl5h")
 position = Vector2(-9.53674e-07, 2.38419e-07)
 scale = Vector2(20, 6)
 mesh = SubResource("BoxMesh_t4at2")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_84qon")
 
 [connection signal="body_entered" from="Area" to="." method="Collect"]
