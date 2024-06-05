@@ -12,6 +12,32 @@ var difficulty: float = 0
 
 signal WaveStart
 
+# Function from hiulit and RedWanFox
+func get_all_files(path: String, file_ext := "", files := []):
+	var dir = DirAccess.open(path)
+	
+	if DirAccess.get_open_error() == OK:
+		dir.list_dir_begin()
+
+		var file_name = dir.get_next()
+
+		while file_name != "":
+			if dir.current_is_dir():
+				files = get_all_files(dir.get_current_dir() +"/"+ file_name, file_ext, files)
+			else:
+				if file_ext and file_name.get_extension() != file_ext:
+					file_name = dir.get_next()
+					continue
+				
+				files.append(dir.get_current_dir() +"/"+ file_name)
+
+			file_name = dir.get_next()
+	else:
+		print("An error occurred when trying to access %s." % path)
+
+	return files
+
+
 func _ready() -> void:
 	while not dead:
 		await %GameLoopTimer.timeout # using a timer as to not let it run every frame and use lots of memory
@@ -56,20 +82,26 @@ func _input(event: InputEvent) -> void:
 		#get_tree().quit()
 
 func spawnMisc() -> void:
-	spawnBox() # There are only boxes now, so no need for randomness here.
+	# make new gun types rarer than boxes
+	if randi_range(1,5) == 1:
+		spawnItem()
+	else:
+		spawnBox()
 
 # Spawns a box to the map
 func spawnBox() -> void:
-	var spawnNumber: int = randi_range(0,3)
 	var box: Node2D = preload("res://Objects/moving_box.tscn").instantiate()
+	spawnObject(box)
 	
-	box.position = LOCATIONS[spawnNumber]
+func spawnObject(obj: Node2D):
+	var spawnNumber: int = randi_range(0,3)
+	obj.position = LOCATIONS[spawnNumber]
 	
 	$Walls.OpenWalls([WALLS[spawnNumber]])
 	await get_tree().create_timer(0.5).timeout # Wait half a second for the doors to open
-	# Spawn in the box, and move it out of the spawn room
-	$Objects.add_child(box)
-	box.apply_central_force(-LOCATIONS[spawnNumber] * box.mass * 10)
+	# Spawn in the object, and move it out of the spawn room
+	$Objects.add_child(obj)
+	obj.apply_central_force(-LOCATIONS[spawnNumber] * obj.mass * 10)
 
 # Unload scene on player death
 func _on_player_death() -> void:
@@ -81,3 +113,13 @@ func _on_player_death() -> void:
 		n.queue_free()
 	await get_tree().process_frame
 	get_tree().change_scene_to_packed(load("res://Scenes/Title.tscn"))
+
+
+func spawnItem():
+	#Get a randon scene from the "Upgrades" directory, and load it.
+	var allFiles: Array = get_all_files("res://Upgrades/", "tscn")
+	var chosenUpgrade: String = allFiles.pick_random()
+	var upgrade: Node2D = load(chosenUpgrade).instantiate()
+	
+	# Spawn in the Item
+	spawnObject(upgrade)

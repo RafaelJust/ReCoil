@@ -45,7 +45,7 @@ func shoot_enemy_bullet() -> void:
 	bullet.position = global_position
 	bullet.look_at(player.position)
 	add_child(bullet)
-	bullet.shoot(100, 2, 1)
+	bullet.shoot(500, 2, 1)
 
 
 func change_path() -> void:

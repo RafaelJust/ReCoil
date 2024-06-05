@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxajfs5sef2rp"]
+[gd_scene load_steps=10 format=3 uid="uid://bxajfs5sef2rp"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://c1llynuxjtqbn" path="res://Reflect.tres" id="1_1gi8i"]
 [ext_resource type="Script" path="res://Scripts/Game/player.gd" id="2_jcijo"]
 [ext_resource type="Texture2D" uid="uid://c1ec2a4330ce3" path="res://assets/cone.svg" id="4_dffy7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ck3c0"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_tfb3y"]
 
@@ -57,6 +59,20 @@ contact_monitor = true
 linear_damp = 0.5
 script = ExtResource("2_jcijo")
 
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+visible = false
+modulate = Color(0.215902, 0.215902, 0.215902, 1)
+position = Vector2(525, -23)
+scale = Vector2(1122, 396)
+mesh = SubResource("BoxMesh_ck3c0")
+
+[node name="Recitcle" type="PointLight2D" parent="."]
+rotation = 1.5708
+shadow_enabled = true
+texture = ExtResource("4_dffy7")
+texture_scale = 1.37
+metadata/_edit_lock_ = true
+
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 position = Vector2(2, 0)
 rotation = -1.5708
@@ -78,12 +94,6 @@ libraries = {
 [node name="Invincibility" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
-
-[node name="Recitcle" type="PointLight2D" parent="."]
-rotation = 1.5708
-scale = Vector2(0.839, 1.028)
-shadow_enabled = true
-texture = ExtResource("4_dffy7")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Cooldown" to="." method="Reload"]

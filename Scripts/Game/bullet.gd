@@ -10,7 +10,7 @@ func shoot(force: float, life:float, bulletDamage:float) -> void:
 	# Apply the force
 	apply_central_force(Vector2.from_angle(rotation) * force)
 	
-	%Life.wait_time = life + randf_range(-0.5,0.5) # Add some randomness to the timer
+	%Life.wait_time = life + randf_range(0,0.5) # Add some randomness to the timer
 	%Life.start()
 
 func _physics_process(_delta: float) -> void:

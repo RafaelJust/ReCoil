@@ -4,7 +4,7 @@ extends RigidBody2D
 
 # Gun properties
 @export var strength: int = 10000
-@export var shootAngle: int = 18 #using degrees for convenience
+@export var shootAngle: int = 20 #using degrees for convenience
 @export var bulletsPerShot: int = 10
 @export var bulletLifeTime: float = 2
 @export var bulletDamage: float = 1
