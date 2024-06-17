@@ -10,6 +10,9 @@ var difficulty: float = 0
 
 @export var wave: int = 0
 
+# Boxes and powerups block other items and enemies
+var blocked: Array
+
 signal WaveStart
 
 # Function from hiulit and RedWanFox
@@ -48,16 +51,19 @@ func _ready() -> void:
 			
 			if randi_range(1,3) == 1: #Have a random chance to spawn something else than enemies
 				spawnMisc()
-			else:
-				WaveStart.emit()
-				spawnEnemies(randi_range(1, max(1, floor(wave * 0.2))))
-				wave += 1
+			WaveStart.emit()
+			spawnEnemies(randi_range(1, max(1, floor(wave * 0.2))))
+			wave += 1
 
 func spawnEnemies(amount: int) -> void:
 	get_node("UI/Hud").show_wave(wave)
 	var wallQueue: Array = []# The walls to open after spawning the enemies
 	for i in range(amount):
-		var spawnNumber: int = randi_range(0,3) # 0 = down, 1 = up, 2 = Left, 3 = right
+		var spawnNumber: int
+		while true: # There is no do while loop, so this is a hacky way of achieving the same effect
+			spawnNumber = randi_range(0,3)
+			if not (spawnNumber in blocked):
+				break
 		
 		var enemy: Node2D
 		
@@ -73,6 +79,8 @@ func spawnEnemies(amount: int) -> void:
 		$Enemies.add_child(enemy) # Place the enemy in the world
 	
 	$Walls.OpenWalls(wallQueue) # Open the required walls for enemies to come in
+	
+	blocked.clear() #clear the blocked array
 	
 	
 func _input(event: InputEvent) -> void:
@@ -95,8 +103,14 @@ func spawnBox() -> void:
 	spawnObject(box)
 	
 func spawnObject(obj: Node2D):
-	var spawnNumber: int = randi_range(0,3)
+	var spawnNumber: int
+	while true: # There is no do while loop, so this is a hacky way of achieving the same effect
+		spawnNumber = randi_range(0,3)
+		if not (spawnNumber in blocked):
+			break
 	obj.position = LOCATIONS[spawnNumber]
+	
+	blocked.append(spawnNumber)
 	
 	$Walls.OpenWalls([WALLS[spawnNumber]])
 	await get_tree().create_timer(0.5).timeout # Wait half a second for the doors to open

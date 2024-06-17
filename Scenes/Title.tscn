@@ -25,14 +25,30 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -256.0
-offset_top = 64.0
-offset_right = 254.0
-offset_bottom = 256.0
+offset_left = -242.0
+offset_top = 65.0
+offset_right = -48.0
+offset_bottom = 254.0
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 150
 bbcode_enabled = true
-text = "[center][color=lightblue]Re[color=pink]Coil"
+text = "[center][color=lightblue]Re"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 65.0
+offset_right = 241.0
+offset_bottom = 254.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 150
+bbcode_enabled = true
+text = "[center][color=pink]Coil"
 scroll_active = false
 shortcut_keys_enabled = false
 
