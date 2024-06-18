@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dl3fbs0gspd86"
+path="res://.godot/imported/Main_Lead_3.wav-e9de3e4e84831e47d30e121f769f2790.sample"
+
+[deps]
+
+source_file="res://assets/music/Main lead/Main_Lead_3.wav"
+dest_files=["res://.godot/imported/Main_Lead_3.wav-e9de3e4e84831e47d30e121f769f2790.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

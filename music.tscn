@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://cc3qm3w4ibs4d"]
+
+[ext_resource type="Script" path="res://Music.gd" id="1_e3qap"]
+[ext_resource type="AudioStream" uid="uid://dxn7pumkx3d2w" path="res://assets/music/drums/Drum_1.wav" id="2_77yd5"]
+[ext_resource type="AudioStream" uid="uid://b3nsxuc3q5weh" path="res://assets/music/drums/Drum_2.wav" id="3_t1emy"]
+[ext_resource type="AudioStream" uid="uid://cn815o3c51of2" path="res://assets/music/drums/Drum_3.wav" id="4_jply3"]
+[ext_resource type="AudioStream" uid="uid://bdvcv8bex80tr" path="res://assets/music/Bass/bass_1.wav" id="5_785ma"]
+[ext_resource type="AudioStream" uid="uid://dlbnipstu8ba8" path="res://assets/music/Bass/bass_2.wav" id="6_biytv"]
+[ext_resource type="AudioStream" uid="uid://o8nyb8qkbq0s" path="res://assets/music/Bass/bass_3.wav" id="7_xbvvg"]
+[ext_resource type="AudioStream" uid="uid://baaimivsy1cx3" path="res://assets/music/Main lead/Main_Lead_1.wav" id="8_uncu7"]
+[ext_resource type="AudioStream" uid="uid://dfwiadivvuarm" path="res://assets/music/Main lead/Main_Lead_2.wav" id="9_oom3b"]
+[ext_resource type="AudioStream" uid="uid://dl3fbs0gspd86" path="res://assets/music/Main lead/Main_Lead_3.wav" id="10_uix5l"]
+
+[node name="Music" type="Node"]
+script = ExtResource("1_e3qap")
+
+[node name="Drums" type="Node" parent="."]
+
+[node name="None" type="Timer" parent="Drums"]
+wait_time = 7.68
+one_shot = true
+
+[node name="1" type="AudioStreamPlayer" parent="Drums"]
+stream = ExtResource("2_77yd5")
+bus = &"Music"
+
+[node name="2" type="AudioStreamPlayer" parent="Drums"]
+stream = ExtResource("3_t1emy")
+bus = &"Music"
+
+[node name="3" type="AudioStreamPlayer" parent="Drums"]
+stream = ExtResource("4_jply3")
+bus = &"Music"
+
+[node name="Bass" type="Node" parent="."]
+
+[node name="None" type="Timer" parent="Bass"]
+wait_time = 7.68
+one_shot = true
+
+[node name="1" type="AudioStreamPlayer" parent="Bass"]
+stream = ExtResource("5_785ma")
+bus = &"Music"
+
+[node name="2" type="AudioStreamPlayer" parent="Bass"]
+stream = ExtResource("6_biytv")
+bus = &"Music"
+
+[node name="3" type="AudioStreamPlayer" parent="Bass"]
+stream = ExtResource("7_xbvvg")
+bus = &"Music"
+
+[node name="Lead" type="Node" parent="."]
+
+[node name="None" type="Timer" parent="Lead"]
+wait_time = 7.68
+one_shot = true
+
+[node name="1" type="AudioStreamPlayer" parent="Lead"]
+stream = ExtResource("8_uncu7")
+bus = &"Music"
+
+[node name="2" type="AudioStreamPlayer" parent="Lead"]
+stream = ExtResource("9_oom3b")
+bus = &"Music"
+
+[node name="3" type="AudioStreamPlayer" parent="Lead"]
+stream = ExtResource("10_uix5l")
+bus = &"Music"
+
+[connection signal="timeout" from="Drums/None" to="." method="LoopDone_Drums"]
+[connection signal="finished" from="Drums/1" to="." method="LoopDone_Drums"]
+[connection signal="finished" from="Drums/2" to="." method="LoopDone_Drums"]
+[connection signal="finished" from="Drums/3" to="." method="LoopDone_Drums"]
+[connection signal="timeout" from="Bass/None" to="." method="LoopDone_Bass"]
+[connection signal="finished" from="Bass/1" to="." method="LoopDone_Bass"]
+[connection signal="finished" from="Bass/2" to="." method="LoopDone_Bass"]
+[connection signal="finished" from="Bass/3" to="." method="LoopDone_Bass"]
+[connection signal="timeout" from="Lead/None" to="." method="LoopDone_Lead"]
+[connection signal="finished" from="Lead/1" to="." method="LoopDone_Lead"]
+[connection signal="finished" from="Lead/2" to="." method="LoopDone_Lead"]
+[connection signal="finished" from="Lead/3" to="." method="LoopDone_Lead"]

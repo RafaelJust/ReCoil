@@ -50,7 +50,7 @@ _data = {
 }
 
 [node name="Player" type="RigidBody2D"]
-collision_mask = 26
+collision_mask = 58
 mass = 0.5
 physics_material_override = ExtResource("1_1gi8i")
 can_sleep = false

@@ -10,6 +10,9 @@ var difficulty: float = 0
 
 @export var wave: int = 0
 
+@export var WaveMusic: Array
+var musicprogs: int = 0
+
 # Boxes and powerups block other items and enemies
 var blocked: Array
 
@@ -42,10 +45,13 @@ func get_all_files(path: String, file_ext := "", files := []):
 
 
 func _ready() -> void:
+	await %GameLoopTimer.timeout
+	# START THE REAL MOOSIC
+	$Music.Lead = 1
+	await %GameLoopTimer.timeout
 	while not dead:
-		await %GameLoopTimer.timeout # using a timer as to not let it run every frame and use lots of memory
 		if not isOnBreak: # Don't spawn enemies if on break (i.e. showing scores) THIS IS NOT IMPLEMENTED YET
-			if $Enemies.get_child_count() > 0 || $Walls.CheckOpen(): continue
+			if $Walls.CheckOpen(): continue
 			
 			if dead: break # Just to make sure no object spawn AFTER death
 			
@@ -54,6 +60,20 @@ func _ready() -> void:
 			WaveStart.emit()
 			spawnEnemies(randi_range(1, max(1, floor(wave * 0.2))))
 			wave += 1
+			UpdateMusic()
+		await %GameLoopTimer.timeout # using a timer as to not let it run every frame and use lots of memory
+
+func UpdateMusic():
+	if wave % 8 == 0:
+		musicprogs += 1
+		
+		var curr: Vector3 = WaveMusic[musicprogs]
+		
+		$Music.Drums = curr.x
+		$Music.Bass = curr.y
+		$Music.Lead = curr.z
+		
+		assert(false, "Started the bass")
 
 func spawnEnemies(amount: int) -> void:
 	get_node("UI/Hud").show_wave(wave)
