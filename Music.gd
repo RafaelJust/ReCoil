@@ -21,17 +21,11 @@ func _ready():
 	SwitchTrack(leadPlayers, Lead)
 
 func SwitchTrack (players: Array, newInstrument: int):
-	if newInstrument == -1: return
-	if players[newInstrument].name == "None": # Timer has a different start method
-		players[newInstrument].start()
-	else:
-		players[newInstrument].play()
+	var index: int = newInstrument - 1 # Arrays start counting at 0, so we need to compensate
+	if index == -1: return # don't play anything if nothing is needed, or if the corresponding player is already playing
+	players[index].play()
 
 func LoopDone_Drums():
-	SwitchTrack(drumPlayers, Drums)
-
-func LoopDone_Bass():
-	SwitchTrack(bassPlayers, Bass)
-
-func LoopDone_Lead():
 	SwitchTrack(leadPlayers, Lead)
+	SwitchTrack(drumPlayers, Drums)
+	SwitchTrack(bassPlayers, Bass)	

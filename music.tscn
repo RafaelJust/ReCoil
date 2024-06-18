@@ -14,11 +14,12 @@
 [node name="Music" type="Node"]
 script = ExtResource("1_e3qap")
 
-[node name="Drums" type="Node" parent="."]
-
-[node name="None" type="Timer" parent="Drums"]
+[node name="Timer_single" type="Timer" parent="."]
+process_callback = 0
 wait_time = 7.68
-one_shot = true
+autostart = true
+
+[node name="Drums" type="Node" parent="."]
 
 [node name="1" type="AudioStreamPlayer" parent="Drums"]
 stream = ExtResource("2_77yd5")
@@ -34,10 +35,6 @@ bus = &"Music"
 
 [node name="Bass" type="Node" parent="."]
 
-[node name="None" type="Timer" parent="Bass"]
-wait_time = 7.68
-one_shot = true
-
 [node name="1" type="AudioStreamPlayer" parent="Bass"]
 stream = ExtResource("5_785ma")
 bus = &"Music"
@@ -52,10 +49,6 @@ bus = &"Music"
 
 [node name="Lead" type="Node" parent="."]
 
-[node name="None" type="Timer" parent="Lead"]
-wait_time = 7.68
-one_shot = true
-
 [node name="1" type="AudioStreamPlayer" parent="Lead"]
 stream = ExtResource("8_uncu7")
 bus = &"Music"
@@ -68,15 +61,4 @@ bus = &"Music"
 stream = ExtResource("10_uix5l")
 bus = &"Music"
 
-[connection signal="timeout" from="Drums/None" to="." method="LoopDone_Drums"]
-[connection signal="finished" from="Drums/1" to="." method="LoopDone_Drums"]
-[connection signal="finished" from="Drums/2" to="." method="LoopDone_Drums"]
-[connection signal="finished" from="Drums/3" to="." method="LoopDone_Drums"]
-[connection signal="timeout" from="Bass/None" to="." method="LoopDone_Bass"]
-[connection signal="finished" from="Bass/1" to="." method="LoopDone_Bass"]
-[connection signal="finished" from="Bass/2" to="." method="LoopDone_Bass"]
-[connection signal="finished" from="Bass/3" to="." method="LoopDone_Bass"]
-[connection signal="timeout" from="Lead/None" to="." method="LoopDone_Lead"]
-[connection signal="finished" from="Lead/1" to="." method="LoopDone_Lead"]
-[connection signal="finished" from="Lead/2" to="." method="LoopDone_Lead"]
-[connection signal="finished" from="Lead/3" to="." method="LoopDone_Lead"]
+[connection signal="timeout" from="Timer_single" to="." method="LoopDone_Drums"]

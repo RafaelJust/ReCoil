@@ -72,8 +72,6 @@ func UpdateMusic():
 		$Music.Drums = curr.x
 		$Music.Bass = curr.y
 		$Music.Lead = curr.z
-		
-		assert(false, "Started the bass")
 
 func spawnEnemies(amount: int) -> void:
 	get_node("UI/Hud").show_wave(wave)
