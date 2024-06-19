@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxajfs5sef2rp"]
+[gd_scene load_steps=12 format=3 uid="uid://bxajfs5sef2rp"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://c1llynuxjtqbn" path="res://Reflect.tres" id="1_1gi8i"]
 [ext_resource type="Script" path="res://Scripts/Game/player.gd" id="2_jcijo"]
 [ext_resource type="Texture2D" uid="uid://c1ec2a4330ce3" path="res://assets/cone.svg" id="4_dffy7"]
+[ext_resource type="AudioStream" uid="uid://lh7osmq5tcvc" path="res://assets/sfx/GUN_SOUND_I_THINGK.mp3" id="4_kdyfr"]
+[ext_resource type="AudioStream" uid="uid://cux2k0gh2rv02" path="res://assets/sfx/LOOK_OUT_IM_RELOADING_1.mp3" id="5_llqvo"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ck3c0"]
 
@@ -84,6 +86,7 @@ shape = SubResource("CircleShape2D_s1kyi")
 
 [node name="Cooldown" type="Timer" parent="."]
 unique_name_in_owner = true
+wait_time = 0.7
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -94,6 +97,18 @@ libraries = {
 [node name="Invincibility" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="Sfx" type="Node" parent="."]
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="Sfx"]
+unique_name_in_owner = true
+stream = ExtResource("4_kdyfr")
+bus = &"Sfx"
+
+[node name="ReloadSound" type="AudioStreamPlayer" parent="Sfx"]
+unique_name_in_owner = true
+stream = ExtResource("5_llqvo")
+bus = &"Sfx"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Cooldown" to="." method="Reload"]

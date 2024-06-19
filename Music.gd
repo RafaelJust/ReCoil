@@ -15,18 +15,17 @@ var Other: Array = [false, false, false, false, false]
 
 var bassDouble: bool = true # makes sure the bass only plays every two bars
 
-func StartMoosic():
-	# Start the right track
-	SwitchTrack(drumPlayers, Drums)
-	SwitchTrack(bassPlayers, Bass)
-	SwitchTrack(leadPlayers, Lead)
-
 func _ready():
 	#Get all the players in an aray for easy access
 	drumPlayers = $Drums.get_children()
 	bassPlayers = $Bass.get_children()
 	leadPlayers = $Lead.get_children()
 	otherPlayers = $Other.get_children()
+	
+	# Start the right track
+	SwitchTrack(drumPlayers, Drums)
+	SwitchTrack(bassPlayers, Bass)
+	SwitchTrack(leadPlayers, Lead)
 
 func SwitchTrack (players: Array, newInstrument: int):
 	var index: int = newInstrument - 1 # Arrays start counting at 0, so we need to compensate

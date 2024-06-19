@@ -44,7 +44,9 @@ func get_all_files(path: String, file_ext := "", files := []):
 
 
 func _ready() -> void:
-	for i in range(2): await %GameLoopTimer.timeout
+	await %GameLoopTimer.timeout
+	$Music.Lead = 1
+	await %GameLoopTimer.timeout
 	while not dead:
 		if not isOnBreak: # Don't spawn enemies if on break (i.e. showing scores) THIS IS NOT IMPLEMENTED YET
 			if $Walls.CheckOpen(): continue

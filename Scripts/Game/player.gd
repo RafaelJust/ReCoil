@@ -9,6 +9,11 @@ extends RigidBody2D
 @export var bulletLifeTime: float = 2
 @export var bulletDamage: float = 1
 
+# Sound effects
+@export var ShootSound: AudioStreamMP3
+@export var ReloadSound: AudioStreamMP3
+
+
 var usedShots: int = 0 # / 2
 
 var bullet: PackedScene
@@ -48,6 +53,9 @@ func shoot() -> void:
 		newBullet.shoot(bulletstrength, bulletLifeTime, bulletDamage)
 		
 		angle += angleStep
+	
+	# Play the shooting sound
+	%ShootSound.play()
 
 func _physics_process(_delta: float) -> void:
 	
@@ -84,6 +92,9 @@ func Reload() -> void: # Timer runs out -> reload
 	if (usedShots > 0):
 		usedShots -= 1
 		%Cooldown.start()
+		
+		#Play the sound 
+		%ReloadSound.play()
 
 
 func _on_invincibility_timeout() -> void:
