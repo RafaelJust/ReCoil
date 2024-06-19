@@ -10,7 +10,6 @@ var difficulty: float = 0
 
 @export var wave: int = 0
 
-@export var WaveMusic: Array
 var musicprogs: int = 0
 
 # Boxes and powerups block other items and enemies
@@ -45,10 +44,7 @@ func get_all_files(path: String, file_ext := "", files := []):
 
 
 func _ready() -> void:
-	await %GameLoopTimer.timeout
-	# START THE REAL MOOSIC
-	$Music.Lead = 1
-	await %GameLoopTimer.timeout
+	for i in range(2): await %GameLoopTimer.timeout
 	while not dead:
 		if not isOnBreak: # Don't spawn enemies if on break (i.e. showing scores) THIS IS NOT IMPLEMENTED YET
 			if $Walls.CheckOpen(): continue
@@ -60,18 +56,21 @@ func _ready() -> void:
 			WaveStart.emit()
 			spawnEnemies(randi_range(1, max(1, floor(wave * 0.2))))
 			wave += 1
-			UpdateMusic()
+			if wave % 4 ==0:
+				UpdateMusic()
 		await %GameLoopTimer.timeout # using a timer as to not let it run every frame and use lots of memory
 
 func UpdateMusic():
-	if wave % 8 == 0:
-		musicprogs += 1
-		
-		var curr: Vector3 = WaveMusic[musicprogs]
-		
-		$Music.Drums = curr.x
-		$Music.Bass = curr.y
-		$Music.Lead = curr.z
+	musicprogs += 1
+	var rnd: int
+	if musicprogs >= 4: rnd = randi_range(1,8)
+	else: rnd = randi_range(1,3)
+	
+	if rnd == 1: $Music.Drums = $Music.Drums + 1
+	elif rnd == 2: $Music.Bass = $Music.Bass + 1
+	elif rnd == 3: $Music.Lead = $Music.Lead + 1
+	else:
+		$Music.Other[rnd - 4] = not $Music.Other[rnd - 4]
 
 func spawnEnemies(amount: int) -> void:
 	get_node("UI/Hud").show_wave(wave)

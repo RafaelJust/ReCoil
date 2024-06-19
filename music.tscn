@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cc3qm3w4ibs4d"]
+[gd_scene load_steps=16 format=3 uid="uid://cc3qm3w4ibs4d"]
 
 [ext_resource type="Script" path="res://Music.gd" id="1_e3qap"]
 [ext_resource type="AudioStream" uid="uid://dxn7pumkx3d2w" path="res://assets/music/drums/Drum_1.wav" id="2_77yd5"]
@@ -10,6 +10,11 @@
 [ext_resource type="AudioStream" uid="uid://baaimivsy1cx3" path="res://assets/music/Main lead/Main_Lead_1.wav" id="8_uncu7"]
 [ext_resource type="AudioStream" uid="uid://dfwiadivvuarm" path="res://assets/music/Main lead/Main_Lead_2.wav" id="9_oom3b"]
 [ext_resource type="AudioStream" uid="uid://dl3fbs0gspd86" path="res://assets/music/Main lead/Main_Lead_3.wav" id="10_uix5l"]
+[ext_resource type="AudioStream" uid="uid://diswg4744vdlp" path="res://assets/music/other/Another_instrument_that_exists_2_and_3.wav" id="11_j3kfy"]
+[ext_resource type="AudioStream" uid="uid://ch106ouqd0teh" path="res://assets/music/other/Another_melody_2.wav" id="12_1kkxn"]
+[ext_resource type="AudioStream" uid="uid://cdc2r7i3tj1pc" path="res://assets/music/other/Another_melody_3.wav" id="13_tj4sb"]
+[ext_resource type="AudioStream" uid="uid://cl3hh6703n7kx" path="res://assets/music/other/Main Accompaniment.wav" id="14_rgoms"]
+[ext_resource type="AudioStream" uid="uid://btgfo2ww8vsc2" path="res://assets/music/other/may_contain_high_notes_3.wav" id="15_ejyex"]
 
 [node name="Music" type="Node"]
 script = ExtResource("1_e3qap")
@@ -60,5 +65,22 @@ bus = &"Music"
 [node name="3" type="AudioStreamPlayer" parent="Lead"]
 stream = ExtResource("10_uix5l")
 bus = &"Music"
+
+[node name="Other" type="Node" parent="."]
+
+[node name="1" type="AudioStreamPlayer" parent="Other"]
+stream = ExtResource("11_j3kfy")
+
+[node name="2" type="AudioStreamPlayer" parent="Other"]
+stream = ExtResource("12_1kkxn")
+
+[node name="3" type="AudioStreamPlayer" parent="Other"]
+stream = ExtResource("13_tj4sb")
+
+[node name="4" type="AudioStreamPlayer" parent="Other"]
+stream = ExtResource("14_rgoms")
+
+[node name="5" type="AudioStreamPlayer" parent="Other"]
+stream = ExtResource("15_ejyex")
 
 [connection signal="timeout" from="Timer_single" to="." method="LoopDone_Drums"]

@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+@export var invincible: bool = false
+
 # Gun properties
 @export var strength: int = 10000
 @export var shootAngle: int = 20 #using degrees for convenience
@@ -64,6 +66,7 @@ func _physics_process(_delta: float) -> void:
 		%Cooldown.start()
 
 func take_damage():
+	if invincible: return
 	if $Invincibility.is_stopped():
 		#Take damage
 		lives -= 1

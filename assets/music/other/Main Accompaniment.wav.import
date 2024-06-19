@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cl3hh6703n7kx"
+path="res://.godot/imported/Main Accompaniment.wav-a2ae6c75f1e8ae50e767891aa0ebcc9c.sample"
+
+[deps]
+
+source_file="res://assets/music/other/Main Accompaniment.wav"
+dest_files=["res://.godot/imported/Main Accompaniment.wav-a2ae6c75f1e8ae50e767891aa0ebcc9c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
