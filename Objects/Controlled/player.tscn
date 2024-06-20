@@ -103,12 +103,10 @@ one_shot = true
 [node name="ShootSound" type="AudioStreamPlayer" parent="Sfx"]
 unique_name_in_owner = true
 stream = ExtResource("4_kdyfr")
-bus = &"Sfx"
 
 [node name="ReloadSound" type="AudioStreamPlayer" parent="Sfx"]
 unique_name_in_owner = true
 stream = ExtResource("5_llqvo")
-bus = &"Sfx"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Cooldown" to="." method="Reload"]

@@ -72,6 +72,24 @@ func _physics_process(_delta: float) -> void:
 		# Shake the screen, and start a cooldown (reload) timer
 		get_node("/root/Main/Camera").shakeScreen(1,2)
 		%Cooldown.start()
+	
+	if Input.is_action_just_pressed("Increase gun Angle"):
+		shootAngle = min(shootAngle + 10, 60)
+		bulletsPerShot = round(float(shootAngle) / 2)
+		bulletLifeTime = max(bulletLifeTime - 0.3, 0.3)
+		bulletDamage = bulletLifeTime * 2
+		strength = bulletsPerShot * 1000
+		
+		changeRecticle(shootAngle)
+	
+	elif Input.is_action_just_pressed("Decrease gun angle"):
+		shootAngle = max(shootAngle - 10, 10)
+		bulletsPerShot = round(float(shootAngle) / 2)
+		bulletLifeTime = min(bulletLifeTime + 0.3, 3.2)
+		bulletDamage = bulletLifeTime * 2
+		strength = bulletsPerShot * 1000
+		
+		changeRecticle(shootAngle)
 
 func take_damage():
 	if invincible: return
@@ -106,15 +124,14 @@ func _on_body_entered(body: Node) -> void:
 		take_damage()
 
 func changeRecticle(newAngle: float):
-	if newAngle >= 60:
-		$Recitcle.visible = false
-	else:
-		var angleRad = deg_to_rad(newAngle) # Godot uses radians, so it needs to be converted first
-		
-		# Using tan(angle) = (hor/2)/4490 we can determine the needed horizontal width of the recticle
-		var newWidth = tan(angleRad) * 4490
-		# Convert the width from pixels to be relative to the default 1588 px
-		var newWidthRelative = newWidth / 1588 
-		
-		$Recitcle.scale = Vector2(newWidthRelative,1)
-		$Recitcle.visible = true
+	var angleRad = deg_to_rad(newAngle) # Godot uses radians, so it needs to be converted first
+	
+	# Using tan(angle) = (hor/2)/4490 we can determine the needed horizontal width of the recticle
+	var newWidth = tan(angleRad) * 4490
+	# Convert the width from pixels to be relative to the default 1588 px
+	var newWidthRelative = newWidth / 1588 
+	
+	$Recitcle.scale = Vector2(newWidthRelative,1)
+	$Recitcle.visible = true
+	
+	#%ShootSound.pitch_scale = 20 - newAngle

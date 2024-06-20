@@ -4,7 +4,7 @@ extends RigidBody2D
 @export var rangeY: Vector2 = Vector2(10,100)
 
 # How many waves the object persists
-@onready var WaveLength: int = randi_range(5,20)
+@onready var WaveLength: int = randi_range(10,20)
 var age: int = 0
 
 func newWave():

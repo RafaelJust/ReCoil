@@ -110,7 +110,7 @@ func _input(event: InputEvent) -> void:
 
 func spawnMisc() -> void:
 	# make new gun types rarer than boxes
-	if randi_range(1,2) == 1:
+	if false: #randi_range(1,2) == 1:
 		spawnItem()
 
 	else:
