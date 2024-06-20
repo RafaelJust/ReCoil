@@ -139,6 +139,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7omw2")
 colorRamp = SubResource("Curve_jhyui")
+tutorialText = Array[String](["Click to shoot", "Z to increase angle", "X to decrease", "Good luck"])
 metadata/_edit_use_anchors_ = true
 
 [node name="Shell1" type="NinePatchRect" parent="."]
@@ -344,3 +345,26 @@ root_node = NodePath("../WaveNum")
 libraries = {
 "": SubResource("AnimationLibrary_11pj0")
 }
+
+[node name="Tutorial" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.342882
+anchor_right = 0.657118
+anchor_bottom = 0.204
+offset_bottom = -0.192001
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TutorialText" type="RichTextLabel" parent="Tutorial"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.575758
+anchor_right = 1.0
+anchor_bottom = 1.57576
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]Click to shoot"
+metadata/_edit_use_anchors_ = true

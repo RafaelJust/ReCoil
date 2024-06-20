@@ -44,9 +44,23 @@ func get_all_files(path: String, file_ext := "", files := []):
 
 
 func _ready() -> void:
-	await %GameLoopTimer.timeout
+	#Scroll through the tutorial text
+	for i in range(2):
+		await $GameLoopTimerHalf.timeout
+		%Hud.changeTutorialText()
+	
+	# The music take two beats to start, so tell it already to start here
 	$Music.Lead = 1
-	await %GameLoopTimer.timeout
+	
+	#Scroll through the tutorial text
+	for i in range(2):
+		await $GameLoopTimerHalf.timeout
+		%Hud.changeTutorialText()
+	
+	# Remove teh temporary timer as it has done it's purpose, and call the
+	# Hud function again to remove the tutorial text
+	$GameLoopTimerHalf.queue_free()
+	%Hud.changeTutorialText()
 	while not dead:
 		if not isOnBreak: # Don't spawn enemies if on break (i.e. showing scores) THIS IS NOT IMPLEMENTED YET
 			if $Walls.CheckOpen(): continue

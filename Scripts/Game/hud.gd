@@ -2,6 +2,9 @@ extends Control
 
 @export var colorRamp: Curve
 
+@export var tutorialText: Array[String]
+var currentTutorial: int = 0
+
 @onready var shell1: TextureProgressBar = %Shell1_progress
 @onready var shell2: TextureProgressBar = %Shell2_progress
 
@@ -29,6 +32,13 @@ func show_wave(waveNum: int) -> void:
 		await get_tree().create_timer(0.5).timeout
 	WaveText.text = ""
 
+func changeTutorialText():
+	currentTutorial += 1;
+	if currentTutorial > 3:
+		$Tutorial.queue_free()
+		return
+	else: 
+		%TutorialText.text = "[center]" + tutorialText[currentTutorial]
 
 func _process(_delta: float) -> void:
 	var progress: float = (cooldown.time_left / cooldown.wait_time)

@@ -40,6 +40,10 @@ unique_name_in_owner = true
 wait_time = 3.84
 autostart = true
 
+[node name="GameLoopTimerHalf" type="Timer" parent="."]
+wait_time = 1.92
+autostart = true
+
 [node name="Camera" type="Camera2D" parent="."]
 script = ExtResource("2_3w055")
 shakeCurve = SubResource("Curve_gib4q")
@@ -80,6 +84,7 @@ position = Vector2(570, 0)
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Hud" parent="UI" instance=ExtResource("7_nb6g4")]
+unique_name_in_owner = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vyppd")
