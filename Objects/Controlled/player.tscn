@@ -103,6 +103,7 @@ one_shot = true
 [node name="ShootSound" type="AudioStreamPlayer" parent="Sfx"]
 unique_name_in_owner = true
 stream = ExtResource("4_kdyfr")
+max_polyphony = 2
 
 [node name="ReloadSound" type="AudioStreamPlayer" parent="Sfx"]
 unique_name_in_owner = true
