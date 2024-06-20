@@ -74,19 +74,19 @@ func _physics_process(_delta: float) -> void:
 		%Cooldown.start()
 	
 	if Input.is_action_just_pressed("Increase gun Angle"):
-		shootAngle = min(shootAngle + 10, 60)
+		shootAngle = min(shootAngle + 5, 60)
 		bulletsPerShot = round(float(shootAngle) / 2)
-		bulletLifeTime = max(bulletLifeTime - 0.3, 0.3)
-		bulletDamage = bulletLifeTime * 2
+		bulletLifeTime = (60 - shootAngle) / 5
+		bulletDamage = bulletLifeTime / 2
 		strength = bulletsPerShot * 1000
 		
 		changeRecticle(shootAngle)
 	
 	elif Input.is_action_just_pressed("Decrease gun angle"):
-		shootAngle = max(shootAngle - 10, 10)
+		shootAngle = max(shootAngle - 5, 5)
 		bulletsPerShot = round(float(shootAngle) / 2)
-		bulletLifeTime = min(bulletLifeTime + 0.3, 3.2)
-		bulletDamage = bulletLifeTime * 2
+		bulletLifeTime = (60 - shootAngle) / 5
+		bulletDamage = bulletLifeTime / 2
 		strength = bulletsPerShot * 1000
 		
 		changeRecticle(shootAngle)
