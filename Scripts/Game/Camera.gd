@@ -6,6 +6,9 @@ var shakePos: float
 
 @onready var shakeTimer: Timer = $Shaketime
 
+func _ready():
+	$AnimationPlayer.play("Fade_in")
+
 func shakeScreen(duration: float, strength: float) -> void:
 	shakeCurve.set_point_value(0,strength)
 	shakeTimer.wait_time = duration
