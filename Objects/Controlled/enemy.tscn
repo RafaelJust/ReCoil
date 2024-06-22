@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cl8c4msa5g48w"]
+[gd_scene load_steps=6 format=3 uid="uid://cl8c4msa5g48w"]
 
 [ext_resource type="Script" path="res://Scripts/Game/enemy.gd" id="1_mphm4"]
+[ext_resource type="Texture2D" uid="uid://doenxcoj6jvqo" path="res://assets/light.png" id="2_gl3wn"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tggtt"]
 polygon = PackedVector2Array(0, -10, 4, -9, 7, -7, 9, -4, 10, 0, 9, 4, 7, 7, 4, 9, 0, 10, -4, 9, -7, 7, -9, 4, -10, 0, -9, -4, -7, -7, -4, -9)
@@ -22,10 +23,14 @@ force = 500
 occluder = SubResource("OccluderPolygon2D_tggtt")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-self_modulate = Color(1, 0, 0, 1)
+modulate = Color(1, 0, 0, 1)
 mesh = SubResource("SphereMesh_op7sj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_b80u8")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0, 0, 1)
+texture = ExtResource("2_gl3wn")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

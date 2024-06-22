@@ -69,8 +69,9 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Fire") && (usedShots < 2):
 		usedShots += 1
 		shoot()
+		
 		# Shake the screen, and start a cooldown (reload) timer
-		get_node("/root/Main/Camera").shakeScreen(1,2)
+		get_node("/root/Main/Camera").shakeScreen(1,4)
 		%Cooldown.start()
 	
 	if Input.is_action_just_pressed("Increase gun Angle"):
@@ -93,6 +94,9 @@ func _physics_process(_delta: float) -> void:
 
 func take_damage():
 	if invincible: return
+	
+	get_node("/root/Main/Camera").shakeScreen(1.5,2)
+	
 	if $Invincibility.is_stopped():
 		#Take damage
 		lives -= 1

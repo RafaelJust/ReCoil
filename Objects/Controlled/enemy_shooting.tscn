@@ -19,7 +19,7 @@ canShoot = true
 occluder = SubResource("OccluderPolygon2D_5wm0d")
 
 [node name="MeshInstance2D" parent="." index="1"]
-self_modulate = Color(1, 0, 1, 1)
+modulate = Color(1, 0, 1, 1)
 position = Vector2(-3.57628e-07, -1.19209e-07)
 scale = Vector2(20, 20)
 mesh = SubResource("BoxMesh_aavxv")
@@ -34,6 +34,9 @@ autostart = true
 [node name="PathChange" type="Timer" parent="." index="4"]
 wait_time = 5.0
 autostart = true
+
+[node name="PointLight2D" parent="." index="5"]
+color = Color(1, 0, 1, 1)
 
 [connection signal="timeout" from="shootTimer" to="." method="shoot_enemy_bullet"]
 [connection signal="timeout" from="PathChange" to="." method="change_path"]
