@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://7y23n5ui2rpc"]
+[gd_scene load_steps=4 format=3 uid="uid://7y23n5ui2rpc"]
 
 [ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_c0l7d"]
+[ext_resource type="AudioStream" uid="uid://24xy1jj4m0iq" path="res://assets/music/PauseMenu.ogg" id="2_b2xdw"]
+
+[sub_resource type="Curve" id="Curve_w0eqy"]
+min_value = -72.0
+max_value = 0.0
+_data = [Vector2(0, -72), 0.0, 208.457, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Pause menu" type="Control"]
 layout_mode = 3
@@ -10,6 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_c0l7d")
+volumeCurve = SubResource("Curve_w0eqy")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -225,5 +233,13 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Continue"
 
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_b2xdw")
+autoplay = true
+bus = &"Music"
+
+[connection signal="value_changed" from="AudioControls/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
+[connection signal="value_changed" from="AudioControls/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="value_changed" from="AudioControls/SfxVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
