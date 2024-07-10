@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://7y23n5ui2rpc"]
+[gd_scene load_steps=2 format=3 uid="uid://7y23n5ui2rpc"]
+
+[ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_c0l7d"]
 
 [node name="Pause menu" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_c0l7d")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -31,37 +34,6 @@ grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 106
 bbcode_enabled = true
 text = "[center][color=lightblue]Pau[color=pink]sed"
-
-[node name="ExitButton" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -39.5
-offset_top = -15.5
-offset_right = 39.5
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Exit
-"
-
-[node name="ContinueButton" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -39.5
-offset_top = -50.0
-offset_right = 39.5
-offset_bottom = -19.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Continue"
 
 [node name="AudioControls" type="Control" parent="."]
 layout_mode = 1
@@ -221,3 +193,37 @@ theme_override_font_sizes/normal_font_size = 41
 bbcode_enabled = true
 text = "[center]Audio
 "
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.5
+offset_top = -15.5
+offset_right = 39.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit
+"
+
+[node name="ContinueButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.447
+anchor_right = 0.5
+anchor_bottom = 0.447
+offset_left = -39.5
+offset_top = -15.656
+offset_right = 39.5
+offset_bottom = 15.344
+grow_horizontal = 2
+grow_vertical = 2
+text = "Continue"
+
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]

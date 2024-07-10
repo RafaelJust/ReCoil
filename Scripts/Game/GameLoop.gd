@@ -171,3 +171,7 @@ func spawnItem():
 	
 	# Spawn in the Item
 	spawnObject(upgrade)
+
+# Resume the game after pausing
+func continue_game():
+	pass
