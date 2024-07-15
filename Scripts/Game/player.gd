@@ -14,6 +14,8 @@ extends RigidBody2D
 @export var ReloadSound: AudioStreamMP3
 
 
+var paused: bool = false
+
 var usedShots: int = 0 # / 2
 
 var bullet: PackedScene
@@ -58,6 +60,7 @@ func shoot() -> void:
 	%ShootSound.play()
 
 func _physics_process(_delta: float) -> void:
+	#if paused: return
 	
 	#Change recitcle wideness based on angle
 	

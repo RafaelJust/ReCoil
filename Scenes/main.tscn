@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c1u4h03v4523r"]
+[gd_scene load_steps=18 format=3 uid="uid://c1u4h03v4523r"]
 
 [ext_resource type="Script" path="res://Scripts/Game/GameLoop.gd" id="1_ec0l3"]
 [ext_resource type="Script" path="res://Scripts/Game/Camera.gd" id="2_3w055"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dgprf0i2fmkqu" path="res://Objects/Static/wall_Horizontal.tscn" id="5_mcyko"]
 [ext_resource type="PackedScene" uid="uid://dv35qxgrprgsk" path="res://Objects/Static/wall_Vertical.tscn" id="6_af863"]
 [ext_resource type="PackedScene" uid="uid://biffct7nsk356" path="res://hud.tscn" id="7_nb6g4"]
+[ext_resource type="PackedScene" uid="uid://7y23n5ui2rpc" path="res://pause_menu.tscn" id="8_vmo3g"]
 
 [sub_resource type="Curve" id="Curve_gib4q"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -149,6 +150,13 @@ position = Vector2(570, 0)
 
 [node name="Hud" parent="UI" instance=ExtResource("7_nb6g4")]
 unique_name_in_owner = true
+process_mode = 1
+
+[node name="Pause menu" parent="UI" node_paths=PackedStringArray("GameController") instance=ExtResource("8_vmo3g")]
+unique_name_in_owner = true
+process_mode = 0
+visible = false
+GameController = NodePath("../..")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vyppd")

@@ -119,8 +119,7 @@ func spawnEnemies(amount: int) -> void:
 func _input(event: InputEvent) -> void:
 	#quit the game
 	if event.is_action("quit") && !dead:
-		%Player.deathSignal.emit()
-		#get_tree().quit()
+		pause_game()
 
 func spawnMisc() -> void:
 	# make new gun types rarer than boxes
@@ -172,6 +171,11 @@ func spawnItem():
 	# Spawn in the Item
 	spawnObject(upgrade)
 
+func pause_game():
+	isOnBreak = true
+	%"Pause menu".visible = true
+	get_tree().paused = true
+
 # Resume the game after pausing
 func continue_game():
-	pass
+	get_tree().paused = false
