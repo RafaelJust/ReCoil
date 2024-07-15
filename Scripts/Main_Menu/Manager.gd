@@ -10,5 +10,5 @@ func Quit() -> void:
 	get_tree().quit()
 
 
-func startGame():
+func startGame(_anim_name):
 	get_tree().change_scene_to_packed(mainScene)

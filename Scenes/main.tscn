@@ -154,7 +154,6 @@ process_mode = 1
 
 [node name="Pause menu" parent="UI" node_paths=PackedStringArray("GameController") instance=ExtResource("8_vmo3g")]
 unique_name_in_owner = true
-process_mode = 0
 visible = false
 GameController = NodePath("../..")
 
