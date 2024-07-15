@@ -32,12 +32,18 @@ func _on_exit_button_pressed():
 
 
 func _on_master_volume_slider_value_changed(value):
+	%ValueMaster.text = str(round(value))
 	AudioServer.set_bus_volume_db(0, volumeCurve.sample(value / 100))
 
 
 func _on_music_volume_slider_value_changed(value):
+	%ValueMusic.text = str(round(value))
 	AudioServer.set_bus_volume_db(1, volumeCurve.sample(value / 100))
 
 
 func _on_sfx_volume_slider_value_changed(value):
+	%ValueSfx.text = str(round(value))
 	AudioServer.set_bus_volume_db(2, volumeCurve.sample(value / 100))
+	if $Timer.time_left == 0:
+		$sfxSlider.play()
+		$Timer.start()
