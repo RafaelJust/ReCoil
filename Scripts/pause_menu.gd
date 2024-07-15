@@ -11,16 +11,18 @@ func _input(event):
 	if event.is_action("quit"):
 		_on_continue_button_pressed()
 
+
+
 func _process(delta):
 	if self.visible && musicFadeInTimer < 10:
 		musicFadeInTimer += delta
 		AudioServer.set_bus_volume_db(3, volumeCurve.sample(musicFadeInTimer / 10))
-	elif musicFadeInTimer > 0 and not self.visible:
-		musicFadeInTimer = 0
-		$Music.volume_db = -72
+		print(AudioServer.get_bus_volume_db(3))
 
 func _on_continue_button_pressed():
 	AudioServer.set_bus_volume_db(3,-72)
+	musicFadeInTimer = 0
+	
 	GameController.continue_game()
 	self.hide()
 

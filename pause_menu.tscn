@@ -239,6 +239,7 @@ stream = ExtResource("2_b2xdw")
 autoplay = true
 bus = &"Pause Music"
 
+[connection signal="hidden" from="." to="." method="_on_hidden"]
 [connection signal="value_changed" from="AudioControls/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
 [connection signal="value_changed" from="AudioControls/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
 [connection signal="value_changed" from="AudioControls/SfxVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]

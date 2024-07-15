@@ -179,3 +179,4 @@ func pause_game():
 # Resume the game after pausing
 func continue_game():
 	get_tree().paused = false
+	isOnBreak = false
