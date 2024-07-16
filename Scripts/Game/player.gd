@@ -80,7 +80,7 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Increase gun Angle"):
 		shootAngle = min(shootAngle + 5, 60)
 		bulletsPerShot = round(float(shootAngle) / 2)
-		bulletLifeTime = min((60 - shootAngle) / 8,2)
+		bulletLifeTime = min(float(60 - shootAngle) / 8,2)
 		bulletDamage = bulletLifeTime / 2
 		strength = bulletsPerShot * 1000
 		
@@ -89,7 +89,7 @@ func _physics_process(_delta: float) -> void:
 	elif Input.is_action_just_pressed("Decrease gun angle"):
 		shootAngle = max(shootAngle - 5, 5)
 		bulletsPerShot = round(float(shootAngle) / 2)
-		bulletLifeTime = min((60 - shootAngle) / 8,2)
+		bulletLifeTime = min(float(60 - shootAngle) / 8,2)
 		bulletDamage = bulletLifeTime / 2
 		strength = bulletsPerShot * 1000
 		

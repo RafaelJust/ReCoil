@@ -13,6 +13,11 @@ var currentTutorial: int = 0
 
 @onready var WaveText: RichTextLabel = $WaveNum
 
+
+func _input(event):
+	if event.is_action("die"):
+		$GameOverAnim.play("Out")
+
 # Other scripts use this function instead of directly editing it for stability
 func show_lives(lives: int) -> void:
 	if lives == 2:   %life1.visible = false
@@ -56,3 +61,8 @@ func _process(_delta: float) -> void:
 		# Get the correct color value for shell 2, and apply it
 		var color2: float = colorRamp.sample(1 - progress)
 		shell2.modulate = Color(color2,color2,color2)
+
+# Load title screen after Dying
+func _on_game_over_anim_animation_finished(anim_name):
+	if anim_name=="Out":
+		get_tree().change_scene_to_file("res://Scenes/Title.tscn")
