@@ -13,11 +13,6 @@ var currentTutorial: int = 0
 
 @onready var WaveText: RichTextLabel = $WaveNum
 
-
-func _input(event):
-	if event.is_action("die"):
-		$GameOverAnim.play("Out")
-
 # Other scripts use this function instead of directly editing it for stability
 func show_lives(lives: int) -> void:
 	if lives == 2:   %life1.visible = false
@@ -65,4 +60,9 @@ func _process(_delta: float) -> void:
 # Load title screen after Dying
 func _on_game_over_anim_animation_finished(anim_name):
 	if anim_name=="Out":
+		#Clear all nodes first, because collision objects can't be present when changing scene
+		for n: Node in get_node("/root/Main").get_children():
+			if n.name != "UI":
+				n.queue_free()
+		await get_tree().process_frame
 		get_tree().change_scene_to_file("res://Scenes/Title.tscn")

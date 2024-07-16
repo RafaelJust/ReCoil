@@ -117,9 +117,10 @@ func spawnEnemies(amount: int) -> void:
 	
 	
 func _input(event: InputEvent) -> void:
-	#quit the game
-	if event.is_action("quit") && !dead:
-		pause_game()
+	#pause / end the game
+	if event.is_action("quit"):
+		if !dead: pause_game()
+		else: $UI/Hud/GameOverAnim.play("Out")
 
 func spawnMisc() -> void:
 	# make new gun types rarer than boxes
@@ -154,12 +155,7 @@ func spawnObject(obj: Node2D):
 func _on_player_death() -> void:
 	dead = true
 	# Here can come the animation for the signal n shit
-	
-	#Clear all nodes first, because collision objects can't be present when changing scene
-	for n: Node in get_children():
-		n.queue_free()
-	await get_tree().process_frame
-	get_tree().change_scene_to_packed(load("res://Scenes/Title.tscn"))
+	$UI/Hud/GameOverAnim.play("GameOver")
 
 
 func spawnItem():

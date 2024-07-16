@@ -14,7 +14,7 @@ extends RigidBody2D
 @export var ReloadSound: AudioStreamMP3
 
 
-var paused: bool = false
+var Dead: bool = false
 
 var usedShots: int = 0 # / 2
 
@@ -60,7 +60,7 @@ func shoot() -> void:
 	%ShootSound.play()
 
 func _physics_process(_delta: float) -> void:
-	#if paused: return
+	if Dead: return
 	
 	#Change recitcle wideness based on angle
 	
@@ -105,7 +105,10 @@ func take_damage():
 		lives -= 1
 		if lives <= 0:
 			# Die
+			self.modulate = Color.BLACK
+			Dead = true
 			deathSignal.emit()
+			self.collision_layer = 2
 		else:
 			$Invincibility.start()
 			$AnimationPlayer.play("flicker")
@@ -128,6 +131,11 @@ func _on_invincibility_timeout() -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body.get_collision_layer_value(5) == true:
+		take_damage()
+
+func _input(event):
+	if event.is_action("die"):
+		lives = 1
 		take_damage()
 
 func changeRecticle(newAngle: float):

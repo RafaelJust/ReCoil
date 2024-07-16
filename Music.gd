@@ -50,3 +50,6 @@ func LoopDone_Drums():
 	
 	if(Bass >= 1): bassDouble = !bassDouble
 	else: bassDouble = true
+
+func stopMusic():
+	queue_free()
