@@ -153,7 +153,9 @@ func spawnObject(obj: Node2D):
 
 # Unload scene on player death
 func _on_player_death() -> void:
+	if dead: return
 	dead = true
+	get_node("Music").stopMusic()
 	# Here can come the animation for the signal n shit
 	$UI/Hud/GameOverAnim.play("GameOver")
 
