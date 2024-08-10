@@ -162,6 +162,14 @@ func _on_player_death() -> void:
 	if dead: return
 	dead = true
 	get_node("Music").stopMusic()
+	
+	# store the path so it is easier to change all the values
+	var stats: Node = $UI/Hud/GameOver/Stats
+	# Update the game over text so the correct values are shown
+	stats.get_node("WaveValue").text = str(wave)
+	stats.get_node("KillsValue").text = str(kills)
+	stats.get_node("AngleValue").text = str(times_angle_changed)
+	stats.get_node("ScoreValue").text = str(score)
 	# Here can come the animation for the signal n shit
 	$UI/Hud/GameOverAnim.play("GameOver")
 
