@@ -149,4 +149,6 @@ func changeRecticle(newAngle: float):
 	$Recitcle.scale = Vector2(newWidthRelative,1)
 	$Recitcle.visible = true
 	
+	get_node("/root/Main").times_angle_changed += 1
+	
 	#%ShootSound.pitch_scale = 20 - newAngle

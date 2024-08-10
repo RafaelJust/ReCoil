@@ -34,6 +34,7 @@ func _on_body_entered(body: Node) -> void:
 		lives -= body.damage # Take the amount of damage
 		body.queue_free() #remove the hit bullet
 		if lives <= 0:
+			get_node("/root/Main").kills += 1
 			queue_free()
 	if body == player && !canShoot:
 		#move away from the player

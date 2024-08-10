@@ -17,6 +17,12 @@ var blocked: Array
 
 signal WaveStart
 
+
+# Game stats that are tracked during playtime
+var kills: int = 0
+var times_angle_changed: int = 0
+var score: int = 0
+
 # Function from hiulit and RedWanFox
 func get_all_files(path: String, file_ext := "", files := []):
 	var dir = DirAccess.open(path)
