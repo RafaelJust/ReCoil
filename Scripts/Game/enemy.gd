@@ -2,6 +2,7 @@ extends RigidBody2D
 
 @export var force: int = 1000
 @export var lives: int = 5
+@export var value: int = 10 #The mount added to the score after being defeated.
 
 @export var followPlayer: bool = true
 @export var canShoot = false
@@ -35,6 +36,7 @@ func _on_body_entered(body: Node) -> void:
 		body.queue_free() #remove the hit bullet
 		if lives <= 0:
 			get_node("/root/Main").kills += 1
+			get_node("/root/Main").score += value
 			queue_free()
 	if body == player && !canShoot:
 		#move away from the player

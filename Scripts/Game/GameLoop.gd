@@ -192,3 +192,7 @@ func pause_game():
 func continue_game():
 	get_tree().paused = false
 	isOnBreak = false
+
+
+func _on_game_loop_timer_timeout():
+	score += 15

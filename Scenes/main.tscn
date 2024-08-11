@@ -209,4 +209,5 @@ collision_mask = 0
 position = Vector2(-0.5, -19.5)
 shape = SubResource("RectangleShape2D_dys3k")
 
+[connection signal="timeout" from="GameLoopTimer" to="." method="_on_game_loop_timer_timeout"]
 [connection signal="deathSignal" from="Player" to="." method="_on_player_death"]
