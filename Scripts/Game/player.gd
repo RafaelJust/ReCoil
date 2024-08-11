@@ -113,8 +113,8 @@ func take_damage():
 			$Invincibility.start()
 			$AnimationPlayer.play("flicker")
 		
-			# Change Lives amount
-			get_tree().get_root().get_node("/root/Main/UI/Hud").show_lives(lives)
+		# Change Lives amount
+		get_tree().get_root().get_node("/root/Main/UI/Hud").show_lives(lives)
 
 func Reload() -> void: # Timer runs out -> reload
 	if (usedShots > 0):

@@ -33,6 +33,7 @@ func  _physics_process(_delta: float) -> void:
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Bullets"):
 		lives -= body.damage # Take the amount of damage
+		$AnimationPlayer.play("flicker")
 		body.queue_free() #remove the hit bullet
 		if lives <= 0:
 			get_node("/root/Main").kills += 1
