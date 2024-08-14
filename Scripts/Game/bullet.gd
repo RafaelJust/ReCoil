@@ -1,11 +1,6 @@
 extends RigidBody2D
 
-var damage: float
-
-func shoot(force: float, life:float, bulletDamage:float) -> void:
-	
-	#set the damage
-	damage = bulletDamage
+func shoot(force: float, life:float) -> void:
 	
 	# Apply the force
 	apply_central_force(Vector2.from_angle(rotation) * force)

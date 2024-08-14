@@ -7,7 +7,6 @@ extends RigidBody2D
 @export var shootAngle: int = 20 #using degrees for convenience
 @export var bulletsPerShot: int = 10
 @export var bulletLifeTime: float = 2
-@export var bulletDamage: float = 1
 
 # Sound effects
 @export var ShootSound: AudioStreamMP3
@@ -52,7 +51,7 @@ func shoot() -> void:
 		
 		#finally spawn in the bulleta
 		add_child(newBullet)
-		newBullet.shoot(bulletstrength, bulletLifeTime, bulletDamage)
+		newBullet.shoot(bulletstrength, bulletLifeTime)
 		
 		angle += angleStep
 	
@@ -79,18 +78,16 @@ func _physics_process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("Increase gun Angle"):
 		shootAngle = min(shootAngle + 5, 60)
-		bulletsPerShot = round(float(shootAngle) / 2)
+		#bulletsPerShot = round(float(shootAngle) / 2)
 		bulletLifeTime = min(float(60 - shootAngle) / 8,2)
-		bulletDamage = bulletLifeTime / 2
 		strength = bulletsPerShot * 1000
 		
 		changeRecticle(shootAngle)
 	
 	elif Input.is_action_just_pressed("Decrease gun angle"):
 		shootAngle = max(shootAngle - 5, 5)
-		bulletsPerShot = round(float(shootAngle) / 2)
+		#bulletsPerShot = round(float(shootAngle) / 2)
 		bulletLifeTime = min(float(60 - shootAngle) / 8,2)
-		bulletDamage = bulletLifeTime / 2
 		strength = bulletsPerShot * 1000
 		
 		changeRecticle(shootAngle)

@@ -12,6 +12,7 @@ polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
 [node name="Enemy" instance=ExtResource("1_pxuca")]
 collision_layer = 2
 force = 100
+lives = 5
 value = 20
 followPlayer = false
 canShoot = true

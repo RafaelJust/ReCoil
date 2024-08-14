@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 @export var force: int = 1000
-@export var lives: int = 5
+@export var lives: int = 7
 @export var value: int = 10 #The mount added to the score after being defeated.
 
 @export var followPlayer: bool = true
@@ -32,7 +32,7 @@ func  _physics_process(_delta: float) -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Bullets"):
-		lives -= body.damage # Take the amount of damage
+		lives -= 1
 		$AnimationPlayer.play("flicker")
 		body.queue_free() #remove the hit bullet
 		if lives <= 0:
@@ -49,7 +49,7 @@ func shoot_enemy_bullet() -> void:
 	bullet.position = global_position
 	bullet.look_at(player.position)
 	add_child(bullet)
-	bullet.shoot(500, 2, 1)
+	bullet.shoot(500, 2)
 
 
 func change_path() -> void:
