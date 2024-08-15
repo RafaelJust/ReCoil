@@ -11,26 +11,16 @@ var currentTutorial: int = 0
 @onready var cooldown: Timer = get_node("/root/Main/Player/Cooldown")
 @onready var player: Node2D = get_node("/root/Main/Player")
 
-@onready var WaveText: RichTextLabel = $WaveNum
-
 # Other scripts use this function instead of directly editing it for stability
 func show_lives(lives: int) -> void:
 	if lives == 2:   %life1.visible = false
 	elif lives == 1: %life2.visible = false
 	elif lives == 0: %life3.visible = false
 
-# Flashes the correct wave number on the screen.
-func show_wave(waveNum: int) -> void:
-	for i in range(3):
-		WaveText.text = "[center]WAVE"
-		$WAVEANIM.stop()
-		$WAVEANIM.play("WAVE_splash")
-		await get_tree().create_timer(0.5).timeout
-		WaveText.text = "[center] %d" % waveNum
-		$WAVEANIM.stop()
-		$WAVEANIM.play("WAVE_splash")
-		await get_tree().create_timer(0.5).timeout
-	WaveText.text = ""
+# Changes the score text and plays the animation at the same time, usually called from GameLoop.gd
+func show_score(score: int) -> void:
+	$Score.text = str(score)
+	$SCOREANIM.play("WAVE_splash") #The animations was originally for displaying waves, hence the name :P
 
 func changeTutorialText():
 	currentTutorial += 1;

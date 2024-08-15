@@ -37,12 +37,11 @@ func _on_body_entered(body: Node) -> void:
 		body.queue_free() #remove the hit bullet
 		if lives <= 0:
 			get_node("/root/Main").kills += 1
-			get_node("/root/Main").score += value
+			get_node("/root/Main").add_score(value)
 			queue_free()
 	if body == player && !canShoot:
 		#move away from the player
 		apply_central_force((player.global_position - self.global_position).normalized() * -50000)
-
 
 func shoot_enemy_bullet() -> void:
 	var bullet: Node2D = preload("res://Objects/bullet_enemy.tscn").instantiate()

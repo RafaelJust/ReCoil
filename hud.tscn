@@ -674,7 +674,7 @@ offset_bottom = 33.0
 grow_horizontal = 0
 color = Color(1, 0, 0, 1)
 
-[node name="WaveNum" type="RichTextLabel" parent="."]
+[node name="Score" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -693,8 +693,8 @@ scroll_active = false
 shortcut_keys_enabled = false
 metadata/_edit_use_anchors_ = true
 
-[node name="WAVEANIM" type="AnimationPlayer" parent="."]
-root_node = NodePath("../WaveNum")
+[node name="SCOREANIM" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Score")
 libraries = {
 "": SubResource("AnimationLibrary_11pj0")
 }

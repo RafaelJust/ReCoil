@@ -95,7 +95,6 @@ func UpdateMusic():
 		$Music.Other[rnd - 4] = not $Music.Other[rnd - 4]
 
 func spawnEnemies(amount: int) -> void:
-	get_node("UI/Hud").show_wave(wave)
 	var wallQueue: Array = []# The walls to open after spawning the enemies
 	for i in range(amount):
 		var spawnNumber: int
@@ -163,6 +162,8 @@ func _on_player_death() -> void:
 	dead = true
 	get_node("Music").stopMusic()
 	
+	%GameLoopTimer.queue_free() #prevent the timer activating further scripts
+	
 	# store the path so it is easier to change all the values
 	var stats: Node = $UI/Hud/GameOver/Stats
 	# Update the game over text so the correct values are shown
@@ -193,6 +194,10 @@ func continue_game():
 	get_tree().paused = false
 	isOnBreak = false
 
+# Adds the score and immediately calls a function to display the change.
+func add_score(amount: int):
+	score += amount
+	%Hud.show_score(score)
 
 func _on_game_loop_timer_timeout():
-	score += 15
+	add_score(15)
