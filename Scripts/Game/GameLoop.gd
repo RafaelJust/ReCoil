@@ -23,6 +23,9 @@ var kills: int = 0
 var times_angle_changed: int = 0
 var score: int = 0
 
+#This variable tracks if player is using a gamepad or mouse + keyboard
+var gamepad: bool = false
+
 # Function from hiulit and RedWanFox
 func get_all_files(path: String, file_ext := "", files := []):
 	var dir = DirAccess.open(path)

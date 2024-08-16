@@ -23,6 +23,8 @@ var lives: int = 3
 
 signal deathSignal
 
+@onready var Main: Node2D = get_node("/root/Main")
+
 func _ready() -> void:
 	bullet = preload("res://Objects/bullet.tscn")
 
@@ -63,34 +65,10 @@ func _physics_process(_delta: float) -> void:
 	
 	#Change recitcle wideness based on angle
 	
-	# Aiming
-	var MousePos: Vector2 = get_global_mouse_position()
-	look_at(MousePos)
-	
-	# Only shoot when there are bullets in the chamber (usedShots < 2)
-	if Input.is_action_just_pressed("Fire") && (usedShots < 2):
-		usedShots += 1
-		shoot()
-		
-		# Shake the screen, and start a cooldown (reload) timer
-		get_node("/root/Main/Camera").shakeScreen(1,4)
-		%Cooldown.start()
-	
-	if Input.is_action_just_pressed("Increase gun Angle"):
-		shootAngle = min(shootAngle + 5, 60)
-		#bulletsPerShot = round(float(shootAngle) / 2)
-		bulletLifeTime = min(float(60 - shootAngle) / 8,2)
-		strength = bulletsPerShot * 1000
-		
-		changeRecticle(shootAngle)
-	
-	elif Input.is_action_just_pressed("Decrease gun angle"):
-		shootAngle = max(shootAngle - 5, 5)
-		#bulletsPerShot = round(float(shootAngle) / 2)
-		bulletLifeTime = min(float(60 - shootAngle) / 8,2)
-		strength = bulletsPerShot * 1000
-		
-		changeRecticle(shootAngle)
+	if not Main.gamepad:
+		# Aiming with mouse
+		var MousePos: Vector2 = get_global_mouse_position()
+		look_at(MousePos)
 
 func take_damage():
 	if invincible: return
@@ -131,6 +109,38 @@ func _on_body_entered(body: Node) -> void:
 		take_damage()
 
 func _input(event):
+	
+	# Only shoot when there are bullets in the chamber (usedShots < 2)
+	if event.is_action_pressed("Fire") && usedShots < 2:
+		usedShots += 1
+		shoot()
+		
+		# Shake the screen, and start a cooldown (reload) timer
+		get_node("/root/Main/Camera").shakeScreen(1,4)
+		%Cooldown.start()
+	
+	if event.is_action_pressed("Increase gun Angle"):
+		shootAngle = min(shootAngle + 5, 60)
+		#bulletsPerShot = round(float(shootAngle) / 2)
+		bulletLifeTime = min(float(60 - shootAngle) / 8,2)
+		strength = bulletsPerShot * 1000
+		
+		changeRecticle(shootAngle)
+	
+	
+	if event.is_action_pressed("Decrease gun angle"):
+		shootAngle = max(shootAngle - 5, 5)
+		#bulletsPerShot = round(float(shootAngle) / 2)
+		bulletLifeTime = min(float(60 - shootAngle) / 8,2)
+		strength = bulletsPerShot * 1000
+		
+		changeRecticle(shootAngle)
+	
+	if event.is_action("aim clockwise"):
+		rotation += event.get_action_strength("aim clockwise")
+	elif event.is_action("aim counterclockwise"):
+		rotation -= event.get_action_strength("aim counterclockwise")
+	
 	if event.is_action("die"):
 		lives = 1
 		take_damage()
