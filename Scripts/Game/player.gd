@@ -65,7 +65,10 @@ func _physics_process(_delta: float) -> void:
 	
 	#Change recitcle wideness based on angle
 	
-	if not Main.gamepad:
+	if Main.gamepad:
+		#aiming with joystick
+		look_at(self.position + Input.get_vector("left","right","up","down"))
+	else:
 		# Aiming with mouse
 		var MousePos: Vector2 = get_global_mouse_position()
 		look_at(MousePos)
@@ -135,11 +138,6 @@ func _input(event):
 		strength = bulletsPerShot * 1000
 		
 		changeRecticle(shootAngle)
-	
-	if event.is_action("aim clockwise"):
-		rotation += event.get_action_strength("aim clockwise")
-	elif event.is_action("aim counterclockwise"):
-		rotation -= event.get_action_strength("aim counterclockwise")
 	
 	if event.is_action("die"):
 		lives = 1
