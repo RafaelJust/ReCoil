@@ -114,7 +114,7 @@ func _on_body_entered(body: Node) -> void:
 func _input(event):
 	
 	if event.is_action("switch to gamepad"): Main.gamepad = true
-	else: Main.gamepad = false
+	elif event.is_action("switch to kb+m"): Main.gamepad = false # The controls will switch back to kb+m immediately when not checked for some reason
 	
 	# Only shoot when there are bullets in the chamber (usedShots < 2)
 	if event.is_action_pressed("Fire") && usedShots < 2:
