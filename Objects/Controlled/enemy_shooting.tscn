@@ -37,8 +37,8 @@ autostart = true
 wait_time = 5.0
 autostart = true
 
-[node name="PointLight2D" parent="." index="5"]
-color = Color(1, 0, 1, 1)
+[node name="Sprite2D" parent="." index="6"]
+modulate = Color(1, 0, 1, 0.223529)
 
 [connection signal="timeout" from="shootTimer" to="." method="shoot_enemy_bullet"]
 [connection signal="timeout" from="PathChange" to="." method="change_path"]

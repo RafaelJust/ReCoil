@@ -56,8 +56,8 @@ collision_mask = 58
 mass = 0.5
 physics_material_override = ExtResource("1_1gi8i")
 can_sleep = false
-max_contacts_reported = 1
 contact_monitor = true
+max_contacts_reported = 1
 linear_damp = 0.5
 script = ExtResource("2_jcijo")
 

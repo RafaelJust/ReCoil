@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c1u4h03v4523r"]
+[gd_scene load_steps=19 format=3 uid="uid://c1u4h03v4523r"]
 
 [ext_resource type="Script" path="res://Scripts/Game/GameLoop.gd" id="1_ec0l3"]
 [ext_resource type="Script" path="res://Scripts/Game/Camera.gd" id="2_3w055"]
@@ -16,6 +16,9 @@ point_count = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_yek4b"]
 orientation = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kamau"]
+light_mode = 2
 
 [sub_resource type="Animation" id="Animation_nfc4f"]
 resource_name = "Fade_in"
@@ -109,7 +112,15 @@ script = ExtResource("2_3w055")
 shakeCurve = SubResource("Curve_gib4q")
 
 [node name="Background" type="MeshInstance2D" parent="Camera"]
-modulate = Color(0.0562916, 0.0562916, 0.0562914, 1)
+modulate = Color(0, 0, 0, 1)
+position = Vector2(4.50002, 7)
+scale = Vector2(589.5, 338)
+mesh = SubResource("PlaneMesh_yek4b")
+metadata/_edit_lock_ = true
+
+[node name="Background2" type="MeshInstance2D" parent="Camera"]
+modulate = Color(1, 1, 1, 0.145098)
+material = SubResource("CanvasItemMaterial_kamau")
 position = Vector2(4.50002, 7)
 scale = Vector2(589.5, 338)
 mesh = SubResource("PlaneMesh_yek4b")

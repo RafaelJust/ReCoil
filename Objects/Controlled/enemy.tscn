@@ -66,13 +66,14 @@ mesh = SubResource("SphereMesh_op7sj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_b80u8")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(1, 0, 0, 1)
-texture = ExtResource("2_gl3wn")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_3ddu5")
 }
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 0.223529)
+show_behind_parent = true
+texture = ExtResource("2_gl3wn")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
