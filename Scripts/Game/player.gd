@@ -110,6 +110,9 @@ func _on_invincibility_timeout() -> void:
 func _on_body_entered(body: Node) -> void:
 	if body.get_collision_layer_value(5) == true:
 		take_damage()
+		$sparks/Timer.start(0.5)
+	$sparks.emitting = true
+	$sparks/Timer.start(0.1)
 
 func _input(event):
 	
@@ -160,3 +163,7 @@ func changeRecticle(newAngle: float):
 	get_node("/root/Main").times_angle_changed += 1
 	
 	#%ShootSound.pitch_scale = 20 - newAngle
+
+
+func turn_particle_off() -> void:
+	$sparks.emitting = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxajfs5sef2rp"]
+[gd_scene load_steps=15 format=3 uid="uid://bxajfs5sef2rp"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://c1llynuxjtqbn" path="res://Reflect.tres" id="1_1gi8i"]
 [ext_resource type="Script" path="res://Scripts/Game/player.gd" id="2_jcijo"]
@@ -50,6 +50,39 @@ _data = {
 "RESET": SubResource("Animation_52bkv"),
 "flicker": SubResource("Animation_03kya")
 }
+
+[sub_resource type="Gradient" id="Gradient_8g2js"]
+interpolation_mode = 2
+interpolation_color_space = 1
+offsets = PackedFloat32Array(0.351562, 0.96875)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5at65"]
+gradient = SubResource("Gradient_8g2js")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vvx74"]
+lifetime_randomness = 0.19
+particle_flag_disable_z = true
+angle_min = -360.0
+angle_max = 360.0
+inherit_velocity_ratio = 0.5
+spread = 180.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 0, 0)
+scale_min = 6.12
+scale_max = 17.68
+color = Color(1, 0.654902, 0, 1)
+color_ramp = SubResource("GradientTexture1D_5at65")
+hue_variation_min = -0.05
+hue_variation_max = 0.05
+turbulence_noise_strength = 0.0
+turbulence_influence_min = 0.06
+turbulence_influence_max = 0.14
+turbulence_initial_displacement_min = -25.5
+turbulence_initial_displacement_max = 25.5
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 1.0
 
 [node name="Player" type="RigidBody2D"]
 collision_mask = 58
@@ -111,6 +144,17 @@ unique_name_in_owner = true
 stream = ExtResource("5_llqvo")
 bus = &"Gun"
 
+[node name="sparks" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 80
+process_material = SubResource("ParticleProcessMaterial_vvx74")
+lifetime = 3.0
+
+[node name="Timer" type="Timer" parent="sparks"]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Cooldown" to="." method="Reload"]
 [connection signal="timeout" from="Invincibility" to="." method="_on_invincibility_timeout"]
+[connection signal="timeout" from="sparks/Timer" to="." method="turn_particle_off"]
