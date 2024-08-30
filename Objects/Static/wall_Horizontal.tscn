@@ -1,4 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgprf0i2fmkqu"]
+[gd_scene load_steps=8 format=3 uid="uid://dgprf0i2fmkqu"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mruh3"]
+polygon = PackedVector2Array(600, 10, 600, -10, -600, -10, -600, 10)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4r7wu"]
 
@@ -70,6 +73,9 @@ _data = {
 }
 
 [node name="Wall_1" type="Node2D"]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_mruh3")
 
 [node name="Wall_1_1" type="StaticBody2D" parent="."]
 scale = Vector2(60, 1)

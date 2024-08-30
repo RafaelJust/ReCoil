@@ -113,6 +113,7 @@ func _on_body_entered(body: Node) -> void:
 		$sparks/Timer.start(0.5)
 	$sparks.emitting = true
 	$sparks/Timer.start(0.1)
+	$flash.flash()
 
 func _input(event):
 	
