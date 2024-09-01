@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://1ny10ajrep5a"]
+
+[sub_resource type="Curve" id="Curve_eixha"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.90852, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_a4ako"]
+curve = SubResource("Curve_eixha")
+
+[sub_resource type="Gradient" id="Gradient_h6uwv"]
+offsets = PackedFloat32Array(0.484375, 0.867188)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0huig"]
+gradient = SubResource("Gradient_h6uwv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vvx74"]
+lifetime_randomness = 0.19
+particle_flag_disable_z = true
+angle_min = -360.0
+angle_max = 360.0
+inherit_velocity_ratio = 0.2
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+damping_max = 10.0
+scale_min = 4.5
+scale_max = 5.5
+color = Color(1, 0.654902, 0, 1)
+color_ramp = SubResource("GradientTexture1D_0huig")
+alpha_curve = SubResource("CurveTexture_a4ako")
+hue_variation_min = -0.05
+hue_variation_max = 0.05
+turbulence_influence_min = 0.06
+turbulence_influence_max = 0.14
+turbulence_initial_displacement_min = -25.5
+turbulence_initial_displacement_max = 25.5
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 1.0
+
+[node name="sparks" type="GPUParticles2D"]
+show_behind_parent = true
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_vvx74")
+one_shot = true

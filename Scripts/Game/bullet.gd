@@ -12,6 +12,10 @@ func _physics_process(_delta: float) -> void:
 	var dir: Vector2 = linear_velocity
 	%Body.look_at(position + dir)
 
-
 func _on_life_timeout() -> void:
 	queue_free()
+
+
+func _on_body_entered(_body: Node) -> void:
+	$flash.flash()
+	$sparks.emitting = true

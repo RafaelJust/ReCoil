@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bxajfs5sef2rp"]
+[gd_scene load_steps=14 format=3 uid="uid://bxajfs5sef2rp"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://c1llynuxjtqbn" path="res://Reflect.tres" id="1_1gi8i"]
 [ext_resource type="Script" path="res://Scripts/Game/player.gd" id="2_jcijo"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://lh7osmq5tcvc" path="res://assets/sfx/GUN_SOUND_I_THINGK.mp3" id="4_kdyfr"]
 [ext_resource type="AudioStream" uid="uid://cux2k0gh2rv02" path="res://assets/sfx/LOOK_OUT_IM_RELOADING_1.mp3" id="5_llqvo"]
 [ext_resource type="PackedScene" uid="uid://3bxfl3bgqcmg" path="res://Objects/sfx/flash.tscn" id="6_h71hq"]
+[ext_resource type="PackedScene" uid="uid://1ny10ajrep5a" path="res://Objects/sfx/sparks.tscn" id="6_mo4oi"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ck3c0"]
 
@@ -51,46 +52,6 @@ _data = {
 "RESET": SubResource("Animation_52bkv"),
 "flicker": SubResource("Animation_03kya")
 }
-
-[sub_resource type="Curve" id="Curve_eixha"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.90852, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_a4ako"]
-curve = SubResource("Curve_eixha")
-
-[sub_resource type="Gradient" id="Gradient_h6uwv"]
-offsets = PackedFloat32Array(0.484375, 0.867188)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_0huig"]
-gradient = SubResource("Gradient_h6uwv")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vvx74"]
-lifetime_randomness = 0.19
-particle_flag_disable_z = true
-angle_min = -360.0
-angle_max = 360.0
-inherit_velocity_ratio = 1.0
-direction = Vector3(0, 0, 0)
-spread = 180.0
-initial_velocity_max = 10.0
-gravity = Vector3(0, 0, 0)
-damping_max = 10.0
-scale_min = 4.5
-scale_max = 5.5
-color = Color(1, 0.654902, 0, 1)
-color_ramp = SubResource("GradientTexture1D_0huig")
-alpha_curve = SubResource("CurveTexture_a4ako")
-hue_variation_min = -0.05
-hue_variation_max = 0.05
-turbulence_influence_min = 0.06
-turbulence_influence_max = 0.14
-turbulence_initial_displacement_min = -25.5
-turbulence_initial_displacement_max = 25.5
-collision_mode = 1
-collision_friction = 0.0
-collision_bounce = 1.0
 
 [node name="Player" type="RigidBody2D"]
 collision_mask = 58
@@ -152,20 +113,10 @@ unique_name_in_owner = true
 stream = ExtResource("5_llqvo")
 bus = &"Gun"
 
-[node name="sparks" type="GPUParticles2D" parent="."]
-show_behind_parent = true
-emitting = false
-amount = 200
-process_material = SubResource("ParticleProcessMaterial_vvx74")
-lifetime = 3.0
-
-[node name="Timer" type="Timer" parent="sparks"]
-wait_time = 0.1
-one_shot = true
+[node name="sparks" parent="." instance=ExtResource("6_mo4oi")]
 
 [node name="flash" parent="." instance=ExtResource("6_h71hq")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Cooldown" to="." method="Reload"]
 [connection signal="timeout" from="Invincibility" to="." method="_on_invincibility_timeout"]
-[connection signal="timeout" from="sparks/Timer" to="." method="turn_particle_off"]
