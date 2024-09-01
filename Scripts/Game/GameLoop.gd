@@ -1,6 +1,6 @@
 extends Node2D
 
-var isOnBreak: bool = false
+var isOnBreak: bool = true
 var dead: bool = false
 
 const WALLS: Array = ["D","U","L","R"]
@@ -70,6 +70,7 @@ func _ready() -> void:
 	# Hud function again to remove the tutorial text
 	$GameLoopTimerHalf.queue_free()
 	%Hud.changeTutorialText()
+	isOnBreak = true
 	while not dead:
 		if not isOnBreak: # Don't spawn enemies if on break (i.e. showing scores) THIS IS NOT IMPLEMENTED YET
 			if $Walls.CheckOpen(): continue
@@ -203,4 +204,5 @@ func add_score(amount: int):
 	%Hud.show_score(score)
 
 func _on_game_loop_timer_timeout():
-	add_score(15)
+	if not isOnBreak:
+		add_score(15)

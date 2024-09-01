@@ -121,7 +121,7 @@ func _input(event):
 	elif event.is_action("switch to kb+m"): Main.gamepad = false # The controls will switch back to kb+m immediately when not checked for some reason
 	
 	# Only shoot when there are bullets in the chamber (usedShots < 2)
-	if event.is_action_pressed("Fire") && usedShots < 2:
+	if event.is_action_pressed("Fire") && usedShots < 2 && lives > 0:
 		usedShots += 1
 		shoot()
 		
