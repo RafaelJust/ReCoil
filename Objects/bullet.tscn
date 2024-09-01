@@ -1,9 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3lv6qet5o1cg"]
+[gd_scene load_steps=5 format=3 uid="uid://d3lv6qet5o1cg"]
 
 [ext_resource type="Script" path="res://Scripts/Game/bullet.gd" id="1_1ng2v"]
 [ext_resource type="PhysicsMaterial" uid="uid://c1llynuxjtqbn" path="res://Reflect.tres" id="1_7yl33"]
-[ext_resource type="PackedScene" uid="uid://3bxfl3bgqcmg" path="res://Objects/sfx/flash.tscn" id="3_tswhj"]
-[ext_resource type="PackedScene" uid="uid://1ny10ajrep5a" path="res://Objects/sfx/sparks.tscn" id="3_wn1ik"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bo8y2"]
 size = Vector3(20, 4, 0)
@@ -19,11 +17,6 @@ physics_material_override = ExtResource("1_7yl33")
 linear_damp = 0.5
 script = ExtResource("1_1ng2v")
 
-[node name="sparks" parent="." instance=ExtResource("3_wn1ik")]
-amount = 50
-lifetime = 1.0
-one_shot = true
-
 [node name="Body" type="MeshInstance2D" parent="."]
 unique_name_in_owner = true
 mesh = SubResource("BoxMesh_bo8y2")
@@ -34,8 +27,6 @@ shape = SubResource("CircleShape2D_n3kmb")
 [node name="Life" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
-
-[node name="flash" parent="." instance=ExtResource("3_tswhj")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Life" to="." method="_on_life_timeout"]
