@@ -3,6 +3,21 @@
 [ext_resource type="Texture2D" uid="uid://doenxcoj6jvqo" path="res://assets/light.png" id="1_sls0w"]
 [ext_resource type="Script" path="res://Scripts/flash.gd" id="2_6tlfg"]
 
+[sub_resource type="Animation" id="Animation_7dyhi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.4, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_tihrb"]
 resource_name = "flash"
 length = 0.15
@@ -17,21 +32,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 0.458824, 0, 0.670588), Color(1, 0.4, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_7dyhi"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 0.4, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w3sw6"]
