@@ -70,7 +70,7 @@ func _ready() -> void:
 	# Hud function again to remove the tutorial text
 	$GameLoopTimerHalf.queue_free()
 	%Hud.changeTutorialText()
-	isOnBreak = true
+	isOnBreak = false
 	while not dead:
 		if not isOnBreak: # Don't spawn enemies if on break (i.e. showing scores) THIS IS NOT IMPLEMENTED YET
 			if $Walls.CheckOpen(): continue
