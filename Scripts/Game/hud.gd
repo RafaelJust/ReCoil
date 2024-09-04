@@ -19,7 +19,7 @@ func show_lives(lives: int) -> void:
 
 # Changes the score text and plays the animation at the same time, usually called from GameLoop.gd
 func show_score(score: int) -> void:
-	$Score.text = str(score)
+	$Score.text = "[right]" + str(score)
 	$SCOREANIM.play("WAVE_splash") #The animations was originally for displaying waves, hence the name :P
 
 func changeTutorialText():
