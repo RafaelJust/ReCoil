@@ -38,6 +38,7 @@ func _on_body_entered(body: Node) -> void:
 		if lives <= 0:
 			get_node("/root/Main").kills += 1
 			get_node("/root/Main").add_score(value)
+			get_node("/root/Main").combo = get_node("/root/Main/UI/Hud").combo(get_node("/root/Main").combo)
 			queue_free()
 	if body == player && !canShoot:
 		#move away from the player

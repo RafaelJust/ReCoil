@@ -11,6 +11,16 @@ var currentTutorial: int = 0
 @onready var cooldown: Timer = get_node("/root/Main/Player/Cooldown")
 @onready var player: Node2D = get_node("/root/Main/Player")
 
+# Checks if the timer is 
+func combo(currentCombo: int) -> int:
+	var newCombo = 1;
+	if not %Combotimer.is_stopped(): # Combo counting stuff
+		%Combotimer.stop()
+		newCombo = currentCombo + 1
+	%Combotimer.start()
+	$Score/ComboCount.text = "[right]%dx" % newCombo
+	return newCombo
+
 # Other scripts use this function instead of directly editing it for stability
 func show_lives(lives: int) -> void:
 	if lives == 2:   %life1.visible = false
@@ -22,7 +32,7 @@ func show_score(score: int) -> void:
 	$Score.text = "[right]" + str(score)
 	$SCOREANIM.play("WAVE_splash") #The animations was originally for displaying waves, hence the name :P
 
-func changeTutorialText():
+func changeTutorialText() -> void:
 	currentTutorial += 1;
 	if currentTutorial > 3:
 		$Tutorial.queue_free()
@@ -48,7 +58,7 @@ func _process(_delta: float) -> void:
 		shell2.modulate = Color(color2,color2,color2)
 
 # Load title screen after Dying
-func _on_game_over_anim_animation_finished(anim_name):
+func _on_game_over_anim_animation_finished(anim_name) -> void:
 	if anim_name=="Out":
 		#Clear all nodes first, because collision objects can't be present when changing scene
 		for n: Node in get_node("/root/Main").get_children():

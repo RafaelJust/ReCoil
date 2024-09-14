@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://biffct7nsk356"]
+[gd_scene load_steps=14 format=3 uid="uid://biffct7nsk356"]
 
 [ext_resource type="Script" path="res://Scripts/Game/hud.gd" id="1_7omw2"]
 [ext_resource type="Texture2D" uid="uid://ufpfu172oye6" path="res://assets/Box_outline.png" id="1_kmcvl"]
@@ -8,6 +8,15 @@
 [sub_resource type="Curve" id="Curve_jhyui"]
 _data = [Vector2(0, 0.163859), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.33882, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="GDScript" id="GDScript_3rxwk"]
+resource_name = "SyncProgressBar"
+script/source = "extends Timer
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	%ComboBar.value = self.time_left
+"
 
 [sub_resource type="Animation" id="Animation_qv6vi"]
 length = 0.001
@@ -692,13 +701,13 @@ text = "12345"
 scroll_active = false
 shortcut_keys_enabled = false
 
-[node name="ComboMult" type="RichTextLabel" parent="Score"]
+[node name="ComboCount" type="RichTextLabel" parent="Score"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.338912
-anchor_top = -0.903846
-anchor_right = 0.962343
-anchor_bottom = 0.163462
+anchor_left = 0.338889
+anchor_top = -1.35616
+anchor_right = 0.961111
+anchor_bottom = 0.164384
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 80
@@ -706,23 +715,26 @@ bbcode_enabled = true
 text = "[right]0x"
 metadata/_edit_use_anchors_ = true
 
-[node name="ProgressBar" type="ProgressBar" parent="Score"]
+[node name="ComboBar" type="ProgressBar" parent="Score"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0041841
-anchor_top = 0.0576923
-anchor_right = 0.941423
-anchor_bottom = -0.0192308
+anchor_left = 0.00555555
+anchor_top = -0.30137
+anchor_right = 0.95
+anchor_bottom = -0.30137
 offset_right = 4.0
 offset_bottom = 27.0
-max_value = 5.0
-rounded = true
+max_value = 10.0
 fill_mode = 1
 show_percentage = false
 metadata/_edit_use_anchors_ = true
 
 [node name="Combotimer" type="Timer" parent="Score"]
-wait_time = 5.0
+unique_name_in_owner = true
+wait_time = 10.0
+one_shot = true
+script = SubResource("GDScript_3rxwk")
 
 [node name="SCOREANIM" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Score")

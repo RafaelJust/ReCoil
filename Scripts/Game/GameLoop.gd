@@ -15,6 +15,8 @@ var musicprogs: int = 0
 # Boxes and powerups block other items and enemies
 var blocked: Array
 
+var combo: int = 0
+
 signal WaveStart
 
 
