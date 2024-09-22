@@ -19,6 +19,7 @@ var combo: int = 0
 
 signal WaveStart
 
+var lastInstrumentUpdated: int = -1 #Make sure the same instrument doesn't progress twice
 
 # Game stats that are tracked during playtime
 var kills: int = 0
@@ -93,13 +94,16 @@ func _ready() -> void:
 
 func UpdateMusic():
 	musicprogs += 1
-	var rnd: int
-	if musicprogs >= 4: rnd = randi_range(1,8)
-	else: rnd = randi_range(1,3)
+	var rnd: int = lastInstrumentUpdated
+	# make sure the same instrument doesn't get updated twice.
+	# I've had godawful RNG in which the game only updated the lead and it didn't sound good :(
+	while (rnd == lastInstrumentUpdated):
+		if musicprogs >= 4: rnd = randi_range(1,8)
+		else: rnd = randi_range(1,3)
 	
 	if rnd == 1: $Music.Drums = $Music.Drums + 1
-	elif rnd == 2: $Music.Bass = $Music.Bass + 1
-	elif rnd == 3: $Music.Lead = $Music.Lead + 1
+	elif rnd == 2: $Music.Lead = $Music.Lead + 1
+	elif rnd == 3: $Music.Bass = $Music.Bass + 1
 	else:
 		$Music.Other[rnd - 4] = not $Music.Other[rnd - 4]
 
