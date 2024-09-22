@@ -53,6 +53,9 @@ func get_all_files(path: String, file_ext := "", files := []):
 
 	return files
 
+# Calls the hud's combo counting machanic, and updates the combo
+func combo_add() -> void:
+	combo = %Hud.combo(combo)
 
 func _ready() -> void:
 	#Scroll through the tutorial text

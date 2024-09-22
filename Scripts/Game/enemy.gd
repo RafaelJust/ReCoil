@@ -35,10 +35,10 @@ func _on_body_entered(body: Node) -> void:
 		lives -= 1
 		$AnimationPlayer.play("flicker")
 		body.queue_free() #remove the hit bullet
-		if lives <= 0:
+		if lives == 0:
 			get_node("/root/Main").kills += 1
 			get_node("/root/Main").add_score(value)
-			get_node("/root/Main").combo = get_node("/root/Main/UI/Hud").combo(get_node("/root/Main").combo)
+			get_node("/root/Main").combo_add();
 			queue_free()
 	if body == player && !canShoot:
 		#move away from the player

@@ -293,7 +293,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Stats/Bg:color")
+tracks/2/path = NodePath("Bg:color")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -355,7 +355,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Stats/Bg:color")
+tracks/3/path = NodePath("Bg:color")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -704,10 +704,10 @@ shortcut_keys_enabled = false
 [node name="ComboCount" type="RichTextLabel" parent="Score"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.338889
-anchor_top = -1.35616
+anchor_left = 0.0333333
+anchor_top = -1.84932
 anchor_right = 0.961111
-anchor_bottom = 0.164384
+anchor_bottom = -0.315068
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 80
@@ -732,7 +732,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Combotimer" type="Timer" parent="Score"]
 unique_name_in_owner = true
-wait_time = 10.0
+wait_time = 5.0
 one_shot = true
 script = SubResource("GDScript_3rxwk")
 
@@ -776,6 +776,18 @@ grow_vertical = 2
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
+[node name="Bg" type="ColorRect" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.000259399
+offset_top = -1.52588e-05
+offset_right = -0.000244141
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 0.235294)
+
 [node name="Stats" type="Control" parent="GameOver"]
 layout_mode = 1
 anchor_left = 0.128472
@@ -785,19 +797,6 @@ anchor_bottom = 0.345679
 offset_right = 40.0
 offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
-
-[node name="Bg" type="ColorRect" parent="GameOver/Stats"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -148.0
-offset_top = -224.0
-offset_right = -148.0
-offset_bottom = -224.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0, 0, 0.235294)
 
 [node name="WaveValue" type="Label" parent="GameOver/Stats"]
 visible = false
@@ -910,7 +909,6 @@ grow_vertical = 2
 scale = Vector2(50, 50)
 pivot_offset = Vector2(192, 108)
 texture = ExtResource("4_rkidj")
-metadata/_edit_lock_ = true
 
 [node name="GameOverAnim" type="AnimationPlayer" parent="."]
 root_node = NodePath("../GameOver")
