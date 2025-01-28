@@ -14,7 +14,7 @@ resource_name = "SyncProgressBar"
 script/source = "extends Timer
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	%ComboBar.value = self.time_left
 "
 
