@@ -28,7 +28,7 @@ func _on_continue_button_pressed():
 
 
 func _on_exit_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/Title.tscn")
+	get_node("/root/Main/UI/SceneTransition").transition("res://Scenes/Title.tscn");
 
 
 func _on_master_volume_slider_value_changed(value):

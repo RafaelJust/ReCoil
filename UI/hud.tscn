@@ -415,4 +415,3 @@ metadata/_edit_use_anchors_ = true
 
 [node name="GameOver" parent="." instance=ExtResource("4_vkj77")]
 layout_mode = 1
-metadata/_edit_lock_ = true

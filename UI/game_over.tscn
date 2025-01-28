@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpjdtk6kfkapc"]
-
-[ext_resource type="Texture2D" uid="uid://bmldp564m2e0o" path="res://assets/Circle.png" id="1_pkywo"]
+[gd_scene load_steps=5 format=3 uid="uid://dpjdtk6kfkapc"]
 
 [sub_resource type="Animation" id="Animation_hcp5q"]
 resource_name = "Game_over"
-length = 2.0
+length = 1.5
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -236,9 +234,9 @@ tracks/5/path = NodePath("ColorRect:size:x")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(323, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(323, -0.25, 0, 0.25, 0, 0, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0, 0.001)
 }
 tracks/6/type = "bezier"
 tracks/6/imported = false
@@ -247,9 +245,9 @@ tracks/6/path = NodePath("ColorRect:size:y")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(76, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(76, -0.25, 0, 0.25, 0, 76, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0, 0.001)
 }
 tracks/7/type = "bezier"
 tracks/7/imported = false
@@ -258,9 +256,9 @@ tracks/7/path = NodePath("ColorRect:position:x")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0, 0.001)
 }
 tracks/8/type = "bezier"
 tracks/8/imported = false
@@ -269,9 +267,9 @@ tracks/8/path = NodePath("ColorRect:position:y")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(572, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(572, -0.25, 0, 0.25, 0, 572, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0, 0.001)
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -280,10 +278,10 @@ tracks/9/path = NodePath("GameOverText:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [true, false]
 }
 tracks/10/type = "bezier"
 tracks/10/imported = false
@@ -347,14 +345,81 @@ tracks/15/path = NodePath("ColorRect:rotation")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0, 0.001)
+}
+tracks/16/type = "bezier"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("StatsCover:position:x")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(139, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/17/type = "bezier"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("StatsCover:position:y")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(206, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/18/type = "bezier"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("StatsCover:rotation")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/19/type = "bezier"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("StatsCover:size:x")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(494, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/20/type = "bezier"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("StatsCover:size:y")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Stats:visible")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_utwgw"]
 resource_name = "Show stats"
-length = 5.0
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -513,6 +578,73 @@ tracks/13/keys = {
 "points": PackedFloat32Array(76, -0.25, 0, 0.25, 0, 76, -0.25, 0, 0.25, 0, 76, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0.5, 0.7, 0.9)
 }
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("StatsCover:position:x")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(139, -0.25, 0, 0.25, 0, 139, -0.25, 0, 0.25, 0, 139, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1, 1.23333, 1.5)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("StatsCover:position:y")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(206, -0.25, 0, 0.25, 0, 206, -0.25, 0, 0.25, 0, 459, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1, 1.23333, 1.5)
+}
+tracks/16/type = "bezier"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("StatsCover:rotation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1, 1.23333, 1.5)
+}
+tracks/17/type = "bezier"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("StatsCover:size:x")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(494, -0.25, 0, 0.25, 0, 494, -0.25, 0, 0.25, 0, 494, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1, 1.23333, 1.5)
+}
+tracks/18/type = "bezier"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("StatsCover:size:y")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 253, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1, 1.23333, 1.5)
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Stats:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 1.23333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l6tbg"]
 _data = {
@@ -552,6 +684,7 @@ grow_vertical = 2
 color = Color(1, 0, 0, 0.203922)
 
 [node name="Stats" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchor_left = 0.128472
 anchor_top = 0.345679
@@ -633,6 +766,20 @@ offset_bottom = 234.0
 theme_override_font_sizes/normal_font_size = 51
 text = "Final Score:"
 
+[node name="StatsCover" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.121
+anchor_top = 0.318
+anchor_right = 0.549
+anchor_bottom = 0.708
+offset_left = -0.392014
+offset_top = -0.0640106
+offset_right = 0.552002
+offset_bottom = -252.784
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="GameOverText" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -648,22 +795,6 @@ text = "Game over_"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Vignette" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 384.0
-offset_top = 216.0
-offset_right = -384.0
-offset_bottom = -216.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(50, 50)
-pivot_offset = Vector2(192, 108)
-texture = ExtResource("1_pkywo")
-metadata/_edit_lock_ = true
-
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_l6tbg")
@@ -675,5 +806,4 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -76.0
-offset_right = 323.0
 grow_vertical = 0

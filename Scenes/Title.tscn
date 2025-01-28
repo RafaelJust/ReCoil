@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://nctlrrxvla3a"]
+[gd_scene load_steps=7 format=3 uid="uid://nctlrrxvla3a"]
 
 [ext_resource type="Script" path="res://Scripts/Main_Menu/Manager.gd" id="1_26gnb"]
 [ext_resource type="AudioStream" uid="uid://cux2k0gh2rv02" path="res://assets/sfx/LOOK_OUT_IM_RELOADING_1.mp3" id="2_t85al"]
+[ext_resource type="PackedScene" uid="uid://frgajvcc5vvv" path="res://UI/scene_transition.tscn" id="3_ud5ar"]
 
 [sub_resource type="Animation" id="Animation_1icyh"]
 resource_name = "Fade_out"
@@ -201,6 +202,9 @@ color = Color(0, 0, 0, 0)
 libraries = {
 "": SubResource("AnimationLibrary_u7v65")
 }
+
+[node name="SceneTransition" parent="." instance=ExtResource("3_ud5ar")]
+layout_mode = 1
 
 [connection signal="button_down" from="Button" to="." method="Play"]
 [connection signal="button_down" from="Button2" to="." method="Quit"]
