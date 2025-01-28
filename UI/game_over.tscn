@@ -1,0 +1,147 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpjdtk6kfkapc"]
+
+[ext_resource type="Texture2D" uid="uid://bmldp564m2e0o" path="res://assets/Circle.png" id="1_pkywo"]
+
+[node name="GameOver" type="Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.000259399
+offset_top = -1.52588e-05
+offset_right = -0.000244141
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 0.235294)
+
+[node name="Stats" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.128472
+anchor_top = 0.345679
+anchor_right = 0.128472
+anchor_bottom = 0.345679
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="WaveValue" type="Label" parent="Stats"]
+visible = false
+layout_mode = 0
+offset_left = 384.0
+offset_top = 1.52588e-05
+offset_right = 424.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "69"
+
+[node name="KillsValue" type="Label" parent="Stats"]
+visible = false
+layout_mode = 0
+offset_left = 384.0
+offset_top = 47.0
+offset_right = 424.0
+offset_bottom = 89.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "69"
+
+[node name="AngleValue" type="Label" parent="Stats"]
+visible = false
+layout_mode = 0
+offset_left = 384.0
+offset_top = 94.0
+offset_right = 424.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "69"
+
+[node name="ScoreValue" type="Label" parent="Stats"]
+visible = false
+layout_mode = 0
+offset_left = 320.0
+offset_top = 160.0
+offset_right = 465.0
+offset_bottom = 229.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "69420"
+
+[node name="Wave" type="RichTextLabel" parent="Stats"]
+visible = false
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 47.0
+theme_override_font_sizes/normal_font_size = 31
+text = "Wave:"
+
+[node name="Kills" type="RichTextLabel" parent="Stats"]
+visible = false
+layout_mode = 0
+offset_top = 47.0
+offset_right = 78.0
+offset_bottom = 94.0
+theme_override_font_sizes/normal_font_size = 31
+text = "Kills:"
+
+[node name="Times angle changed" type="RichTextLabel" parent="Stats"]
+visible = false
+layout_mode = 0
+offset_left = 0.000244141
+offset_top = 94.0
+offset_right = 350.0
+offset_bottom = 141.0
+theme_override_font_sizes/normal_font_size = 31
+text = "Times angle changed: "
+
+[node name="Score" type="RichTextLabel" parent="Stats"]
+visible = false
+layout_mode = 0
+offset_left = 0.000259399
+offset_top = 160.0
+offset_right = 360.0
+offset_bottom = 234.0
+theme_override_font_sizes/normal_font_size = 51
+text = "Final Score:"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.036
+anchor_right = 0.101
+anchor_bottom = 0.125
+offset_left = 93.528
+offset_top = 119.0
+offset_right = 351.648
+offset_bottom = 150.0
+theme_override_font_sizes/bold_font_size = 61
+bbcode_enabled = true
+text = "[b]Game over"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 384.0
+offset_top = 216.0
+offset_right = -384.0
+offset_bottom = -216.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(50, 50)
+pivot_offset = Vector2(192, 108)
+texture = ExtResource("1_pkywo")

@@ -7,8 +7,8 @@
 [ext_resource type="Script" path="res://Scripts/Game/Walls.gd" id="4_rnqih"]
 [ext_resource type="PackedScene" uid="uid://dgprf0i2fmkqu" path="res://Objects/Static/wall_Horizontal.tscn" id="5_mcyko"]
 [ext_resource type="PackedScene" uid="uid://dv35qxgrprgsk" path="res://Objects/Static/wall_Vertical.tscn" id="6_af863"]
-[ext_resource type="PackedScene" uid="uid://biffct7nsk356" path="res://hud.tscn" id="7_nb6g4"]
-[ext_resource type="PackedScene" uid="uid://7y23n5ui2rpc" path="res://pause_menu.tscn" id="8_vmo3g"]
+[ext_resource type="PackedScene" uid="uid://biffct7nsk356" path="res://UI/hud.tscn" id="7_nb6g4"]
+[ext_resource type="PackedScene" uid="uid://7y23n5ui2rpc" path="res://UI/pause_menu.tscn" id="8_vmo3g"]
 
 [sub_resource type="Curve" id="Curve_gib4q"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
