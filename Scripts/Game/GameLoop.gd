@@ -138,7 +138,7 @@ func _input(event: InputEvent) -> void:
 	#pause / end the game
 	if event.is_action("quit"):
 		if !dead: pause_game()
-		else: $UI/Hud/GameOverAnim.play("Out")
+		else:$UI/SceneTransition.transition("res://Scenes/Title.tscn");
 
 func spawnMisc() -> void:
 	# make new gun types rarer than boxes
@@ -185,7 +185,7 @@ func _on_player_death() -> void:
 	stats.get_node("AngleValue").text = str(times_angle_changed)
 	stats.get_node("ScoreValue").text = str(score)
 	# Here can come the animation for the signal n shit
-	$UI/Hud/GameOverAnim.play("GameOver")
+	$UI/Hud/GameOver/Animation.play("Game_over")
 
 
 func spawnItem():

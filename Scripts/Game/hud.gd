@@ -56,13 +56,3 @@ func _process(_delta: float) -> void:
 		# Get the correct color value for shell 2, and apply it
 		var color2: float = colorRamp.sample(1 - progress)
 		shell2.modulate = Color(color2,color2,color2)
-
-# Load title screen after Dying
-func _on_game_over_anim_animation_finished(anim_name) -> void:
-	if anim_name=="Out":
-		#Clear all nodes first, because collision objects can't be present when changing scene
-		for n: Node in get_node("/root/Main").get_children():
-			if n.name != "UI":
-				n.queue_free()
-		await get_tree().process_frame
-		get_tree().change_scene_to_file("res://Scenes/Title.tscn")

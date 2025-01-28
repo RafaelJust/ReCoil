@@ -222,7 +222,6 @@ visible = false
 GameController = NodePath("../..")
 
 [node name="SceneTransition" parent="UI" instance=ExtResource("10_y4hyr")]
-unique_name_in_owner = true
 
 [connection signal="timeout" from="GameLoopTimer" to="." method="_on_game_loop_timer_timeout"]
 [connection signal="deathSignal" from="Player" to="." method="_on_player_death"]

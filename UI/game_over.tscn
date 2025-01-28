@@ -1,4 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpjdtk6kfkapc"]
+[gd_scene load_steps=6 format=3 uid="uid://dpjdtk6kfkapc"]
+
+[sub_resource type="GDScript" id="GDScript_bwfvo"]
+resource_name = "BackToMenu"
+script/source = "extends Control
+
+var state: int = 0;
+
+func _on_animation_animation_finished(anim_name: StringName) -> void:
+	if anim_name == \"Game_over\":
+		state = 1;
+	elif anim_name == \"Stats\":
+		state = 2;
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed(\"Fire\"):
+		match state:
+			1:
+				$Animation.play(\"Stats\");
+				state = 0;
+			2:
+				get_node(\"/root/Main/UI/SceneTransition\").transition(\"res://Scenes/Title.tscn\");
+				state = 0;
+"
 
 [sub_resource type="Animation" id="Animation_hcp5q"]
 resource_name = "Game_over"
@@ -418,7 +441,7 @@ tracks/21/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_utwgw"]
-resource_name = "Show stats"
+resource_name = "Stats"
 length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -650,7 +673,7 @@ tracks/19/keys = {
 _data = {
 "Game_over": SubResource("Animation_hcp5q"),
 "RESET": SubResource("Animation_egtn3"),
-"Show stats": SubResource("Animation_utwgw")
+"Stats": SubResource("Animation_utwgw")
 }
 
 [node name="GameOver" type="Control"]
@@ -660,6 +683,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = SubResource("GDScript_bwfvo")
 metadata/_edit_lock_ = true
 
 [node name="BgCover" type="ColorRect" parent="."]
@@ -806,4 +830,7 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -76.0
+offset_right = 323.0
 grow_vertical = 0
+
+[connection signal="animation_finished" from="Animation" to="." method="_on_animation_animation_finished"]
