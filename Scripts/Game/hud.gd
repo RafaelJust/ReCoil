@@ -18,7 +18,7 @@ func combo(currentCombo: int) -> int:
 		%Combotimer.stop()
 		newCombo = currentCombo + 1
 	%Combotimer.start()
-	$Score/ComboCount.text = "[right]%dx" % newCombo
+	$ComboCount.text = "%dx" % newCombo
 	return newCombo
 
 # Other scripts use this function instead of directly editing it for stability
@@ -30,7 +30,6 @@ func show_lives(lives: int) -> void:
 # Changes the score text and plays the animation at the same time, usually called from GameLoop.gd
 func show_score(score: int) -> void:
 	$Score.text = "[right]" + str(score)
-	$SCOREANIM.play("WAVE_splash") #The animations was originally for displaying waves, hence the name :P
 
 func changeTutorialText() -> void:
 	currentTutorial += 1;

@@ -9,6 +9,15 @@
 _data = [Vector2(0, 0.163859), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.33882, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gerye"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bde5x"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_0os5f"]
+ProgressBar/styles/background = SubResource("StyleBoxEmpty_gerye")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_bde5x")
+
 [sub_resource type="GDScript" id="GDScript_3rxwk"]
 resource_name = "SyncProgressBar"
 script/source = "extends Timer
@@ -17,128 +26,6 @@ script/source = "extends Timer
 func _process(_delta: float) -> void:
 	%ComboBar.value = self.time_left
 "
-
-[sub_resource type="Animation" id="Animation_qv6vi"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:theme_override_font_sizes/normal_font_size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:size:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(180, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:size:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(73, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:position:x")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(972, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".:position:y")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(575, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="Animation" id="Animation_ep64t"]
-resource_name = "WAVE_splash"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:theme_override_font_sizes/normal_font_size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(80, -0.25, 0, 0.25, 0, 50, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:size:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(239, -0.25, 0, 0.25, 0, 180, -0.6, 0.5, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:size:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(104, -0.25, 0, 0.25, 0, 73, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:position:x")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(913, -0.25, 0, 0.25, 0, 972, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".:position:y")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(544, -0.25, 0, 0.25, 0, 575, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_11pj0"]
-_data = {
-"RESET": SubResource("Animation_qv6vi"),
-"WAVE_splash": SubResource("Animation_ep64t")
-}
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -331,64 +218,62 @@ offset_bottom = 33.0
 grow_horizontal = 0
 color = Color(1, 0, 0, 1)
 
-[node name="Score" type="RichTextLabel" parent="."]
-clip_contents = false
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -180.0
-offset_top = -73.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_font_sizes/normal_font_size = 0
-bbcode_enabled = true
-text = "12345"
-scroll_active = false
-shortcut_keys_enabled = false
-
-[node name="ComboCount" type="RichTextLabel" parent="Score"]
+[node name="ComboBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0333333
-anchor_top = -1.84932
-anchor_right = 0.961111
-anchor_bottom = -0.315068
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = -48.0
+offset_right = 229.0
+offset_bottom = -21.0
+theme = SubResource("Theme_0os5f")
+max_value = 10.0
+value = 3.25
+show_percentage = false
+
+[node name="ComboCount" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = -145.0
+offset_right = 207.0
+offset_bottom = -29.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 80
 bbcode_enabled = true
-text = "[right]0x"
-metadata/_edit_use_anchors_ = true
+text = "0x"
 
-[node name="ComboBar" type="ProgressBar" parent="Score"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.00555555
-anchor_top = -0.30137
-anchor_right = 0.95
-anchor_bottom = -0.30137
-offset_right = 4.0
-offset_bottom = 27.0
-max_value = 10.0
-fill_mode = 1
-show_percentage = false
-metadata/_edit_use_anchors_ = true
-
-[node name="Combotimer" type="Timer" parent="Score"]
+[node name="Combotimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 5.0
 one_shot = true
 script = SubResource("GDScript_3rxwk")
 
-[node name="SCOREANIM" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Score")
-libraries = {
-"": SubResource("AnimationLibrary_11pj0")
-}
+[node name="Score" type="RichTextLabel" parent="."]
+clip_contents = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.977
+anchor_top = 0.966
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -179.504
+offset_top = -24.968
+offset_right = -26.0
+offset_bottom = -22.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 0
+bbcode_enabled = true
+text = "[right]12345"
+scroll_active = false
+shortcut_keys_enabled = false
+metadata/_edit_use_anchors_ = true
 
 [node name="Tutorial" type="Control" parent="."]
 layout_mode = 1

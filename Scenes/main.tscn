@@ -215,6 +215,8 @@ shape = SubResource("RectangleShape2D_dys3k")
 [node name="Hud" parent="UI" instance=ExtResource("7_nb6g4")]
 unique_name_in_owner = true
 process_mode = 1
+offset_top = -2.0
+offset_bottom = -2.0
 
 [node name="Pause menu" parent="UI" node_paths=PackedStringArray("GameController") instance=ExtResource("8_vmo3g")]
 unique_name_in_owner = true
