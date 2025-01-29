@@ -70,17 +70,22 @@ bus = &"Music"
 
 [node name="1" type="AudioStreamPlayer" parent="Other"]
 stream = ExtResource("11_j3kfy")
+bus = &"Music"
 
 [node name="2" type="AudioStreamPlayer" parent="Other"]
 stream = ExtResource("12_1kkxn")
+bus = &"Music"
 
 [node name="3" type="AudioStreamPlayer" parent="Other"]
 stream = ExtResource("13_tj4sb")
+bus = &"Music"
 
 [node name="4" type="AudioStreamPlayer" parent="Other"]
 stream = ExtResource("14_rgoms")
+bus = &"Music"
 
 [node name="5" type="AudioStreamPlayer" parent="Other"]
 stream = ExtResource("15_ejyex")
+bus = &"Music"
 
 [connection signal="timeout" from="Timer_single" to="." method="LoopDone_Drums"]
