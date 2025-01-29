@@ -111,7 +111,7 @@ tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 324, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(712, -0.25, 0, 0.25, 0, 712, -0.25, 0, 0.25, 0, 712, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(1, 1.23333, 1.5)
 }
 tracks/8/type = "bezier"
@@ -122,7 +122,7 @@ tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(572, -0.25, 0, 0.25, 0, 572, -0.25, 0, 0.25, 0, 572, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(294, -0.25, 0, 0.25, 0, 294, -0.25, 0, 0.25, 0, 294, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(1, 1.23333, 1.5)
 }
 tracks/9/type = "value"
@@ -191,6 +191,18 @@ tracks/14/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("ColorRect:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(1, 1.23333, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0.0, 0.0, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_egtn3"]
@@ -280,7 +292,7 @@ tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.0005, 0, 0.0005, 0, 0, -0.0005, 0, 0.0005, 0),
+"points": PackedFloat32Array(697, -0.0005, 0, 0.0005, 0, 0, -0.0005, 0, 0.0005, 0),
 "times": PackedFloat32Array(0, 0.001)
 }
 tracks/8/type = "bezier"
@@ -291,7 +303,7 @@ tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(572, -0.0005, 0, 0.0005, 0, 572, -0.0005, 0, 0.0005, 0),
+"points": PackedFloat32Array(297, -0.0005, 0, 0.0005, 0, 572, -0.0005, 0, 0.0005, 0),
 "times": PackedFloat32Array(0, 0.001)
 }
 tracks/9/type = "value"
@@ -439,6 +451,66 @@ tracks/21/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("GameOverText:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(712, 294)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("GameOverText:rotation")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("GameOverText:size")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(405, 112)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("ColorRect:position")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(712, 294)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("ColorRect:size")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 76)]
+}
 
 [sub_resource type="Animation" id="Animation_utwgw"]
 resource_name = "Stats"
@@ -549,124 +621,105 @@ tracks/8/keys = {
 tracks/9/type = "bezier"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("ColorRect:position:x")
+tracks/9/path = NodePath("StatsCover:position:x")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 346, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.5, 0.7, 0.9)
+"points": PackedFloat32Array(139, -0.25, 0, 0.25, 0, 139, -0.25, 0, 0.25, 0, 139, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1, 1.23333, 1.5)
 }
 tracks/10/type = "bezier"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("ColorRect:position:y")
+tracks/10/path = NodePath("StatsCover:position:y")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(572, -0.25, 0, 0.25, 0, 572, -0.25, 0, 0.25, 0, 572, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.5, 0.7, 0.9)
+"points": PackedFloat32Array(206, -0.25, 0, 0.25, 0, 206, -0.25, 0, 0.25, 0, 459, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1, 1.23333, 1.5)
 }
 tracks/11/type = "bezier"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("ColorRect:rotation")
+tracks/11/path = NodePath("StatsCover:rotation")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.5, 0.7, 0.9)
+"times": PackedFloat32Array(1, 1.23333, 1.5)
 }
 tracks/12/type = "bezier"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("ColorRect:size:x")
+tracks/12/path = NodePath("StatsCover:size:x")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 346, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.5, 0.7, 0.9)
+"points": PackedFloat32Array(494, -0.25, 0, 0.25, 0, 494, -0.25, 0, 0.25, 0, 494, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1, 1.23333, 1.5)
 }
 tracks/13/type = "bezier"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("ColorRect:size:y")
+tracks/13/path = NodePath("StatsCover:size:y")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(76, -0.25, 0, 0.25, 0, 76, -0.25, 0, 0.25, 0, 76, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.5, 0.7, 0.9)
-}
-tracks/14/type = "bezier"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("StatsCover:position:x")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(139, -0.25, 0, 0.25, 0, 139, -0.25, 0, 0.25, 0, 139, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(1, 1.23333, 1.5)
-}
-tracks/15/type = "bezier"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("StatsCover:position:y")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(206, -0.25, 0, 0.25, 0, 206, -0.25, 0, 0.25, 0, 459, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(1, 1.23333, 1.5)
-}
-tracks/16/type = "bezier"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("StatsCover:rotation")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(1, 1.23333, 1.5)
-}
-tracks/17/type = "bezier"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("StatsCover:size:x")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(494, -0.25, 0, 0.25, 0, 494, -0.25, 0, 0.25, 0, 494, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(1, 1.23333, 1.5)
-}
-tracks/18/type = "bezier"
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/path = NodePath("StatsCover:size:y")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 253, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(1, 1.23333, 1.5)
 }
-tracks/19/type = "value"
-tracks/19/imported = false
-tracks/19/enabled = true
-tracks/19/path = NodePath("Stats:visible")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/keys = {
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Stats:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
 "times": PackedFloat32Array(0, 1.23333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("ColorRect:position")
+tracks/15/interp = 2
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0.5, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(712, 294), Vector2(712, 294), Vector2(1015, 294)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("ColorRect:rotation")
+tracks/16/interp = 2
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0.5, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0.0, 0.0, 0.0]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("ColorRect:size")
+tracks/17/interp = 2
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0.5, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 76), Vector2(303, 76), Vector2(0, 76)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l6tbg"]
@@ -798,7 +851,7 @@ anchor_top = 0.318
 anchor_right = 0.549
 anchor_bottom = 0.708
 offset_left = -0.392014
-offset_top = -0.0640106
+offset_top = -0.0639954
 offset_right = 0.552002
 offset_bottom = -252.784
 grow_horizontal = 2
@@ -811,10 +864,10 @@ anchors_preset = -1
 anchor_left = 0.036
 anchor_right = 0.101
 anchor_bottom = 0.125
-offset_left = -26.472
-offset_top = 569.0
-offset_right = 303.648
-offset_bottom = 600.0
+offset_left = 670.528
+offset_top = 294.0
+offset_right = 1000.65
+offset_bottom = 325.0
 theme_override_font_sizes/normal_font_size = 51
 text = "Game over_"
 fit_content = true
@@ -827,9 +880,11 @@ libraries = {
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.618056
+anchor_top = 0.570988
+anchor_right = 0.618056
+anchor_bottom = 0.570988
 offset_top = -76.0
 grow_vertical = 0
 
