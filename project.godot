@@ -11,9 +11,11 @@ config_version=5
 [application]
 
 config/name="ReCoil"
+config/version="0.9"
 run/main_scene="res://Scenes/Title.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
 
 [display]
 
