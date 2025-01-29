@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://frgajvcc5vvv"]
+[gd_scene load_steps=8 format=3 uid="uid://frgajvcc5vvv"]
+
+[ext_resource type="Shader" path="res://shaders/CRT.gdshader" id="1_hgj7o"]
 
 [sub_resource type="GDScript" id="GDScript_hf4f0"]
 resource_name = "Transition"
@@ -212,6 +214,30 @@ _data = {
 "RESET": SubResource("Animation_te2hr")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jn5yo"]
+shader = ExtResource("1_hgj7o")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.2
+shader_parameter/scanlines_width = 0.1
+shader_parameter/grille_opacity = 0.2
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = false
+shader_parameter/roll_speed = 2.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.01
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.01
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.2
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
 [node name="SceneTransition" type="Control"]
 process_mode = 3
 layout_mode = 3
@@ -237,5 +263,15 @@ color = Color(0, 0, 0, 1)
 libraries = {
 "": SubResource("AnimationLibrary_fl2u0")
 }
+
+[node name="CRT shader" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_jn5yo")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
