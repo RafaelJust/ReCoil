@@ -48,7 +48,7 @@ func shoot_enemy_bullet() -> void:
 	var bullet: Node2D = preload("res://Objects/bullet_enemy.tscn").instantiate()
 	bullet.position = global_position
 	bullet.look_at(player.position)
-	add_child(bullet)
+	get_node("/root/Main").add_child(bullet)
 	bullet.shoot(500, 2)
 
 
