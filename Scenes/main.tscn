@@ -217,6 +217,7 @@ unique_name_in_owner = true
 process_mode = 1
 offset_top = -2.0
 offset_bottom = -2.0
+tutorialText = Array[String](["Click to shoot", "Z to increase angle", "X to decrease", "Scroll wheel can also change angle"])
 
 [node name="Pause menu" parent="UI" node_paths=PackedStringArray("GameController") instance=ExtResource("8_vmo3g")]
 unique_name_in_owner = true
