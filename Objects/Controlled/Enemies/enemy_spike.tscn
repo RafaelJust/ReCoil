@@ -7,18 +7,20 @@
 force = 250
 lives = 15
 value = 40
-canBoost = true
 followPlayer = false
+
+[node name="LightOccluder2D" parent="." index="0"]
+scale = Vector2(5, 5)
 
 [node name="MeshInstance2D" parent="." index="1"]
 modulate = Color(1, 0, 0, 0)
 position = Vector2(0, 7.62939e-06)
 scale = Vector2(56.0635, 56.0635)
 
-[node name="Body" type="Sprite2D" parent="." index="2"]
+[node name="Body" type="Sprite2D" parent="CollisionShape2D" index="0"]
 scale = Vector2(0.406667, 0.406666)
 texture = ExtResource("2_uxycn")
 
-[node name="Sprite2D" parent="." index="5"]
+[node name="Sprite2D" parent="." index="4"]
 modulate = Color(1, 0, 0, 0.701961)
 scale = Vector2(0.765625, 0.765625)

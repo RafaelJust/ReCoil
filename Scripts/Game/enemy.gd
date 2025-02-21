@@ -12,7 +12,7 @@ var currentGoal: Vector2 = Vector2(0,0)
 
 var player: Node2D
 
-var boostAmount = 20
+var boostAmount = 50
 
 func _ready() -> void:
 	#setup for collision detection with rigidbodies
@@ -24,6 +24,7 @@ func _ready() -> void:
 	
 	if !followPlayer:
 		$PathTimer.start()
+		change_path()
 
 func  _physics_process(_delta: float) -> void:
 	if followPlayer:

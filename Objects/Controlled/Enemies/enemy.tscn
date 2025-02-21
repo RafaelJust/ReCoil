@@ -11,7 +11,7 @@ radius = 10.0
 height = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b80u8"]
-radius = 58.2495
+radius = 51.0098
 
 [sub_resource type="Animation" id="Animation_fhdsu"]
 length = 0.001
