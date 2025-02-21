@@ -37,8 +37,23 @@ This game has very simple controls:
 
 # Installation
 You can get the latest release ![here](https://github.com/RafaelJust/ReCoil/releases/latest).
-Note that at the moment, windows builds are untested and may provide some issues (although since this game is pretty simple it shouldn't cause any problems).
-Please report bugs ![at the github issues page](https://github.com/RafaelJust/ReCoil/issues/new?template=bug_report.md). You can also add feature requests there.
+
+## Linux
+
+Just extract the .tar.gz file and run the .sh file :)
+Plans have been made for an AUR package and eventually a flatpak package.
+
+## Windows
+
+> Note that at the moment, windows builds are untested and may provide some issues (although since this game is pretty simple it shouldn't cause any problems). Please report bugs ![at the github issues page](https://github.com/RafaelJust/ReCoil/issues/new?template=bug_report.md). You can also add feature requests there.
+Download the .exe and run it.
+
+## MacOS, Android and other OS
+
+There are currently no build plans for MacOS because I do not own any apple products and the restrictions of building for apple are very difficult to handle.
+Android support is planned to be added very soon, so stay updated :)
+
+If you have a different OS and would like to ask for support, feel free to let me know so I can see about it.
 
 # Contributing
 This game is made using godot, so you need to install it if you haven't.
