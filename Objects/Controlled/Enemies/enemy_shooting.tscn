@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://brvje7l07gfwi"]
 
-[ext_resource type="PackedScene" uid="uid://cl8c4msa5g48w" path="res://Objects/Controlled/enemy.tscn" id="1_pxuca"]
+[ext_resource type="PackedScene" uid="uid://cl8c4msa5g48w" path="res://Objects/Controlled/Enemies/enemy.tscn" id="1_pxuca"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5wm0d"]
 polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)

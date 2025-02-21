@@ -4,11 +4,15 @@ extends RigidBody2D
 @export var lives: int = 7
 @export var value: int = 10 #The mount added to the score after being defeated.
 
+@export var canBoost: bool
+
 @export var followPlayer: bool = true
 @export var canShoot = false
 var currentGoal: Vector2 = Vector2(0,0)
 
 var player: Node2D
+
+var boostAmount = 20
 
 func _ready() -> void:
 	#setup for collision detection with rigidbodies
@@ -17,6 +21,9 @@ func _ready() -> void:
 	
 	player = get_node("/root/Main/Player")
 	player.deathSignal.connect(_despawn)
+	
+	if !followPlayer:
+		$PathTimer.start()
 
 func  _physics_process(_delta: float) -> void:
 	if followPlayer:
@@ -27,6 +34,9 @@ func  _physics_process(_delta: float) -> void:
 		apply_central_force(dir * force)
 	else:
 		var dir: Vector2 = (currentGoal - self.global_position).normalized()
+		if canBoost and boostAmount > 0:
+			apply_central_force(dir * boostAmount * force)
+			boostAmount -= 1
 		apply_central_force(dir * force)
 
 

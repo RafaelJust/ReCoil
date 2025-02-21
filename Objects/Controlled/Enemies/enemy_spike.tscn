@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://6afbxixv51hk"]
+
+[ext_resource type="PackedScene" uid="uid://cl8c4msa5g48w" path="res://Objects/Controlled/Enemies/enemy.tscn" id="1_wffne"]
+[ext_resource type="Texture2D" uid="uid://dfqqdfpntcx26" path="res://assets/enemy_spike.svg" id="2_uxycn"]
+
+[node name="Enemy" instance=ExtResource("1_wffne")]
+force = 250
+lives = 15
+value = 40
+canBoost = true
+followPlayer = false
+
+[node name="MeshInstance2D" parent="." index="1"]
+modulate = Color(1, 0, 0, 0)
+position = Vector2(0, 7.62939e-06)
+scale = Vector2(56.0635, 56.0635)
+
+[node name="Body" type="Sprite2D" parent="." index="2"]
+scale = Vector2(0.406667, 0.406666)
+texture = ExtResource("2_uxycn")
+
+[node name="Sprite2D" parent="." index="5"]
+modulate = Color(1, 0, 0, 0.701961)
+scale = Vector2(0.765625, 0.765625)

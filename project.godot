@@ -34,8 +34,10 @@ enabled=PackedStringArray("res://addons/nine_patch_sprite_2d/plugin.cfg")
 [file_customization]
 
 folder_colors={
-"res://Objects/": "red",
-"res://Objects/sfx/": "yellow",
+"res://Objects/": "yellow",
+"res://Objects/Controlled/Enemies/": "red",
+"res://Objects/Static/": "orange",
+"res://Objects/sfx/": "purple",
 "res://Scenes/": "green"
 }
 
