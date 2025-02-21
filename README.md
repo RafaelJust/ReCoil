@@ -46,6 +46,7 @@ Plans have been made for an AUR package and eventually a flatpak package.
 ## Windows
 
 > Note that at the moment, windows builds are untested and may provide some issues (although since this game is pretty simple it shouldn't cause any problems). Please report bugs ![at the github issues page](https://github.com/RafaelJust/ReCoil/issues/new?template=bug_report.md). You can also add feature requests there.
+
 Download the .exe and run it.
 
 ## MacOS, Android and other OS
