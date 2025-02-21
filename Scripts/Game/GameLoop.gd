@@ -92,7 +92,7 @@ func _ready() -> void:
 				UpdateMusic()
 			
 			# Show the current wave
-			%Hud.get_node("WaveCounter").text = "[center][color=yellow]Wave" + str(wave)
+			%Hud.get_node("WaveCounter").text = "[center][color=yellow]Wave " + str(wave)
 			%Hud.get_node("WaveDisplay").play("showWave")
 		await %GameLoopTimer.timeout # using a timer as to not let it run every frame and use lots of memory
 
