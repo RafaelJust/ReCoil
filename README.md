@@ -1,4 +1,4 @@
-<img src="https://github.com/RafaelJust/ReCoil/blob/master/git_assets/banner.gif?raw=true" alt="ReCoil" width="960"/>
+<img src="git_assets/banner.gif" alt="ReCoil" width="960"/>
 
 ## A simple arcade shooter in zero-gravity.
 
