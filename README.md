@@ -42,6 +42,7 @@ Please report bugs ![at the github issues page](https://github.com/RafaelJust/Re
 
 # Contributing
 This game is made using godot, so you need to install it if you haven't.
+Please fork and make PRs against the "devel" branch, as the main branch is for stable releases.
 I will look at all PR's made, so feel free to add your Ideas to it.
 
 # License
