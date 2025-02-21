@@ -3,3 +3,6 @@
 
 # Config files
 *.cfg
+
+# Android build templates
+android/
