@@ -5,13 +5,15 @@ extends Control
 @export var tutorialText: Array[String]
 var currentTutorial: int = 0
 
+signal update_score
+
 @onready var shell1: TextureProgressBar = %Shell1_progress
 @onready var shell2: TextureProgressBar = %Shell2_progress
 
 @onready var cooldown: Timer = get_node("/root/Main/Player/Cooldown")
 @onready var player: Node2D = get_node("/root/Main/Player")
 
-# Checks if the timer is 
+# Checks if the timer is depleted
 func combo(currentCombo: int) -> int:
 	var newCombo = 1;
 	if not %Combotimer.is_stopped(): # Combo counting stuff
@@ -19,6 +21,7 @@ func combo(currentCombo: int) -> int:
 		newCombo = currentCombo + 1
 	%Combotimer.start()
 	$ComboCount.text = "%dx" % newCombo
+	update_score.emit()
 	return newCombo
 
 # Other scripts use this function instead of directly editing it for stability
