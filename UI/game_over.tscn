@@ -885,7 +885,51 @@ anchor_left = 0.618056
 anchor_top = 0.570988
 anchor_right = 0.618056
 anchor_bottom = 0.570988
-offset_top = -76.0
+offset_left = -0.000488281
+offset_top = -76.0002
+offset_right = -0.000488281
+offset_bottom = -0.000213623
 grow_vertical = 0
+
+[node name="Highscores" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 103.0
+offset_top = 58.0
+offset_right = -103.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="ColorRect" parent="Highscores"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 234.0
+offset_right = -234.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.862745)
+
+[node name="Scores" type="RichTextLabel" parent="Highscores/bg"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0460251
+anchor_top = 0.0225564
+anchor_right = 0.195074
+anchor_bottom = 0.969925
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[color=white]Name -- [color=yellow]99999
+[color=white]Name -- [color=yellow]99999
+[color=white]Name -- [color=yellow]99999
+[color=white]Name -- [color=yellow]99999
+[color=white]Name -- [color=yellow]99999
+[color=white]Name -- [color=yellow]99999"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="animation_finished" from="Animation" to="." method="_on_animation_animation_finished"]
