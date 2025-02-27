@@ -218,7 +218,7 @@ func continue_game():
 # Adds the score and immediately calls a function to display the change.
 func add_score(amount: int):
 	score += amount
-	%Hud.show_score(score)
+	%Hud.update_score.emit()
 
 func _on_game_loop_timer_timeout():
 	if not isOnBreak:

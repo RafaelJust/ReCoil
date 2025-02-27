@@ -30,10 +30,6 @@ func show_lives(lives: int) -> void:
 	elif lives == 1: %life2.visible = false
 	elif lives == 0: %life3.visible = false
 
-# Changes the score text and plays the animation at the same time, usually called from GameLoop.gd
-func show_score(score: int) -> void:
-	$Score.text = "[right]" + str(score)
-
 func changeTutorialText() -> void:
 	currentTutorial += 1;
 	if currentTutorial > 3:
