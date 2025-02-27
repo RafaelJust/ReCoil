@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://6afbxixv51hk"]
+[gd_scene load_steps=4 format=3 uid="uid://6afbxixv51hk"]
 
 [ext_resource type="PackedScene" uid="uid://cl8c4msa5g48w" path="res://Objects/Controlled/Enemies/enemy.tscn" id="1_wffne"]
 [ext_resource type="Texture2D" uid="uid://dfqqdfpntcx26" path="res://assets/enemy_spike.svg" id="2_uxycn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tey0m"]
+radius = 50.0
 
 [node name="Enemy" instance=ExtResource("1_wffne")]
 force = 250
@@ -16,6 +19,9 @@ scale = Vector2(5, 5)
 modulate = Color(1, 0, 0, 0)
 position = Vector2(0, 7.62939e-06)
 scale = Vector2(56.0635, 56.0635)
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CircleShape2D_tey0m")
 
 [node name="Body" type="Sprite2D" parent="CollisionShape2D" index="0"]
 scale = Vector2(0.406667, 0.406666)
