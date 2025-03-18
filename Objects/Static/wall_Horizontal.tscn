@@ -68,8 +68,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tyu8u"]
 _data = {
-"Open": SubResource("Animation_vfp8t"),
-"RESET": SubResource("Animation_c2t00")
+&"Open": SubResource("Animation_vfp8t"),
+&"RESET": SubResource("Animation_c2t00")
 }
 
 [node name="Wall_1" type="Node2D"]

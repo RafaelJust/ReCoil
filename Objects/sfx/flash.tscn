@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://3bxfl3bgqcmg"]
 
 [ext_resource type="Texture2D" uid="uid://doenxcoj6jvqo" path="res://assets/light.png" id="1_sls0w"]
-[ext_resource type="Script" path="res://Scripts/flash.gd" id="2_6tlfg"]
+[ext_resource type="Script" uid="uid://ce27ip8eyhg42" path="res://Scripts/flash.gd" id="2_6tlfg"]
 
 [sub_resource type="Animation" id="Animation_7dyhi"]
 length = 0.001
@@ -36,8 +36,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w3sw6"]
 _data = {
-"RESET": SubResource("Animation_7dyhi"),
-"flash": SubResource("Animation_tihrb")
+&"RESET": SubResource("Animation_7dyhi"),
+&"flash": SubResource("Animation_tihrb")
 }
 
 [node name="flash" type="Sprite2D"]

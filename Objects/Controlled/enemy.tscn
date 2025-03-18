@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cl8c4msa5g48w"]
 
-[ext_resource type="Script" path="res://Scripts/Game/enemy.gd" id="1_mphm4"]
+[ext_resource type="Script" uid="uid://bj4j1cb1ecxri" path="res://Scripts/Game/enemy.gd" id="1_mphm4"]
 [ext_resource type="Texture2D" uid="uid://doenxcoj6jvqo" path="res://assets/light.png" id="2_gl3wn"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tggtt"]
@@ -45,8 +45,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ddu5"]
 _data = {
-"RESET": SubResource("Animation_fhdsu"),
-"flicker": SubResource("Animation_63aur")
+&"RESET": SubResource("Animation_fhdsu"),
+&"flicker": SubResource("Animation_63aur")
 }
 
 [node name="Enemy" type="RigidBody2D" groups=["Enemies"]]
