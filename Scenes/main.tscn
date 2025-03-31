@@ -1,10 +1,10 @@
 [gd_scene load_steps=20 format=3 uid="uid://c1u4h03v4523r"]
 
-[ext_resource type="Script" path="res://Scripts/Game/GameLoop.gd" id="1_ec0l3"]
-[ext_resource type="Script" path="res://Scripts/Game/Camera.gd" id="2_3w055"]
+[ext_resource type="Script" uid="uid://b2nyynpsux4h7" path="res://Scripts/Game/GameLoop.gd" id="1_ec0l3"]
+[ext_resource type="Script" uid="uid://rv01h741077r" path="res://Scripts/Game/Camera.gd" id="2_3w055"]
 [ext_resource type="PackedScene" uid="uid://cc3qm3w4ibs4d" path="res://music.tscn" id="2_7g4xw"]
 [ext_resource type="PackedScene" uid="uid://bxajfs5sef2rp" path="res://Objects/Controlled/player.tscn" id="3_htpfn"]
-[ext_resource type="Script" path="res://Scripts/Game/Walls.gd" id="4_rnqih"]
+[ext_resource type="Script" uid="uid://dkl6q15tnml8w" path="res://Scripts/Game/Walls.gd" id="4_rnqih"]
 [ext_resource type="PackedScene" uid="uid://dgprf0i2fmkqu" path="res://Objects/Static/wall_Horizontal.tscn" id="5_mcyko"]
 [ext_resource type="PackedScene" uid="uid://dv35qxgrprgsk" path="res://Objects/Static/wall_Vertical.tscn" id="6_af863"]
 [ext_resource type="PackedScene" uid="uid://biffct7nsk356" path="res://UI/hud.tscn" id="7_nb6g4"]
@@ -74,8 +74,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_owshr"]
 _data = {
-"Fade_in": SubResource("Animation_nfc4f"),
-"RESET": SubResource("Animation_4t5nd")
+&"Fade_in": SubResource("Animation_nfc4f"),
+&"RESET": SubResource("Animation_4t5nd")
 }
 
 [sub_resource type="Environment" id="Environment_vyppd"]

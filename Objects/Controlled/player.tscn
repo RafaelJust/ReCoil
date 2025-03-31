@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://bxajfs5sef2rp"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://c1llynuxjtqbn" path="res://Reflect.tres" id="1_1gi8i"]
-[ext_resource type="Script" path="res://Scripts/Game/player.gd" id="2_jcijo"]
+[ext_resource type="Script" uid="uid://6gnp4fj7wlrx" path="res://Scripts/Game/player.gd" id="2_jcijo"]
 [ext_resource type="Texture2D" uid="uid://c1ec2a4330ce3" path="res://assets/cone.svg" id="4_dffy7"]
 [ext_resource type="AudioStream" uid="uid://lh7osmq5tcvc" path="res://assets/sfx/GUN_SOUND_I_THINGK.mp3" id="4_kdyfr"]
 [ext_resource type="AudioStream" uid="uid://cux2k0gh2rv02" path="res://assets/sfx/LOOK_OUT_IM_RELOADING_1.mp3" id="5_llqvo"]
@@ -49,8 +49,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rx8ct"]
 _data = {
-"RESET": SubResource("Animation_52bkv"),
-"flicker": SubResource("Animation_03kya")
+&"RESET": SubResource("Animation_52bkv"),
+&"flicker": SubResource("Animation_03kya")
 }
 
 [node name="Player" type="RigidBody2D"]

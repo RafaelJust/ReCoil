@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://nctlrrxvla3a"]
 
-[ext_resource type="Script" path="res://Scripts/Main_Menu/Manager.gd" id="1_26gnb"]
+[ext_resource type="Script" uid="uid://dq2ua6bji6n30" path="res://Scripts/Main_Menu/Manager.gd" id="1_26gnb"]
 [ext_resource type="AudioStream" uid="uid://cux2k0gh2rv02" path="res://assets/sfx/LOOK_OUT_IM_RELOADING_1.mp3" id="2_t85al"]
 [ext_resource type="PackedScene" uid="uid://frgajvcc5vvv" path="res://UI/scene_transition.tscn" id="3_ud5ar"]
 
@@ -100,8 +100,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u7v65"]
 _data = {
-"Fade_out": SubResource("Animation_1icyh"),
-"RESET": SubResource("Animation_iq054")
+&"Fade_out": SubResource("Animation_1icyh"),
+&"RESET": SubResource("Animation_iq054")
 }
 
 [node name="Title" type="Control"]

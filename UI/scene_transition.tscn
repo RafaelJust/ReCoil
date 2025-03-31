@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://frgajvcc5vvv"]
 
-[ext_resource type="Shader" path="res://shaders/CRT.gdshader" id="1_hgj7o"]
+[ext_resource type="Shader" uid="uid://d1d7aitmct5tu" path="res://shaders/CRT.gdshader" id="1_hgj7o"]
 
 [sub_resource type="GDScript" id="GDScript_hf4f0"]
 resource_name = "Transition"
@@ -209,9 +209,9 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fl2u0"]
 _data = {
-"Enter": SubResource("Animation_7nrcp"),
-"Exit": SubResource("Animation_q7d8e"),
-"RESET": SubResource("Animation_te2hr")
+&"Enter": SubResource("Animation_7nrcp"),
+&"Exit": SubResource("Animation_q7d8e"),
+&"RESET": SubResource("Animation_te2hr")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jn5yo"]

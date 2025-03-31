@@ -724,9 +724,9 @@ tracks/17/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l6tbg"]
 _data = {
-"Game_over": SubResource("Animation_hcp5q"),
-"RESET": SubResource("Animation_egtn3"),
-"Stats": SubResource("Animation_utwgw")
+&"Game_over": SubResource("Animation_hcp5q"),
+&"RESET": SubResource("Animation_egtn3"),
+&"Stats": SubResource("Animation_utwgw")
 }
 
 [node name="GameOver" type="Control"]

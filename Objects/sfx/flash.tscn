@@ -44,8 +44,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w3sw6"]
 _data = {
-"RESET": SubResource("Animation_7dyhi"),
-"flash": SubResource("Animation_tihrb")
+&"RESET": SubResource("Animation_7dyhi"),
+&"flash": SubResource("Animation_tihrb")
 }
 
 [node name="flash" type="Sprite2D"]

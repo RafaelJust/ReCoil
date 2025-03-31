@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://lrkw34r7j5gn"]
 
-[ext_resource type="Script" path="res://Scripts/Game/CrateController.gd" id="1_1gldw"]
-[ext_resource type="Script" path="res://addons/nine_patch_sprite_2d/nine_patch_sprite_2d.gd" id="2_jahhi"]
+[ext_resource type="Script" uid="uid://d33sp8cehk0b5" path="res://Scripts/Game/CrateController.gd" id="1_1gldw"]
+[ext_resource type="Script" uid="uid://bvpdhbj3rajpx" path="res://addons/nine_patch_sprite_2d/nine_patch_sprite_2d.gd" id="2_jahhi"]
 [ext_resource type="Texture2D" uid="uid://ufpfu172oye6" path="res://assets/Box_outline.png" id="3_anse4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_72p1u"]

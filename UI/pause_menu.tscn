@@ -1,12 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://7y23n5ui2rpc"]
 
-[ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_c0l7d"]
+[ext_resource type="Script" uid="uid://oehukq65ampq" path="res://Scripts/pause_menu.gd" id="1_c0l7d"]
 [ext_resource type="AudioStream" uid="uid://24xy1jj4m0iq" path="res://assets/music/PauseMenu.ogg" id="2_b2xdw"]
 [ext_resource type="AudioStream" uid="uid://lh7osmq5tcvc" path="res://assets/sfx/GUN_SOUND_I_THINGK.mp3" id="3_7bqeo"]
 
 [sub_resource type="Curve" id="Curve_w0eqy"]
-min_value = -72.0
-max_value = 0.0
+_limits = [-72.0, 0.0, 0.0, 1.0]
 _data = [Vector2(0, -72), 0.0, 208.457, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 

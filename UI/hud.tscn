@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://biffct7nsk356"]
 
-[ext_resource type="Script" path="res://Scripts/Game/hud.gd" id="1_7omw2"]
+[ext_resource type="Script" uid="uid://bpukf8dw41gxp" path="res://Scripts/Game/hud.gd" id="1_7omw2"]
 [ext_resource type="Texture2D" uid="uid://ufpfu172oye6" path="res://assets/Box_outline.png" id="1_kmcvl"]
 [ext_resource type="Texture2D" uid="uid://cqsty5mr4pxp3" path="res://Colors/White.png" id="2_mhdpk"]
-[ext_resource type="Script" path="res://Scripts/flash.gd" id="4_o3tml"]
+[ext_resource type="Script" uid="uid://dfflfhstn20jg" path="res://Scripts/flash.gd" id="4_o3tml"]
 [ext_resource type="PackedScene" uid="uid://dpjdtk6kfkapc" path="res://UI/game_over.tscn" id="4_vkj77"]
 
 [sub_resource type="Curve" id="Curve_jhyui"]
@@ -62,8 +62,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pb8cs"]
 _data = {
-"RESET": SubResource("Animation_njbyr"),
-"showWave": SubResource("Animation_ks0u8")
+&"RESET": SubResource("Animation_njbyr"),
+&"showWave": SubResource("Animation_ks0u8")
 }
 
 [node name="Hud" type="Control"]
