@@ -200,7 +200,7 @@ color = Color(0, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_u7v65")
+&"": SubResource("AnimationLibrary_u7v65")
 }
 
 [node name="SceneTransition" parent="." instance=ExtResource("3_ud5ar")]
