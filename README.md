@@ -1,7 +1,8 @@
 <img src="git_assets/banner.gif" alt="ReCoil" width="960"/>
 
 ## IMPORTANT:
-I am moving this repo from github to codeberg, and will eventually remove this repo in the near future.
+I am moving this repo from github to codeberg, and will eventually remove the github repo in the near future.
+The codeberg repo can be found [here](https://codeberg.org/rjust/ReCoil/src/branch/devel). 
 
 ## A simple arcade shooter in zero-gravity.
 
