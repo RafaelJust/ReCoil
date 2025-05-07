@@ -7,8 +7,6 @@ The codeberg repo can be found [here](https://codeberg.org/rjust/ReCoil/src/bran
 
 ## A simple arcade shooter in zero-gravity.
 
-Currently on version 0.9, just before release :)
-
 Shoot through waves of different enemy types and manage your velocity through a small but fun 0-gravity shooter!
 You can't move on your own, so you need to rely on the recoil of your shotgun to move!
 Just be sure you don't shoot too much, or you will bounce around wildy out of control.
