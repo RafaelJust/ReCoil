@@ -1,16 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpjdtk6kfkapc"]
+[gd_scene load_steps=7 format=3 uid="uid://dpjdtk6kfkapc"]
 
 [sub_resource type="GDScript" id="GDScript_bwfvo"]
 resource_name = "BackToMenu"
 script/source = "extends Control
 
 var state: int = 0;
+var score: int
+var highScore: int
 
 func _on_animation_animation_finished(anim_name: StringName) -> void:
-	if anim_name == \"Game_over\":
-		state = 1;
-	elif anim_name == \"Stats\":
-		state = 2;
+	match anim_name:
+		\"Game_over\":
+			state = 1;
+		\"Stats\":
+			state = 2;
+			if score > highScore:
+				$Animation.play(\"highscore\");
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(\"Fire\"):
@@ -511,10 +516,34 @@ tracks/26/keys = {
 "update": 0,
 "values": [Vector2(0, 76)]
 }
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("HighScore:visible")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("HighScore:self_modulate")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_utwgw"]
 resource_name = "Stats"
-length = 1.5
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -722,11 +751,41 @@ tracks/17/keys = {
 "values": [Vector2(0, 76), Vector2(303, 76), Vector2(0, 76)]
 }
 
+[sub_resource type="Animation" id="Animation_5ua2x"]
+resource_name = "highscore"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HighScore:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HighScore:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(0.5, 1, 0, 1), Color(0, 1, 1, 1), Color(0.5, 0, 1, 1), Color(1, 0, 0.0166664, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l6tbg"]
 _data = {
 &"Game_over": SubResource("Animation_hcp5q"),
 &"RESET": SubResource("Animation_egtn3"),
-&"Stats": SubResource("Animation_utwgw")
+&"Stats": SubResource("Animation_utwgw"),
+&"highscore": SubResource("Animation_5ua2x")
 }
 
 [node name="GameOver" type="Control"]
@@ -875,7 +934,7 @@ autowrap_mode = 0
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_l6tbg")
+&"": SubResource("AnimationLibrary_l6tbg")
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -885,7 +944,26 @@ anchor_left = 0.618056
 anchor_top = 0.570988
 anchor_right = 0.618056
 anchor_bottom = 0.570988
-offset_top = -76.0
+offset_left = -0.000488281
+offset_top = -76.0002
+offset_right = -0.000488281
+offset_bottom = -0.000213623
 grow_vertical = 0
+
+[node name="HighScore" type="RichTextLabel" parent="."]
+visible = false
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.374132
+anchor_top = 0.70216
+anchor_right = 0.447917
+anchor_bottom = 0.70216
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_font_sizes/normal_font_size = 20
+text = "New High score!"
+fit_content = true
+autowrap_mode = 0
 
 [connection signal="animation_finished" from="Animation" to="." method="_on_animation_animation_finished"]
