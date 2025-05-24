@@ -967,7 +967,7 @@ anchor_bottom = 0.570988
 offset_left = -0.000488281
 offset_top = -76.0002
 offset_right = -0.000488281
-offset_bottom = -0.000213623
+offset_bottom = -3.05176e-05
 grow_vertical = 0
 
 [node name="HighScore" type="RichTextLabel" parent="."]
