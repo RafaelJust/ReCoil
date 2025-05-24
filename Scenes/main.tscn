@@ -132,7 +132,7 @@ one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera"]
 libraries = {
-"": SubResource("AnimationLibrary_owshr")
+&"": SubResource("AnimationLibrary_owshr")
 }
 
 [node name="Player" parent="." instance=ExtResource("3_htpfn")]

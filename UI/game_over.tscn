@@ -5,8 +5,25 @@ resource_name = "BackToMenu"
 script/source = "extends Control
 
 var state: int = 0;
-var score: int
-var highScore: int
+
+func load_highscore() -> int:
+	if not FileAccess.file_exists(\"user://scores.dat\"):
+		return 0;
+	var file: FileAccess = FileAccess.open(\"user://scores.dat\", FileAccess.READ);
+	if not file:
+		push_error(\"Cannot read highscore!\");
+		return -1;
+	
+	return file.get_64();
+
+func write_highscore(highscore: int) -> void:
+	var file: FileAccess = FileAccess.open(\"user://scores.dat\", FileAccess.WRITE);
+	if not file:
+		push_error(\"Cannot open file for writing!\");
+		return;
+	
+	file.store_64(highscore);
+	
 
 func _on_animation_animation_finished(anim_name: StringName) -> void:
 	match anim_name:
@@ -14,8 +31,11 @@ func _on_animation_animation_finished(anim_name: StringName) -> void:
 			state = 1;
 		\"Stats\":
 			state = 2;
-			if score > highScore:
+			var highScore = load_highscore()
+			var score: int = int($Stats/ScoreValue.text)
+			if score > highScore && highScore != -1:
 				$Animation.play(\"highscore\");
+				write_highscore(score)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(\"Fire\"):
