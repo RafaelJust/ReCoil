@@ -4,46 +4,62 @@
 resource_name = "BackToMenu"
 script/source = "extends Control
 
-var state: int = 0;
+var state = 0;
+enum {
+	IGNORE,
+	STATS,
+	ENTER_NAME,
+	EXIT
+}
+var scores: Array[int];
 
-func load_highscore() -> int:
+func load_highscore() -> Array[int]:
 	if not FileAccess.file_exists(\"user://scores.dat\"):
-		return 0;
+		return [];
 	var file: FileAccess = FileAccess.open(\"user://scores.dat\", FileAccess.READ);
 	if not file:
 		push_error(\"Cannot read highscore!\");
-		return -1;
 	
-	return file.get_64();
+	for i in range(8):
+		scores.append(file.get_64());
+	return scores;
 
-func write_highscore(highscore: int) -> void:
+func write_highscore(scores: Array[int]) -> void:
 	var file: FileAccess = FileAccess.open(\"user://scores.dat\", FileAccess.WRITE);
 	if not file:
 		push_error(\"Cannot open file for writing!\");
 		return;
 	
-	file.store_64(highscore);
-	
+	for i in scores:
+		file.store_64(i);
 
 func _on_animation_animation_finished(anim_name: StringName) -> void:
 	match anim_name:
 		\"Game_over\":
-			state = 1;
+			state = STATS;
 		\"Stats\":
-			state = 2;
-			var highScore = load_highscore()
+			state = IGNORE;
+			var highscores = load_highscore()
 			var score: int = int($Stats/ScoreValue.text)
-			if score > highScore && highScore != -1:
-				$Animation.play(\"highscore\");
-				write_highscore(score)
+			var i = 0;
+			for s in highscores:
+				if s < score:
+					$Animation.play(\"highscore\");
+					# update highscore list
+					highscores.insert(i, score);
+					state = ENTER_NAME;
+					break;
+				i += 1;
+			if state == IGNORE:
+				state = EXIT;
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(\"Fire\"):
 		match state:
-			1:
+			STATS:
 				$Animation.play(\"Stats\");
 				state = 0;
-			2:
+			EXIT:
 				get_node(\"/root/Main/UI/SceneTransition\").transition(\"res://Scenes/Title.tscn\");
 				state = 0;
 "
@@ -967,7 +983,7 @@ anchor_bottom = 0.570988
 offset_left = -0.000488281
 offset_top = -76.0002
 offset_right = -0.000488281
-offset_bottom = -3.05176e-05
+offset_bottom = -0.000213623
 grow_vertical = 0
 
 [node name="HighScore" type="RichTextLabel" parent="."]
