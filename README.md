@@ -3,11 +3,9 @@
 ## IMPORTANT:
 I am moving this repo from github to codeberg, and will eventually remove the github repo in the near future.
 For now, the github repo will act as a mirror for the codeberg one.
-The codeberg repo can be found [here](https://codeberg.org/rjust/ReCoil/src/branch/devel). 
+All pull requests and bug reports should be done on codeberg, which can be found [here](https://codeberg.org/rjust/ReCoil/src/branch/devel). 
 
 ## A simple arcade shooter in zero-gravity.
-
-Currently on version 0.9, just before release :)
 
 Shoot through waves of different enemy types and manage your velocity through a small but fun 0-gravity shooter!
 You can't move on your own, so you need to rely on the recoil of your shotgun to move!
