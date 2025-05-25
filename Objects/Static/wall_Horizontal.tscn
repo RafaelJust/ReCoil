@@ -110,7 +110,7 @@ shape = SubResource("RectangleShape2D_400rp")
 
 [node name="Wall_1_3" type="StaticBody2D" parent="."]
 position = Vector2(0, 145)
-scale = Vector2(60, 1)
+scale = Vector2(132, 1.25)
 collision_layer = 8
 collision_mask = 0
 metadata/_edit_group_ = true
@@ -125,7 +125,7 @@ position = Vector2(-2.98023e-08, 0)
 shape = SubResource("RectangleShape2D_fqoaf")
 
 [node name="Wall_1_4" type="StaticBody2D" parent="."]
-position = Vector2(56, 72)
+position = Vector2(112, 80)
 rotation = 1.5708
 scale = Vector2(80, 1)
 collision_layer = 8
@@ -142,7 +142,7 @@ position = Vector2(-2.98023e-08, 0)
 shape = SubResource("RectangleShape2D_fqoaf")
 
 [node name="Wall_1_5" type="StaticBody2D" parent="."]
-position = Vector2(-56, 72)
+position = Vector2(-112, 80)
 rotation = 1.5708
 scale = Vector2(80, 1)
 collision_layer = 8
@@ -160,5 +160,5 @@ shape = SubResource("RectangleShape2D_fqoaf")
 
 [node name="Open" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_tyu8u")
+&"": SubResource("AnimationLibrary_tyu8u")
 }
