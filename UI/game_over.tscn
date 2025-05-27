@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpjdtk6kfkapc"]
+[gd_scene load_steps=8 format=3 uid="uid://dpjdtk6kfkapc"]
 
 [sub_resource type="GDScript" id="GDScript_bwfvo"]
 resource_name = "BackToMenu"
@@ -11,11 +11,9 @@ enum {
 	ENTER_NAME,
 	EXIT
 }
-var scores: Array[int];
+var scores: Array[scoreEntry];
 
-class scoreEntry:
-	var name: String
-	var score: int
+const scoreEntry = preload(\"res://scoreEntry.gd\");
 
 func load_highscores() -> Array[scoreEntry]:
 	if not FileAccess.file_exists(\"user://scores.dat\"):
@@ -25,7 +23,7 @@ func load_highscores() -> Array[scoreEntry]:
 		push_error(\"Cannot read highscore!\");
 		return [];
 	
-	return file.get_var();
+	return file.get_var(true);
 
 func write_highscore(highscores: Array[scoreEntry]) -> void:
 	var file: FileAccess = FileAccess.open(\"user://scores.dat\", FileAccess.WRITE);
@@ -33,27 +31,36 @@ func write_highscore(highscores: Array[scoreEntry]) -> void:
 		push_error(\"Cannot open file for writing!\");
 		return;
 	
-	file.store_var(highscores);
+	file.store_var(highscores, true);
 
 func _on_animation_animation_finished(anim_name: StringName) -> void:
 	match anim_name:
 		\"Game_over\":
 			state = STATS;
+			scores = load_highscores();
+			$Scores.updateScores();
 		\"Stats\":
-			state = 2;
-			var highScores = load_highscores();
+			state = EXIT;
 			var score: int = int($Stats/ScoreValue.text);
-
-			for i in range(len(highScores)):
-				if score > highScores[i].score:
+			
+			if scores == []:
+				# new High score :D
+				var newScore= scoreEntry.new(\"RAF\", score);
+				newScore.name = \"RAF\";
+				newScore.score = score;
+				
+				scores.append(newScore);
+				$Animation.play(\"highscore\");
+				write_highscore(scores);
+			for i in range(len(scores)):
+				if score > scores[i].score:
 					# new High score :D
-					var newScore: scoreEntry;
-					newScore.name = \"RAF\";
-					newScore.score = score;
+					var newScore = scoreEntry.new(\"RAF\", score);
 					
-					highScores.insert(i, newScore);
+					scores.insert(i, newScore);
 					$Animation.play(\"highscore\");
-					write_highscore(highScores);
+					write_highscore(scores);
+					#state = ENTER_NAME;
 					break;
 
 func _input(event: InputEvent) -> void:
@@ -549,130 +556,34 @@ tracks/25/keys = {
 tracks/26/type = "value"
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/path = NodePath("Stats/ScoreValue:position")
+tracks/26/path = NodePath("StatsCover:position")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(502, 334)]
+"values": [Vector2(139, 207)]
 }
 tracks/27/type = "value"
 tracks/27/imported = false
 tracks/27/enabled = true
-tracks/27/path = NodePath("Stats/Score:position")
+tracks/27/path = NodePath("StatsCover:size")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(182, 334)]
+"values": [Vector2(494, 0)]
 }
 tracks/28/type = "value"
 tracks/28/imported = false
 tracks/28/enabled = true
-tracks/28/path = NodePath("StatsCover:position")
+tracks/28/path = NodePath("Scores:visible")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(139, 207)]
-}
-tracks/29/type = "value"
-tracks/29/imported = false
-tracks/29/enabled = true
-tracks/29/path = NodePath("StatsCover:size")
-tracks/29/interp = 1
-tracks/29/loop_wrap = true
-tracks/29/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(494, 0)]
-}
-tracks/30/type = "value"
-tracks/30/imported = false
-tracks/30/enabled = true
-tracks/30/path = NodePath("Stats/WaveValue:visible")
-tracks/30/interp = 1
-tracks/30/loop_wrap = true
-tracks/30/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/31/type = "value"
-tracks/31/imported = false
-tracks/31/enabled = true
-tracks/31/path = NodePath("Stats/KillsValue:visible")
-tracks/31/interp = 1
-tracks/31/loop_wrap = true
-tracks/31/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/32/type = "value"
-tracks/32/imported = false
-tracks/32/enabled = true
-tracks/32/path = NodePath("Stats/AngleValue:visible")
-tracks/32/interp = 1
-tracks/32/loop_wrap = true
-tracks/32/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/33/type = "value"
-tracks/33/imported = false
-tracks/33/enabled = true
-tracks/33/path = NodePath("Stats/Wave:visible")
-tracks/33/interp = 1
-tracks/33/loop_wrap = true
-tracks/33/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/34/type = "value"
-tracks/34/imported = false
-tracks/34/enabled = true
-tracks/34/path = NodePath("Stats/Kills:visible")
-tracks/34/interp = 1
-tracks/34/loop_wrap = true
-tracks/34/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/35/type = "value"
-tracks/35/imported = false
-tracks/35/enabled = true
-tracks/35/path = NodePath("Stats/Times angle changed:visible")
-tracks/35/interp = 1
-tracks/35/loop_wrap = true
-tracks/35/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/36/type = "value"
-tracks/36/imported = false
-tracks/36/enabled = true
-tracks/36/path = NodePath("Scores:visible")
-tracks/36/interp = 1
-tracks/36/loop_wrap = true
-tracks/36/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -848,6 +759,34 @@ _data = {
 &"highscore": SubResource("Animation_5ua2x")
 }
 
+[sub_resource type="GDScript" id="GDScript_5ua2x"]
+resource_name = "Scores"
+script/source = "extends RichTextLabel
+
+const scoreEntry = preload(\"res://scoreEntry.gd\")
+
+func load_highscores() -> Array[scoreEntry]:
+	if not FileAccess.file_exists(\"user://scores.dat\"):
+		return [];
+	var file: FileAccess = FileAccess.open(\"user://scores.dat\", FileAccess.READ);
+	if not file:
+		push_error(\"Cannot read highscore!\");
+		return [];
+	
+	return file.get_var(true);
+
+func updateScores() -> void:
+	var scores = load_highscores();
+	self.text = \"\";
+	for i in range(8):
+		var score = 0;
+		var s_name = \"NUL\";
+		if len(scores) > i + 1:
+			score = scores[i].score;
+			s_name = scores[i].name;
+		self.text += \"[color=white][b]%s[/b]    [color=yellow]%d\\n\" % [s_name, score];
+"
+
 [node name="GameOver" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -891,7 +830,6 @@ offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
 [node name="WaveValue" type="Label" parent="Stats"]
-visible = false
 layout_mode = 0
 offset_left = 384.0
 offset_right = 426.0
@@ -901,7 +839,6 @@ theme_override_font_sizes/font_size = 30
 text = "69"
 
 [node name="KillsValue" type="Label" parent="Stats"]
-visible = false
 layout_mode = 0
 offset_left = 384.0
 offset_top = 47.0
@@ -912,7 +849,6 @@ theme_override_font_sizes/font_size = 30
 text = "69"
 
 [node name="AngleValue" type="Label" parent="Stats"]
-visible = false
 layout_mode = 0
 offset_left = 384.0
 offset_top = 94.0
@@ -924,16 +860,15 @@ text = "69"
 
 [node name="ScoreValue" type="Label" parent="Stats"]
 layout_mode = 0
-offset_left = 502.0
-offset_top = 334.0
-offset_right = 647.0
-offset_bottom = 403.0
+offset_left = 308.0
+offset_top = 152.0
+offset_right = 453.0
+offset_bottom = 221.0
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "69420"
 
 [node name="Wave" type="RichTextLabel" parent="Stats"]
-visible = false
 layout_mode = 0
 offset_right = 96.0
 offset_bottom = 47.0
@@ -941,7 +876,6 @@ theme_override_font_sizes/normal_font_size = 31
 text = "Wave:"
 
 [node name="Kills" type="RichTextLabel" parent="Stats"]
-visible = false
 layout_mode = 0
 offset_top = 47.0
 offset_right = 78.0
@@ -950,7 +884,6 @@ theme_override_font_sizes/normal_font_size = 31
 text = "Kills:"
 
 [node name="Times angle changed" type="RichTextLabel" parent="Stats"]
-visible = false
 layout_mode = 0
 offset_left = 0.000244141
 offset_top = 94.0
@@ -961,10 +894,10 @@ text = "Times angle changed: "
 
 [node name="Score" type="RichTextLabel" parent="Stats"]
 layout_mode = 0
-offset_left = 182.0
-offset_top = 334.0
-offset_right = 542.0
-offset_bottom = 408.0
+offset_left = -11.9997
+offset_top = 152.0
+offset_right = 348.0
+offset_bottom = 226.0
 theme_override_font_sizes/normal_font_size = 51
 text = "Final Score:"
 
@@ -1023,6 +956,7 @@ text = "[color=yellow]192495 [color=white][b]BUM[/b]
 [color=yellow]192495 [color=white][b]BUM[/b]"
 fit_content = true
 autowrap_mode = 0
+script = SubResource("GDScript_5ua2x")
 
 [node name="HighScore" type="RichTextLabel" parent="."]
 visible = false
