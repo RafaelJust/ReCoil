@@ -14,44 +14,47 @@ enum {
 var scores: Array[int];
 
 func load_highscore() -> Array[int]:
+class scoreEntry:
+	var name: String
+	var score: int
+
+func load_highscores() -> Array[scoreEntry]:
 	if not FileAccess.file_exists(\"user://scores.dat\"):
 		return [];
 	var file: FileAccess = FileAccess.open(\"user://scores.dat\", FileAccess.READ);
 	if not file:
 		push_error(\"Cannot read highscore!\");
+		return [];
 	
-	for i in range(8):
-		scores.append(file.get_64());
-	return scores;
+	return file.get_var();
 
-func write_highscore(scores: Array[int]) -> void:
+func write_highscore(highscores: Array[scoreEntry]) -> void:
 	var file: FileAccess = FileAccess.open(\"user://scores.dat\", FileAccess.WRITE);
 	if not file:
 		push_error(\"Cannot open file for writing!\");
 		return;
 	
-	for i in scores:
-		file.store_64(i);
-
+	file.store_var(highscores);
 func _on_animation_animation_finished(anim_name: StringName) -> void:
 	match anim_name:
 		\"Game_over\":
 			state = STATS;
 		\"Stats\":
-			state = IGNORE;
-			var highscores = load_highscore()
-			var score: int = int($Stats/ScoreValue.text)
-			var i = 0;
-			for s in highscores:
-				if s < score:
+			state = 2;
+			var highScores = load_highscores();
+			var score: int = int($Stats/ScoreValue.text);
+
+			for i in range(len(highScores)):
+				if score > highScores[i].score:
+					# new High score :D
+					var newScore: scoreEntry;
+					newScore.name = \"RAF\";
+					newScore.score = score;
+					
+					highScores.insert(i, newScore);
 					$Animation.play(\"highscore\");
-					# update highscore list
-					highscores.insert(i, score);
-					state = ENTER_NAME;
+					write_highscore(highScores);
 					break;
-				i += 1;
-			if state == IGNORE:
-				state = EXIT;
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(\"Fire\"):
