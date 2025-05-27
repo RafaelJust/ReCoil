@@ -13,7 +13,6 @@ enum {
 }
 var scores: Array[int];
 
-func load_highscore() -> Array[int]:
 class scoreEntry:
 	var name: String
 	var score: int
@@ -35,6 +34,7 @@ func write_highscore(highscores: Array[scoreEntry]) -> void:
 		return;
 	
 	file.store_var(highscores);
+
 func _on_animation_animation_finished(anim_name: StringName) -> void:
 	match anim_name:
 		\"Game_over\":
@@ -431,74 +431,77 @@ tracks/15/keys = {
 tracks/16/type = "bezier"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("StatsCover:position:x")
+tracks/16/path = NodePath("StatsCover:position:y")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(139, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(207, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/17/type = "bezier"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("StatsCover:position:y")
+tracks/17/path = NodePath("StatsCover:size:y")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(206, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
-tracks/18/type = "bezier"
+tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("StatsCover:rotation")
+tracks/18/path = NodePath("Stats:visible")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/19/type = "bezier"
-tracks/19/imported = false
-tracks/19/enabled = true
-tracks/19/path = NodePath("StatsCover:size:x")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(494, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/20/type = "bezier"
-tracks/20/imported = false
-tracks/20/enabled = true
-tracks/20/path = NodePath("StatsCover:size:y")
-tracks/20/interp = 1
-tracks/20/loop_wrap = true
-tracks/20/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/21/type = "value"
-tracks/21/imported = false
-tracks/21/enabled = true
-tracks/21/path = NodePath("Stats:visible")
-tracks/21/interp = 1
-tracks/21/loop_wrap = true
-tracks/21/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
 }
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("GameOverText:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(712, 294)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("GameOverText:rotation")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("GameOverText:size")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(405, 112)]
+}
 tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("GameOverText:position")
+tracks/22/path = NodePath("ColorRect:position")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
@@ -510,74 +513,170 @@ tracks/22/keys = {
 tracks/23/type = "value"
 tracks/23/imported = false
 tracks/23/enabled = true
-tracks/23/path = NodePath("GameOverText:rotation")
+tracks/23/path = NodePath("ColorRect:size")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Vector2(0, 76)]
 }
 tracks/24/type = "value"
 tracks/24/imported = false
 tracks/24/enabled = true
-tracks/24/path = NodePath("GameOverText:size")
+tracks/24/path = NodePath("HighScore:visible")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(405, 112)]
+"update": 1,
+"values": [false]
 }
 tracks/25/type = "value"
 tracks/25/imported = false
 tracks/25/enabled = true
-tracks/25/path = NodePath("ColorRect:position")
+tracks/25/path = NodePath("HighScore:self_modulate")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(712, 294)]
+"values": [Color(1, 0, 0, 1)]
 }
 tracks/26/type = "value"
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/path = NodePath("ColorRect:size")
+tracks/26/path = NodePath("Stats/ScoreValue:position")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 76)]
+"values": [Vector2(502, 334)]
 }
 tracks/27/type = "value"
 tracks/27/imported = false
 tracks/27/enabled = true
-tracks/27/path = NodePath("HighScore:visible")
+tracks/27/path = NodePath("Stats/Score:position")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(182, 334)]
 }
 tracks/28/type = "value"
 tracks/28/imported = false
 tracks/28/enabled = true
-tracks/28/path = NodePath("HighScore:self_modulate")
+tracks/28/path = NodePath("StatsCover:position")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 0, 0, 1)]
+"values": [Vector2(139, 207)]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("StatsCover:size")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(494, 0)]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("Stats/WaveValue:visible")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("Stats/KillsValue:visible")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("Stats/AngleValue:visible")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("Stats/Wave:visible")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("Stats/Kills:visible")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("Stats/Times angle changed:visible")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("Scores:visible")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_utwgw"]
@@ -634,165 +733,87 @@ tracks/3/keys = {
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("BgCover:position:x")
+tracks/4/path = NodePath("BgCover:size:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 648, -1, -2.60004, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
 }
 tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("BgCover:position:y")
+tracks/5/path = NodePath("StatsCover:position:y")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/6/type = "bezier"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("BgCover:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/7/type = "bezier"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("BgCover:size:x")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1152, -0.25, 0, 0.25, 0, 1152, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/8/type = "bezier"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("BgCover:size:y")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 648, -1, -2.60004, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/9/type = "bezier"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("StatsCover:position:x")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(139, -0.25, 0, 0.25, 0, 139, -0.25, 0, 0.25, 0, 139, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(1, 1.23333, 1.5)
-}
-tracks/10/type = "bezier"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("StatsCover:position:y")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(206, -0.25, 0, 0.25, 0, 206, -0.25, 0, 0.25, 0, 459, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(1, 1.23333, 1.5)
 }
-tracks/11/type = "bezier"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("StatsCover:rotation")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(1, 1.23333, 1.5)
-}
-tracks/12/type = "bezier"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("StatsCover:size:x")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(494, -0.25, 0, 0.25, 0, 494, -0.25, 0, 0.25, 0, 494, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(1, 1.23333, 1.5)
-}
-tracks/13/type = "bezier"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("StatsCover:size:y")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("StatsCover:size:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 253, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(1, 1.23333, 1.5)
 }
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Stats:visible")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Stats:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0, 1.23333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("ColorRect:position")
-tracks/15/interp = 2
-tracks/15/loop_wrap = true
-tracks/15/keys = {
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ColorRect:position")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
 "times": PackedFloat32Array(0.5, 0.7, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(712, 294), Vector2(712, 294), Vector2(1015, 294)]
+"values": [Vector2(712, 212), Vector2(712, 209), Vector2(1015, 200)]
 }
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("ColorRect:rotation")
-tracks/16/interp = 2
-tracks/16/loop_wrap = true
-tracks/16/keys = {
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ColorRect:size")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/keys = {
 "times": PackedFloat32Array(0.5, 0.7, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 281), Vector2(303, 285), Vector2(0, 296)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Scores:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0.0, 0.0, 0.0]
-}
-tracks/17/type = "value"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("ColorRect:size")
-tracks/17/interp = 2
-tracks/17/loop_wrap = true
-tracks/17/keys = {
-"times": PackedFloat32Array(0.5, 0.7, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 76), Vector2(303, 76), Vector2(0, 76)]
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_5ua2x"]
 resource_name = "highscore"
-length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -813,10 +834,10 @@ tracks/1/path = NodePath("HighScore:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.531816, 0.533333, 0.598483, 0.66515, 0.731816, 0.798483, 0.8, 0.866667, 0.933333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 0, 0, 1), Color(0.5, 1, 0, 1), Color(0, 1, 1, 1), Color(0.5, 0, 1, 1), Color(1, 0, 0.0166664, 1)]
+"values": [Color(1, 0, 0, 1), Color(0.5, 1, 0, 1), Color(0, 1, 1, 1), Color(0.5, 0, 1, 1), Color(1, 0, 0, 1), Color(0.5, 1, 0, 1), Color(0, 1, 1, 1), Color(0.5, 0, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0.0166664, 1), Color(0.5, 1, 0, 1), Color(0, 1, 1, 1), Color(0.5, 0, 1, 1), Color(1, 0, 0.0166664, 1), Color(1, 0, 0, 1), Color(0.5, 1, 0, 1), Color(0, 1, 1, 1), Color(0.5, 0, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l6tbg"]
@@ -870,6 +891,7 @@ offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
 [node name="WaveValue" type="Label" parent="Stats"]
+visible = false
 layout_mode = 0
 offset_left = 384.0
 offset_right = 426.0
@@ -879,6 +901,7 @@ theme_override_font_sizes/font_size = 30
 text = "69"
 
 [node name="KillsValue" type="Label" parent="Stats"]
+visible = false
 layout_mode = 0
 offset_left = 384.0
 offset_top = 47.0
@@ -889,6 +912,7 @@ theme_override_font_sizes/font_size = 30
 text = "69"
 
 [node name="AngleValue" type="Label" parent="Stats"]
+visible = false
 layout_mode = 0
 offset_left = 384.0
 offset_top = 94.0
@@ -900,15 +924,16 @@ text = "69"
 
 [node name="ScoreValue" type="Label" parent="Stats"]
 layout_mode = 0
-offset_left = 320.0
-offset_top = 160.0
-offset_right = 465.0
-offset_bottom = 229.0
+offset_left = 502.0
+offset_top = 334.0
+offset_right = 647.0
+offset_bottom = 403.0
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "69420"
 
 [node name="Wave" type="RichTextLabel" parent="Stats"]
+visible = false
 layout_mode = 0
 offset_right = 96.0
 offset_bottom = 47.0
@@ -916,6 +941,7 @@ theme_override_font_sizes/normal_font_size = 31
 text = "Wave:"
 
 [node name="Kills" type="RichTextLabel" parent="Stats"]
+visible = false
 layout_mode = 0
 offset_top = 47.0
 offset_right = 78.0
@@ -924,6 +950,7 @@ theme_override_font_sizes/normal_font_size = 31
 text = "Kills:"
 
 [node name="Times angle changed" type="RichTextLabel" parent="Stats"]
+visible = false
 layout_mode = 0
 offset_left = 0.000244141
 offset_top = 94.0
@@ -934,10 +961,10 @@ text = "Times angle changed: "
 
 [node name="Score" type="RichTextLabel" parent="Stats"]
 layout_mode = 0
-offset_left = 0.000259399
-offset_top = 160.0
-offset_right = 360.0
-offset_bottom = 234.0
+offset_left = 182.0
+offset_top = 334.0
+offset_right = 542.0
+offset_bottom = 408.0
 theme_override_font_sizes/normal_font_size = 51
 text = "Final Score:"
 
@@ -948,10 +975,10 @@ anchor_left = 0.121
 anchor_top = 0.318
 anchor_right = 0.549
 anchor_bottom = 0.708
-offset_left = -0.392014
-offset_top = -0.0639954
+offset_left = -0.391998
+offset_top = 0.936005
 offset_right = 0.552002
-offset_bottom = -252.784
+offset_bottom = -251.784
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -967,7 +994,7 @@ offset_top = 294.0
 offset_right = 1000.65
 offset_bottom = 325.0
 theme_override_font_sizes/normal_font_size = 51
-text = "Game over_"
+text = "Game over"
 fit_content = true
 autowrap_mode = 0
 
@@ -975,6 +1002,44 @@ autowrap_mode = 0
 libraries = {
 &"": SubResource("AnimationLibrary_l6tbg")
 }
+
+[node name="Scores" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 711.0
+offset_top = 213.0
+offset_right = 1005.0
+offset_bottom = 493.0
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 25
+bbcode_enabled = true
+text = "[color=yellow]192495 [color=white][b]BUM[/b]
+[color=yellow]192495 [color=white][b]BUM[/b]
+[color=yellow]192495 [color=white][b]BUM[/b]
+[color=yellow]192495 [color=white][b]BUM[/b]
+[color=yellow]192495 [color=white][b]BUM[/b]
+[color=yellow]192495 [color=white][b]BUM[/b]
+[color=yellow]192495 [color=white][b]BUM[/b]
+[color=yellow]192495 [color=white][b]BUM[/b]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HighScore" type="RichTextLabel" parent="."]
+visible = false
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.395833
+anchor_top = 0.709877
+anchor_right = 0.497389
+anchor_bottom = 0.709877
+offset_right = 39.008
+offset_bottom = 40.0
+theme_override_font_sizes/normal_font_size = 20
+text = "New High score!"
+fit_content = true
+autowrap_mode = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -988,21 +1053,5 @@ offset_top = -76.0002
 offset_right = -0.000488281
 offset_bottom = -0.000213623
 grow_vertical = 0
-
-[node name="HighScore" type="RichTextLabel" parent="."]
-visible = false
-self_modulate = Color(1, 0, 0, 1)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.374132
-anchor_top = 0.70216
-anchor_right = 0.447917
-anchor_bottom = 0.70216
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_font_sizes/normal_font_size = 20
-text = "New High score!"
-fit_content = true
-autowrap_mode = 0
 
 [connection signal="animation_finished" from="Animation" to="." method="_on_animation_animation_finished"]
