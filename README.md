@@ -40,7 +40,7 @@ This game has very simple controls:
 
 # Installation
 You can get the latest release ![here](https://github.com/RafaelJust/ReCoil/releases/latest).
-Note that at the moment, windows builds are untested and may provide some issues (although since this game is pretty simple it shouldn't cause any problems).
+Note that at the moment, only linux builds are made. If you want to play this game on Windows or MacOS, you need to compile it yourself.
 Please report bugs ![at the github issues page](https://github.com/RafaelJust/ReCoil/issues/new?template=bug_report.md). You can also add feature requests there.
 
 # Contributing
