@@ -13,6 +13,9 @@ enum {
 }
 var scores: Array[scoreEntry];
 
+var i_score: int;
+var i_name: String;
+
 const scoreEntry = preload(\"res://scoreEntry.gd\");
 
 func load_highscores() -> Array[scoreEntry]:
@@ -41,27 +44,27 @@ func _on_animation_animation_finished(anim_name: StringName) -> void:
 			$Scores.updateScores();
 		\"Stats\":
 			state = EXIT;
-			var score: int = int($Stats/ScoreValue.text);
+			i_score = int($Stats/ScoreValue.text);
 			
 			if scores == []:
 				# new High score :D
-				var newScore= scoreEntry.new(\"RAF\", score);
+				var newScore= scoreEntry.new(\"RAF\", i_score);
 				newScore.name = \"RAF\";
-				newScore.score = score;
+				newScore.score = i_score;
 				
 				scores.append(newScore);
 				$Animation.play(\"highscore\");
 				write_highscore(scores);
 			for i in range(len(scores)):
-				if score > scores[i].score:
+				if i_score > scores[i].score:
 					# new High score :D
-					var newScore = scoreEntry.new(\"RAF\", score);
-					
-					scores.insert(i, newScore);
 					$Animation.play(\"highscore\");
-					write_highscore(scores);
-					#state = ENTER_NAME;
+					state = IGNORE;
 					break;
+		
+		\"highscore\":
+			$name.visible = true;
+			state = ENTER_NAME;
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(\"Fire\"):
@@ -72,6 +75,20 @@ func _input(event: InputEvent) -> void:
 			EXIT:
 				get_node(\"/root/Main/UI/SceneTransition\").transition(\"res://Scenes/Title.tscn\");
 				state = 0;
+
+
+func _on_name_entered(new_text: String) -> void:
+	if state == ENTER_NAME:
+		$name.visible = false;
+		for i in range(len(scores)):
+			var newScore = scoreEntry.new(new_text.capitalize(), i_score);
+			if i_score > scores[i].score:
+				scores.insert(i, newScore);
+				write_highscore(scores);
+				$Scores.updateScores();
+				break;
+		
+		state = EXIT;
 "
 
 [sub_resource type="Animation" id="Animation_hcp5q"]
@@ -589,6 +606,18 @@ tracks/28/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("name:visible")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_utwgw"]
 resource_name = "Stats"
@@ -725,7 +754,6 @@ tracks/10/keys = {
 
 [sub_resource type="Animation" id="Animation_5ua2x"]
 resource_name = "highscore"
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -988,4 +1016,68 @@ offset_right = -0.000488281
 offset_bottom = -0.000213623
 grow_vertical = 0
 
+[node name="name" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -284.0
+offset_top = -100.0
+offset_right = 284.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="ColorRect" parent="name"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.729412)
+
+[node name="Label" type="Label" parent="name"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -154.0
+offset_top = 5.0
+offset_right = 154.0
+offset_bottom = -127.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 49
+text = "ENTER NAME"
+
+[node name="LineEdit" type="LineEdit" parent="name"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.502
+offset_left = -76.0
+offset_top = 8.0
+offset_right = 76.0
+offset_bottom = 68.6
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/caret_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 38
+alignment = 1
+max_length = 3
+context_menu_enabled = false
+emoji_menu_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+metadata/_edit_group_ = true
+
 [connection signal="animation_finished" from="Animation" to="." method="_on_animation_animation_finished"]
+[connection signal="text_submitted" from="name/LineEdit" to="." method="_on_name_entered"]
