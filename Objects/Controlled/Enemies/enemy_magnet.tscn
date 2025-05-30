@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://8t8j0wowcxax"]
+
+[ext_resource type="PackedScene" uid="uid://cl8c4msa5g48w" path="res://Objects/Controlled/Enemies/enemy.tscn" id="1_ty045"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_ty045"]
+
+[node name="Enemy_magnet" instance=ExtResource("1_ty045")]
+
+[node name="MeshInstance2D" parent="." index="1"]
+scale = Vector2(48, 48)
+mesh = SubResource("TorusMesh_ty045")
