@@ -11,13 +11,10 @@ func _input(event):
 	if event.is_action("quit"):
 		_on_continue_button_pressed()
 
-
-
 func _process(delta):
 	if self.visible && musicFadeInTimer < 10:
 		musicFadeInTimer += delta
 		AudioServer.set_bus_volume_db(3, volumeCurve.sample(musicFadeInTimer / 10))
-		print(AudioServer.get_bus_volume_db(3))
 
 func _on_continue_button_pressed():
 	AudioServer.set_bus_volume_db(3,-72)
@@ -29,21 +26,3 @@ func _on_continue_button_pressed():
 
 func _on_exit_button_pressed():
 	get_node("/root/Main/UI/SceneTransition").transition("res://Scenes/Title.tscn");
-
-
-func _on_master_volume_slider_value_changed(value):
-	%ValueMaster.text = str(round(value))
-	AudioServer.set_bus_volume_db(0, volumeCurve.sample(value / 100))
-
-
-func _on_music_volume_slider_value_changed(value):
-	%ValueMusic.text = str(round(value))
-	AudioServer.set_bus_volume_db(1, volumeCurve.sample(value / 100))
-
-
-func _on_sfx_volume_slider_value_changed(value):
-	%ValueSfx.text = str(round(value))
-	AudioServer.set_bus_volume_db(2, volumeCurve.sample(value / 100))
-	if $Timer.time_left == 0:
-		$sfxSlider.play()
-		$Timer.start()

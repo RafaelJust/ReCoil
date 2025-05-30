@@ -2,6 +2,16 @@ extends Control;
 var mainScene: PackedScene = preload("res://Scenes/main.tscn");
 
 const scoreEntry = preload("res://scoreEntry.gd");
+@export var volumeCurve: Curve
+
+# Load options from save file (for now only volume)
+func load_options():
+	var file = FileAccess.open("user://options.dat", FileAccess.READ)
+	if not file:
+		return
+	AudioServer.set_bus_volume_db(0, volumeCurve.sample(file.get_8() / 100)) # Master
+	AudioServer.set_bus_volume_db(1, volumeCurve.sample(file.get_8() / 100)) # Music
+	AudioServer.set_bus_volume_db(2, volumeCurve.sample(file.get_8() / 100)) # SFX
 
 func _ready() -> void:
 	var highscore: int = 0;
@@ -13,6 +23,7 @@ func _ready() -> void:
 			highscore = scores[0].score;
 			highName = scores[0].name;
 	$HighScore.text = "Highscore [color=yellow][b] %d[/b][color=white]   %s" % [highscore, highName];
+	load_options()
 
 func Play() -> void:
 	get_tree().paused = false;

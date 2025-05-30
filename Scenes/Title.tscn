@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://nctlrrxvla3a"]
+[gd_scene load_steps=8 format=3 uid="uid://nctlrrxvla3a"]
 
 [ext_resource type="Script" uid="uid://dq2ua6bji6n30" path="res://Scripts/Main_Menu/Manager.gd" id="1_26gnb"]
+[ext_resource type="Curve" uid="uid://cj84un7q6tinf" path="res://UI/volumeCurve.tres" id="2_bwrlp"]
 [ext_resource type="AudioStream" uid="uid://cux2k0gh2rv02" path="res://assets/sfx/LOOK_OUT_IM_RELOADING_1.mp3" id="2_t85al"]
 [ext_resource type="PackedScene" uid="uid://frgajvcc5vvv" path="res://UI/scene_transition.tscn" id="3_ud5ar"]
 
@@ -113,6 +114,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_26gnb")
+volumeCurve = ExtResource("2_bwrlp")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

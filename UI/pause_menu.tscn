@@ -1,13 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://7y23n5ui2rpc"]
+[gd_scene load_steps=6 format=3 uid="uid://7y23n5ui2rpc"]
 
-[ext_resource type="Script" uid="uid://oehukq65ampq" path="res://Scripts/pause_menu.gd" id="1_c0l7d"]
+[ext_resource type="Script" uid="uid://oehukq65ampq" path="res://Scripts/pause/pause_menu.gd" id="1_c0l7d"]
+[ext_resource type="Script" uid="uid://diaj6y7n7r8j4" path="res://Scripts/pause/options_manager.gd" id="2_0b5ob"]
 [ext_resource type="AudioStream" uid="uid://24xy1jj4m0iq" path="res://assets/music/PauseMenu.ogg" id="2_b2xdw"]
+[ext_resource type="Curve" uid="uid://cj84un7q6tinf" path="res://UI/volumeCurve.tres" id="2_pqlge"]
 [ext_resource type="AudioStream" uid="uid://lh7osmq5tcvc" path="res://assets/sfx/GUN_SOUND_I_THINGK.mp3" id="3_7bqeo"]
-
-[sub_resource type="Curve" id="Curve_w0eqy"]
-_limits = [-72.0, 0.0, 0.0, 1.0]
-_data = [Vector2(0, -72), 0.0, 208.457, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
 
 [node name="Pause menu" type="Control"]
 process_mode = 2
@@ -18,7 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_c0l7d")
-volumeCurve = SubResource("Curve_w0eqy")
+volumeCurve = ExtResource("2_pqlge")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -29,6 +26,17 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.337255)
 metadata/_edit_lock_ = true
+
+[node name="OptionsManager" type="Control" parent="."]
+process_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_0b5ob")
+volumeCurve = ExtResource("2_pqlge")
+
+[node name="Save Interval" type="Timer" parent="OptionsManager"]
+one_shot = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1
@@ -59,6 +67,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MasterVolumeSlider" type="HSlider" parent="AudioControls"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -103,6 +112,7 @@ theme_override_font_sizes/font_size = 20
 text = "Master"
 
 [node name="MusicVolumeSlider" type="HSlider" parent="AudioControls"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -147,6 +157,7 @@ theme_override_font_sizes/font_size = 20
 text = "Music"
 
 [node name="SfxVolumeSlider" type="HSlider" parent="AudioControls"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -248,16 +259,19 @@ autoplay = true
 bus = &"Pause Music"
 
 [node name="sfxSlider" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
 stream = ExtResource("3_7bqeo")
 bus = &"Gun"
 
-[node name="Timer" type="Timer" parent="."]
+[node name="SFXTimer" type="Timer" parent="."]
+unique_name_in_owner = true
 wait_time = 0.2
 one_shot = true
 
 [connection signal="hidden" from="." to="." method="_on_hidden"]
-[connection signal="value_changed" from="AudioControls/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
-[connection signal="value_changed" from="AudioControls/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
-[connection signal="value_changed" from="AudioControls/SfxVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
+[connection signal="timeout" from="OptionsManager/Save Interval" to="OptionsManager" method="_on_save_interval_timeout"]
+[connection signal="value_changed" from="AudioControls/MasterVolumeSlider" to="OptionsManager" method="_on_master_volume_slider_value_changed"]
+[connection signal="value_changed" from="AudioControls/MusicVolumeSlider" to="OptionsManager" method="_on_music_volume_slider_value_changed"]
+[connection signal="value_changed" from="AudioControls/SfxVolumeSlider" to="OptionsManager" method="_on_sfx_volume_slider_value_changed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
