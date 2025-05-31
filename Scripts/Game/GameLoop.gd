@@ -123,8 +123,9 @@ func spawnEnemies(amount: int) -> void:
 		var enemy: Node2D
 		
 		var random_chance: int = randi_range(1,100)
-		
-		if  random_chance < 25:
+		if random_chance < 5:
+			enemy = preload("res://Objects/Controlled/Enemies/enemy_shooting.tscn").instantiate()
+		elif  random_chance < 25:
 			enemy = preload("res://Objects/Controlled/Enemies/enemy_shooting.tscn").instantiate()
 		elif random_chance < 35:
 			enemy = preload("res://Objects/Controlled/Enemies/enemy_spike.tscn").instantiate()
