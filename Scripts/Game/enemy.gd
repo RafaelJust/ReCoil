@@ -5,6 +5,7 @@ extends RigidBody2D
 @export var value: int = 10 #The mount added to the score after being defeated.
 
 @export var canBoost: bool
+@export var disabled: bool
 
 @export var followPlayer: bool = true
 @export var canShoot = false
@@ -15,6 +16,7 @@ var player: Node2D
 var boostAmount = 50
 
 func _ready() -> void:
+	if disabled: return
 	#setup for collision detection with rigidbodies
 	contact_monitor = true
 	max_contacts_reported = 5
@@ -27,6 +29,7 @@ func _ready() -> void:
 		change_path()
 
 func  _physics_process(_delta: float) -> void:
+	if disabled: return
 	if followPlayer:
 		# Make a Vector2 that points into the direction of the player
 		var dir: Vector2 = (player.global_position - self.global_position).normalized()
