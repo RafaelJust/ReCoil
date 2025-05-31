@@ -56,6 +56,7 @@ collision_mask = 15
 linear_damp = 1.0
 script = ExtResource("1_016w2")
 force = 500
+canHurt = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_tggtt")

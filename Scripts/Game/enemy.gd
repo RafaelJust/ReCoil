@@ -5,6 +5,7 @@ extends RigidBody2D
 @export var value: int = 10 #The mount added to the score after being defeated.
 
 @export var canBoost: bool
+@export var canHurt: bool
 @export var disabled: bool
 
 @export var followPlayer: bool = true
@@ -54,7 +55,6 @@ func _on_body_entered(body: Node) -> void:
 			get_node("/root/Main").add_score(value)
 			get_node("/root/Main").combo_add();
 			queue_free()
-	if body == player && !canShoot:
 		#move away from the player
 		apply_central_force((player.global_position - self.global_position).normalized() * -50000)
 

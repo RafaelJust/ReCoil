@@ -162,6 +162,7 @@ position = Vector2(570, 0)
 environment = SubResource("Environment_vyppd")
 
 [node name="EnemyGoals" type="Path2D" parent="."]
+visible = false
 curve = SubResource("Curve2D_af16l")
 
 [node name="enemyPath" type="PathFollow2D" parent="EnemyGoals"]

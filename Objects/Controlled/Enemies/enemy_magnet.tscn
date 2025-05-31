@@ -257,6 +257,9 @@ animations = [{
 }]
 
 [node name="Enemy_magnet" instance=ExtResource("1_ty045")]
+collision_layer = 2
+lives = 15
+canHurt = false
 followPlayer = false
 
 [node name="LightOccluder2D" parent="." index="0"]
@@ -274,13 +277,14 @@ modulate = Color(0, 0, 1, 0.223529)
 
 [node name="Magnet" type="Node2D" parent="." index="6"]
 
-[node name="area" type="MeshInstance2D" parent="Magnet" index="0" node_paths=PackedStringArray("childHolder")]
+[node name="area" type="MeshInstance2D" parent="Magnet" index="0" node_paths=PackedStringArray("childHolder", "Area")]
 self_modulate = Color(0, 0.3, 1, 0.0862745)
 position = Vector2(0, 5.9322e-05)
 scale = Vector2(488.553, 488.553)
 mesh = SubResource("SphereMesh_s1j4l")
 script = ExtResource("62_eheko")
 childHolder = NodePath("../childHolder")
+Area = NodePath("../Area2D")
 
 [node name="childHolder" type="Node2D" parent="Magnet" index="1"]
 
@@ -289,6 +293,8 @@ wait_time = 0.25
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="Magnet" index="3"]
+collision_layer = 2
+collision_mask = 31
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Magnet/Area2D" index="0"]
 shape = SubResource("CircleShape2D_eheko")
@@ -296,6 +302,7 @@ shape = SubResource("CircleShape2D_eheko")
 [node name="Body" type="AnimatedSprite2D" parent="." index="7"]
 scale = Vector2(0.18, 0.18)
 sprite_frames = SubResource("SpriteFrames_mviju")
+autoplay = "default"
 frame_progress = 0.45184
 
 [connection signal="timeout" from="Magnet/Timer" to="Magnet/area" method="_on_timer_timeout"]
