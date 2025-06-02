@@ -15,7 +15,6 @@ config/version="0.9.2"
 run/main_scene="res://Scenes/Title.tscn"
 config/quit_on_go_back=false
 config/features=PackedStringArray("4.4", "Mobile")
-boot_splash/image="uid://bhtymhxpo4ywu"
 config/icon="res://icon.png"
 config/windows_native_icon="res://icon.ico"
 
