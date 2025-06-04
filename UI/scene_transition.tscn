@@ -261,10 +261,11 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_fl2u0")
+&"": SubResource("AnimationLibrary_fl2u0")
 }
 
 [node name="CRT shader" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_jn5yo")
 layout_mode = 1
 anchors_preset = 15
