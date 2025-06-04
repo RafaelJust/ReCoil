@@ -1,4 +1,4 @@
-{ lib, stdenv, godot, gnutar, gzip, unzip, version ? "0.9.2-nix", godotPackages
+{ lib, stdenv, godot, gnutar, gzip, unzip, version ? "0.9.3-nix", godotPackages
 , dust, alsa-lib, gcc-unwrapped, libGLU, libX11, libXcursor, libXext, libXfixes
 , libXi, libXinerama, libXrandr, libXrender, libglvnd, libpulseaudio, zlib
 , godot-version ? "4.4.1.stable" }:
@@ -9,7 +9,7 @@ stdenv.mkDerivation {
 
   src = fetchGit {
     url = "https://codeberg.org/rjust/ReCoil.git";
-    rev = "3365f2ab6d8e4773fe8e66a57ffcfb5b04dcb122";
+    rev = "292ea14606a4254c34302e1a868c6863a5c3b536";
   };
 
   nativeBuildInputs =
