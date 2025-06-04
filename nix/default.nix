@@ -47,6 +47,22 @@ stdenv.mkDerivation {
     runHook postBuild
   '';
 
+  installPhase = ''
+    mkdir -p $out/share/{applications,icons/hicolor/128x128/apps}
+    cp $src/icon.png $out/share/icons/hicolor/128x128/apps/recoil.png
+
+    echo "[Desktop Entry]
+    Exec=recoil
+    GenericName=A zero-gravity arcade shooter without thrusters!
+    Icon=recoil
+    Name=ReCoil
+    StartupNotify=true
+    Terminal=false
+    TerminalOptions=
+    Type=Application
+    X-KDE-SubstituteUID=false" >> $out/share/applications/recoil.desktop
+  '';
+
   meta = with lib; {
     homepage = "https://codeberg.org/rjust/ReCoil";
     description = "A zero-gravity arcade shooter without thrusters!";
