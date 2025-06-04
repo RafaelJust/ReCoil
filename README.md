@@ -22,20 +22,22 @@ This game has very simple controls:
 
 # Features
 
-## V0.9 includes:
+## V0.9.2 includes:
 
-- 2 different enemy types
+- 3 different enemy types
 - Dynamic music progression by SpicyPuddin
-- Simple art with shapes, beautified by a nice shader by pend00 on godotshaders.com
+- Simple art with shapes, ~~beautified by a nice shader by pend00 on godotshaders.com~~ <mark>NOTE:</mark> The shader has been temporarily disabled to test out a different style.
 - Scaling difficulty
 
 ## Planned for v1.0:
 
-- more enemy types
-- immovable appearing walls for more map complexety
-- highscore counter
-- Changing the angle with the scroll wheel
-- and some small UI tweaks
+- [x] more enemy types 
+
+- [ ] immovable appearing walls for more map complexety
+
+- [x] highscore counter
+
+- [ ] and some small UI tweaks
 
 ## Planned for future updates:
 
@@ -58,7 +60,6 @@ Please report bugs ![at the github issues page](https://github.com/RafaelJust/Re
 # Contributing / building
 
 This game is made using godot, so you need to install it if you haven't.
-Please fork and make PRs against the "devel" branch, as the main branch is for stable releases.
 I will look at all PR's made, so feel free to add your Ideas to it.
 
 # License
