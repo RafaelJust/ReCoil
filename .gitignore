@@ -3,3 +3,5 @@
 
 # Android build templates
 android/
+
+export_presets.cfg
