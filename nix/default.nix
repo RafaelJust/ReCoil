@@ -9,7 +9,7 @@ stdenv.mkDerivation {
 
   src = fetchGit {
     url = "https://codeberg.org/rjust/ReCoil.git";
-    rev = "292ea14606a4254c34302e1a868c6863a5c3b536";
+    rev = "0e3fd7877918e934446f63b93d8a79747668f84d";
   };
 
   nativeBuildInputs =
