@@ -1,6 +1,7 @@
 <img src="git_assets/banner.gif" alt="ReCoil" width="960"/>
 
 ## IMPORTANT:
+
 I am moving this repo from github to codeberg, and will eventually remove the github repo in the near future.
 For now, the github repo will act as a mirror for the codeberg one.
 All pull requests and bug reports should be done on codeberg, which can be found [here](https://codeberg.org/rjust/ReCoil/src/branch/devel). 
@@ -12,41 +13,54 @@ You can't move on your own, so you need to rely on the recoil of your shotgun to
 Just be sure you don't shoot too much, or you will bounce around wildy out of control.
 
 # Controls
+
 This game has very simple controls:
-  - Use your mouse to aim
-  - Use z and x to increase and decrease the angle.
-  - Click to shoot
+
+- Use your mouse to aim
+- Use z and x to increase and decrease the angle.
+- Click to shoot
 
 # Features
+
 ## V0.9 includes:
-  - 2 different enemy types
-  - Dynamic music progression by SpicyPuddin
-  - Simple art with shapes, beautified by a nice shader by pend00 on godotshaders.com
-  - Scaling difficulty
+
+- 2 different enemy types
+- Dynamic music progression by SpicyPuddin
+- Simple art with shapes, beautified by a nice shader by pend00 on godotshaders.com
+- Scaling difficulty
 
 ## Planned for v1.0:
-  - more enemy types
-  - immovable appearing walls for more map complexety
-  - highscore counter
-  - Changing the angle with the scroll wheel
-  - and some small UI tweaks
+
+- more enemy types
+- immovable appearing walls for more map complexety
+- highscore counter
+- Changing the angle with the scroll wheel
+- and some small UI tweaks
 
 ## Planned for future updates:
-  - Add more settings
-      - Controls remapping
-      - shaders toggle
-  - Modifiers to mkae the game easier/harder
 
+- Add more settings
+  - Controls remapping
+  - shaders toggle
+- Modifiers to mkae the game easier/harder
 
 # Installation
-You can get the latest release ![here](https://github.com/RafaelJust/ReCoil/releases/latest).
+
+On nixos, if you use flakes, this repo has one.
+You can test it out by running `nix run "git+https://codeberg.org/rjust/ReCoil`.
+
+You can also install it by adding the flake to your system's `flake.nix` inputs.
+
+For non-NixOs linux systems, you can get the latest release ![here](https://github.com/RafaelJust/ReCoil/releases/latest).
 Note that at the moment, only linux builds are made. If you want to play this game on Windows or MacOS, you need to compile it yourself.
 Please report bugs ![at the github issues page](https://github.com/RafaelJust/ReCoil/issues/new?template=bug_report.md). You can also add feature requests there.
 
-# Contributing
+# Contributing / building
+
 This game is made using godot, so you need to install it if you haven't.
 Please fork and make PRs against the "devel" branch, as the main branch is for stable releases.
 I will look at all PR's made, so feel free to add your Ideas to it.
 
 # License
+
 This project uses a ![GPL-v3 License](https://github.com/RafaelJust/ReCoil/blob/master/COPYING). 
