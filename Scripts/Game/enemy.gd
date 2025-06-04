@@ -50,13 +50,13 @@ func _on_body_entered(body: Node) -> void:
 		lives -= 1
 		$AnimationPlayer.play("flicker")
 		body.queue_free() #remove the hit bullet
-		print("hit!")
+
 		if lives == 0:
 			get_node("/root/Main").kills += 1
 			get_node("/root/Main").add_score(value)
 			get_node("/root/Main").combo_add();
 			queue_free()
-	else:
+	elif body.name == "Player":
 		#move away from the player
 		apply_central_force((player.global_position - self.global_position).normalized() * -50000)
 
