@@ -87,11 +87,12 @@ func take_damage():
 			Dead = true
 			deathSignal.emit()
 			self.collision_layer = 2
-		elif lives == 1:
-			$sparks.one_shot = false
 		else:
 			$Invincibility.start()
 			$AnimationPlayer.play("flicker")
+		
+		if lives == 1:
+			$sparks.one_shot = false
 		
 		# Change Lives amount
 		get_tree().get_root().get_node("/root/Main/UI/Hud").show_lives(lives)
