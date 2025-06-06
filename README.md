@@ -60,7 +60,7 @@ You can test it out by running `nix run "git+https://codeberg.org/rjust/ReCoil`.
 You can also install it by adding the flake to your system's `flake.nix` inputs.
 
 For non-NixOs linux systems, you can get the latest release ![here](https://github.com/RafaelJust/ReCoil/releases/latest).
-Note that at the moment, only linux builds are made. If you want to play this game on Windows or MacOS, you need to compile it yourself.
+Note that at the moment, only linux and Windows builds are made. If you want to play this game on MacOS, you need to compile it yourself.
 Please report bugs ![at the github issues page](https://github.com/RafaelJust/ReCoil/issues/new?template=bug_report.md). You can also add feature requests there.
 
 # Contributing / building
