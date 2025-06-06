@@ -37,13 +37,19 @@ This game has very simple controls:
 
 - [x] highscore counter
 
-- [ ] and some small UI tweaks
+- [ ] some small UI tweaks
+
+- [ ] More Options!
+  
+  - [ ] shader toggling
+  
+  - [ ] "Hell mode", making your own bullets hurt you
 
 ## Planned for future updates:
 
 - Add more settings
   - Controls remapping
-  - shaders toggle
+  - 
 - Modifiers to mkae the game easier/harder
 
 # Installation

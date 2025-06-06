@@ -265,7 +265,6 @@ libraries = {
 }
 
 [node name="CRT shader" type="ColorRect" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_jn5yo")
 layout_mode = 1
 anchors_preset = 15

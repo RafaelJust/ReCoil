@@ -361,7 +361,7 @@ fit_content = true
 
 [node name="WaveDisplay" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_pb8cs")
+&"": SubResource("AnimationLibrary_pb8cs")
 }
 
 [connection signal="update_score" from="." to="Score" method="_on_hud_update_score"]
