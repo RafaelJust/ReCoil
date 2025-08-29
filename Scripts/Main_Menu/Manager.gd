@@ -3,6 +3,9 @@ var mainScene: PackedScene = preload("res://Scenes/main.tscn");
 
 const scoreEntry = preload("res://scoreEntry.gd");
 @export var volumeCurve: Curve
+var musicFadeInTimer: float = 0
+
+var in_options = false
 
 # Load options from save file (for now only volume)
 func load_options():
@@ -22,7 +25,7 @@ func _ready() -> void:
 		if not scores == []:
 			highscore = scores[0].score;
 			highName = scores[0].name;
-	$HighScore.text = "Highscore [color=yellow][b] %d[/b][color=white]   %s" % [highscore, highName];
+	$mainMenu/HighScore.text = "Highscore [color=yellow][b] %d[/b][color=white]   %s" % [highscore, highName];
 	load_options()
 
 func Play() -> void:
@@ -34,5 +37,20 @@ func Quit() -> void:
 	get_tree().quit();
 
 
-func startGame(_anim_name):
-	get_tree().change_scene_to_packed(mainScene);
+func startGame(anim_name):
+	if anim_name == "Fade_out":
+		get_tree().change_scene_to_packed(mainScene);
+	if anim_name == "wipe_to_options":
+		in_options = true
+	if anim_name == "wipe_to_main":
+		in_options = false
+		musicFadeInTimer = 0
+		AudioServer.set_bus_volume_db(3,-72)
+
+func _process(delta: float) -> void:
+	if in_options && musicFadeInTimer < 10:
+		musicFadeInTimer += delta * 2
+		AudioServer.set_bus_volume_db(3, volumeCurve.sample(musicFadeInTimer / 10))
+
+func _on_options_button_pressed() -> void:
+	$AnimationPlayer.play("wipe_to_options")

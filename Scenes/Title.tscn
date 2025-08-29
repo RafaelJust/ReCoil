@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://nctlrrxvla3a"]
+[gd_scene load_steps=13 format=3 uid="uid://nctlrrxvla3a"]
 
 [ext_resource type="Script" uid="uid://dq2ua6bji6n30" path="res://Scripts/Main_Menu/Manager.gd" id="1_26gnb"]
 [ext_resource type="Curve" uid="uid://cj84un7q6tinf" path="res://UI/volumeCurve.tres" id="2_bwrlp"]
 [ext_resource type="AudioStream" uid="uid://cux2k0gh2rv02" path="res://assets/sfx/LOOK_OUT_IM_RELOADING_1.mp3" id="2_t85al"]
 [ext_resource type="PackedScene" uid="uid://frgajvcc5vvv" path="res://UI/scene_transition.tscn" id="3_ud5ar"]
+[ext_resource type="Script" uid="uid://diaj6y7n7r8j4" path="res://Scripts/pause/options_manager.gd" id="4_t32dt"]
+[ext_resource type="AudioStream" uid="uid://24xy1jj4m0iq" path="res://assets/music/PauseMenu.ogg" id="5_w1iyi"]
+[ext_resource type="AudioStream" uid="uid://lh7osmq5tcvc" path="res://assets/sfx/GUN_SOUND_I_THINGK.mp3" id="6_pld1e"]
 
 [sub_resource type="Animation" id="Animation_1icyh"]
 resource_name = "Fade_out"
@@ -98,11 +101,223 @@ tracks/3/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Wipe:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Wipe:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Wipe:size:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Wipe:size:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(648, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("mainMenu:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Options:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_t32dt"]
+resource_name = "wipe_to_main"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wipe:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 1, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, 0, 0, 0, 0, 1152, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wipe:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Wipe:size:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 1, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1152, 0, 0, 0, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Wipe:size:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(648, -0.25, 0, 0.25, 0, 648, -0.25, 0, 0.25, 0, 648, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("mainMenu:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Options:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_bwrlp"]
+resource_name = "wipe_to_options"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wipe:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 1, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, 0, 0, 0, 0, 1152, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wipe:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Wipe:size:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 1, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1152, 0, 0, 0, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Wipe:size:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(648, -0.25, 0, 0.25, 0, 648, -0.25, 0, 0.25, 0, 648, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("mainMenu:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Options:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u7v65"]
 _data = {
 &"Fade_out": SubResource("Animation_1icyh"),
-&"RESET": SubResource("Animation_iq054")
+&"RESET": SubResource("Animation_iq054"),
+&"wipe_to_main": SubResource("Animation_t32dt"),
+&"wipe_to_options": SubResource("Animation_bwrlp")
 }
 
 [node name="Title" type="Control"]
@@ -125,7 +340,18 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.133196, 0.133196, 0.133196, 1)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_t85al")
+
+[node name="mainMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="mainMenu"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -141,7 +367,7 @@ text = "[center][color=lightblue]Re"
 scroll_active = false
 shortcut_keys_enabled = false
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+[node name="RichTextLabel2" type="RichTextLabel" parent="mainMenu"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -157,7 +383,7 @@ text = "[center][color=pink]Coil"
 scroll_active = false
 shortcut_keys_enabled = false
 
-[node name="playButton" type="Button" parent="."]
+[node name="playButton" type="Button" parent="mainMenu"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -172,22 +398,22 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 59
 text = "Play"
 
-[node name="OptionsButton" type="Button" parent="."]
+[node name="OptionsButton" type="Button" parent="mainMenu"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -100.0
+offset_left = -116.0
 offset_top = 389.0
-offset_right = 101.0
+offset_right = 117.0
 offset_bottom = -169.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 59
 text = "Options"
 
-[node name="QuitButton" type="Button" parent="."]
+[node name="QuitButton" type="Button" parent="mainMenu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.444444
@@ -195,17 +421,14 @@ anchor_top = 0.760803
 anchor_right = 0.559028
 anchor_bottom = 0.899691
 offset_top = -3.05176e-05
-offset_bottom = 3.05176e-05
+offset_bottom = 6.10352e-05
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 59
 text = "Quit"
 metadata/_edit_use_anchors_ = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_t85al")
-
-[node name="HighScore" type="RichTextLabel" parent="."]
+[node name="HighScore" type="RichTextLabel" parent="mainMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -225,7 +448,313 @@ text = "Highscore: [color=yellow][b] 69420"
 fit_content = true
 autowrap_mode = 0
 
+[node name="Options" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionsManager" type="Control" parent="Options"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_t32dt")
+volumeCurve = ExtResource("2_bwrlp")
+
+[node name="Save Interval" type="Timer" parent="Options/OptionsManager"]
+one_shot = true
+
+[node name="Title" type="RichTextLabel" parent="Options"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 56.0
+offset_right = 200.0
+offset_bottom = 216.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]options"
+fit_content = true
+
+[node name="AudioControls" type="Control" parent="Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -216.0
+offset_right = 20.0
+offset_bottom = -176.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MasterVolumeSlider" type="HSlider" parent="Options/AudioControls"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = 181.0
+offset_right = 104.0
+offset_bottom = 197.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+
+[node name="ValueMaster" type="Label" parent="Options/AudioControls/MasterVolumeSlider"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 9.0
+offset_top = -11.0
+offset_right = 99.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+
+[node name="Label" type="Label" parent="Options/AudioControls/MasterVolumeSlider"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -15.5
+offset_right = -4.0
+offset_bottom = 12.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Master"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Options/AudioControls"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = 201.0
+offset_right = 104.0
+offset_bottom = 217.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+
+[node name="ValueMusic" type="Label" parent="Options/AudioControls/MusicVolumeSlider"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 9.0
+offset_top = -11.0
+offset_right = 99.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+
+[node name="Label" type="Label" parent="Options/AudioControls/MusicVolumeSlider"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -15.5
+offset_right = -11.0
+offset_bottom = 12.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Music"
+
+[node name="SfxVolumeSlider" type="HSlider" parent="Options/AudioControls"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = 221.0
+offset_right = 104.0
+offset_bottom = 237.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+
+[node name="ValueSfx" type="Label" parent="Options/AudioControls/SfxVolumeSlider"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 9.0
+offset_top = -11.0
+offset_right = 99.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+
+[node name="Label" type="Label" parent="Options/AudioControls/SfxVolumeSlider"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -14.0
+offset_right = -1.0
+offset_bottom = 45.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Sfx
+"
+
+[node name="Text" type="RichTextLabel" parent="Options/AudioControls"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = 103.0
+offset_right = 65.0
+offset_bottom = 163.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 41
+bbcode_enabled = true
+text = "[center]Audio
+"
+
+[node name="Visualcontrols" type="Control" parent="Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.0
+offset_top = 82.0
+offset_right = 23.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="RichTextLabel" parent="Options/Visualcontrols"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -13.0
+offset_right = 68.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 41
+bbcode_enabled = true
+text = "[center]Visual
+"
+
+[node name="crtButton" type="CheckButton" parent="Options/Visualcontrols"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0
+offset_top = 54.0
+offset_right = 99.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+button_pressed = true
+text = "Enable CRT shader"
+
+[node name="flButton" type="CheckButton" parent="Options/Visualcontrols"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -39.0
+offset_top = 98.0
+offset_right = 119.0
+offset_bottom = 129.0
+disabled = true
+button_pressed = true
+text = "Flashing lights"
+
+[node name="Music" type="AudioStreamPlayer" parent="Options"]
+stream = ExtResource("5_w1iyi")
+autoplay = true
+bus = &"Pause Music"
+
+[node name="sfxSlider" type="AudioStreamPlayer" parent="Options"]
+unique_name_in_owner = true
+stream = ExtResource("6_pld1e")
+bus = &"Gun"
+
+[node name="SFXTimer" type="Timer" parent="Options"]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+
+[node name="backButton" type="Button" parent="Options"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -99.0
+offset_right = 50.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "Back"
+
+[node name="Wipe" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.44, 0.44, 0.44, 1)
+
 [node name="Fade" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -241,9 +770,15 @@ libraries = {
 }
 
 [node name="SceneTransition" parent="." instance=ExtResource("3_ud5ar")]
-visible = false
 layout_mode = 1
 
-[connection signal="button_down" from="playButton" to="." method="Play"]
-[connection signal="button_down" from="QuitButton" to="." method="Quit"]
+[connection signal="button_down" from="mainMenu/playButton" to="." method="Play"]
+[connection signal="pressed" from="mainMenu/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="button_down" from="mainMenu/QuitButton" to="." method="Quit"]
+[connection signal="timeout" from="Options/OptionsManager/Save Interval" to="Options/OptionsManager" method="_on_save_interval_timeout"]
+[connection signal="value_changed" from="Options/AudioControls/MasterVolumeSlider" to="Options/OptionsManager" method="_on_master_volume_slider_value_changed"]
+[connection signal="value_changed" from="Options/AudioControls/MusicVolumeSlider" to="Options/OptionsManager" method="_on_music_volume_slider_value_changed"]
+[connection signal="value_changed" from="Options/AudioControls/SfxVolumeSlider" to="Options/OptionsManager" method="_on_sfx_volume_slider_value_changed"]
+[connection signal="toggled" from="Options/Visualcontrols/crtButton" to="Options/OptionsManager" method="_on_crt_shader_toggled"]
+[connection signal="pressed" from="Options/backButton" to="Options/OptionsManager" method="_on_back_button_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="startGame"]
