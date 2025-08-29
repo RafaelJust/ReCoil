@@ -157,7 +157,7 @@ text = "[center][color=pink]Coil"
 scroll_active = false
 shortcut_keys_enabled = false
 
-[node name="Button" type="Button" parent="."]
+[node name="playButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -172,13 +172,28 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 59
 text = "Play"
 
-[node name="Button2" type="Button" parent="."]
+[node name="OptionsButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = 389.0
+offset_right = 101.0
+offset_bottom = -169.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 59
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.444444
-anchor_top = 0.628086
+anchor_top = 0.760803
 anchor_right = 0.559028
-anchor_bottom = 0.766975
+anchor_bottom = 0.899691
 offset_top = -3.05176e-05
 offset_bottom = 3.05176e-05
 grow_horizontal = 2
@@ -198,9 +213,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -122.5
-offset_top = 196.0
+offset_top = 270.0
 offset_right = 122.5
-offset_bottom = 240.0
+offset_bottom = 314.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 27
@@ -226,8 +241,9 @@ libraries = {
 }
 
 [node name="SceneTransition" parent="." instance=ExtResource("3_ud5ar")]
+visible = false
 layout_mode = 1
 
-[connection signal="button_down" from="Button" to="." method="Play"]
-[connection signal="button_down" from="Button2" to="." method="Quit"]
+[connection signal="button_down" from="playButton" to="." method="Play"]
+[connection signal="button_down" from="QuitButton" to="." method="Quit"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="startGame"]
