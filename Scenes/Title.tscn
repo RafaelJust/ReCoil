@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://nctlrrxvla3a"]
+[gd_scene format=3 uid="uid://nctlrrxvla3a"]
 
 [ext_resource type="Script" uid="uid://dq2ua6bji6n30" path="res://Scripts/Main_Menu/Manager.gd" id="1_26gnb"]
 [ext_resource type="Curve" uid="uid://cj84un7q6tinf" path="res://UI/volumeCurve.tres" id="2_bwrlp"]
@@ -320,7 +320,7 @@ _data = {
 &"wipe_to_options": SubResource("Animation_bwrlp")
 }
 
-[node name="Title" type="Control"]
+[node name="Title" type="Control" unique_id=1363040260]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -331,7 +331,7 @@ grow_vertical = 2
 script = ExtResource("1_26gnb")
 volumeCurve = ExtResource("2_bwrlp")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=833266567]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -340,10 +340,10 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.133196, 0.133196, 0.133196, 1)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=887339755]
 stream = ExtResource("2_t85al")
 
-[node name="mainMenu" type="Control" parent="."]
+[node name="mainMenu" type="Control" parent="." unique_id=1834346153]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -351,7 +351,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="mainMenu"]
+[node name="RichTextLabel" type="RichTextLabel" parent="mainMenu" unique_id=1502410003]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -367,7 +367,7 @@ text = "[center][color=lightblue]Re"
 scroll_active = false
 shortcut_keys_enabled = false
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="mainMenu"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="mainMenu" unique_id=108832584]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -383,7 +383,7 @@ text = "[center][color=pink]Coil"
 scroll_active = false
 shortcut_keys_enabled = false
 
-[node name="playButton" type="Button" parent="mainMenu"]
+[node name="playButton" type="Button" parent="mainMenu" unique_id=376413601]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -398,7 +398,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 59
 text = "Play"
 
-[node name="OptionsButton" type="Button" parent="mainMenu"]
+[node name="OptionsButton" type="Button" parent="mainMenu" unique_id=2091717074]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -413,7 +413,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 59
 text = "Options"
 
-[node name="QuitButton" type="Button" parent="mainMenu"]
+[node name="QuitButton" type="Button" parent="mainMenu" unique_id=1973694840]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.444444
@@ -428,7 +428,7 @@ theme_override_font_sizes/font_size = 59
 text = "Quit"
 metadata/_edit_use_anchors_ = true
 
-[node name="HighScore" type="RichTextLabel" parent="mainMenu"]
+[node name="HighScore" type="RichTextLabel" parent="mainMenu" unique_id=618822351]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -448,7 +448,7 @@ text = "Highscore: [color=yellow][b] 69420"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Options" type="Control" parent="."]
+[node name="Options" type="Control" parent="." unique_id=924854328]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -457,19 +457,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="OptionsManager" type="Control" parent="Options"]
+[node name="OptionsManager" type="Control" parent="Options" unique_id=172889259]
 process_mode = 3
-layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("4_t32dt")
 volumeCurve = ExtResource("2_bwrlp")
 
-[node name="Save Interval" type="Timer" parent="Options/OptionsManager"]
+[node name="Save Interval" type="Timer" parent="Options/OptionsManager" unique_id=1509737673]
 one_shot = true
 
-[node name="Title" type="RichTextLabel" parent="Options"]
+[node name="Title" type="RichTextLabel" parent="Options" unique_id=519647757]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -484,7 +483,7 @@ bbcode_enabled = true
 text = "[center]options"
 fit_content = true
 
-[node name="AudioControls" type="Control" parent="Options"]
+[node name="AudioControls" type="Control" parent="Options" unique_id=580269314]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -498,7 +497,7 @@ offset_bottom = -176.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MasterVolumeSlider" type="HSlider" parent="Options/AudioControls"]
+[node name="MasterVolumeSlider" type="HSlider" parent="Options/AudioControls" unique_id=2011809877]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -514,7 +513,7 @@ grow_horizontal = 2
 grow_vertical = 2
 value = 100.0
 
-[node name="ValueMaster" type="Label" parent="Options/AudioControls/MasterVolumeSlider"]
+[node name="ValueMaster" type="Label" parent="Options/AudioControls/MasterVolumeSlider" unique_id=99770284]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 6
@@ -530,7 +529,7 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "100"
 
-[node name="Label" type="Label" parent="Options/AudioControls/MasterVolumeSlider"]
+[node name="Label" type="Label" parent="Options/AudioControls/MasterVolumeSlider" unique_id=1773810130]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -543,7 +542,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 20
 text = "Master"
 
-[node name="MusicVolumeSlider" type="HSlider" parent="Options/AudioControls"]
+[node name="MusicVolumeSlider" type="HSlider" parent="Options/AudioControls" unique_id=1503162064]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -559,7 +558,7 @@ grow_horizontal = 2
 grow_vertical = 2
 value = 100.0
 
-[node name="ValueMusic" type="Label" parent="Options/AudioControls/MusicVolumeSlider"]
+[node name="ValueMusic" type="Label" parent="Options/AudioControls/MusicVolumeSlider" unique_id=1359244327]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 6
@@ -575,7 +574,7 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "100"
 
-[node name="Label" type="Label" parent="Options/AudioControls/MusicVolumeSlider"]
+[node name="Label" type="Label" parent="Options/AudioControls/MusicVolumeSlider" unique_id=617079720]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -588,7 +587,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 20
 text = "Music"
 
-[node name="SfxVolumeSlider" type="HSlider" parent="Options/AudioControls"]
+[node name="SfxVolumeSlider" type="HSlider" parent="Options/AudioControls" unique_id=1968638019]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -604,7 +603,7 @@ grow_horizontal = 2
 grow_vertical = 2
 value = 100.0
 
-[node name="ValueSfx" type="Label" parent="Options/AudioControls/SfxVolumeSlider"]
+[node name="ValueSfx" type="Label" parent="Options/AudioControls/SfxVolumeSlider" unique_id=1899697625]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 6
@@ -620,7 +619,7 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "100"
 
-[node name="Label" type="Label" parent="Options/AudioControls/SfxVolumeSlider"]
+[node name="Label" type="Label" parent="Options/AudioControls/SfxVolumeSlider" unique_id=1503555639]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -634,7 +633,7 @@ theme_override_font_sizes/font_size = 20
 text = "Sfx
 "
 
-[node name="Text" type="RichTextLabel" parent="Options/AudioControls"]
+[node name="Text" type="RichTextLabel" parent="Options/AudioControls" unique_id=28170389]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -652,7 +651,7 @@ bbcode_enabled = true
 text = "[center]Audio
 "
 
-[node name="Visualcontrols" type="Control" parent="Options"]
+[node name="Visualcontrols" type="Control" parent="Options" unique_id=236623403]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -666,7 +665,7 @@ offset_bottom = 122.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Text" type="RichTextLabel" parent="Options/Visualcontrols"]
+[node name="Text" type="RichTextLabel" parent="Options/Visualcontrols" unique_id=592082198]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -684,7 +683,7 @@ bbcode_enabled = true
 text = "[center]Visual
 "
 
-[node name="crtButton" type="CheckButton" parent="Options/Visualcontrols"]
+[node name="crtButton" type="CheckButton" parent="Options/Visualcontrols" unique_id=565192385]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -701,7 +700,7 @@ grow_vertical = 2
 button_pressed = true
 text = "Enable CRT shader"
 
-[node name="flButton" type="CheckButton" parent="Options/Visualcontrols"]
+[node name="flButton" type="CheckButton" parent="Options/Visualcontrols" unique_id=1521053363]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = -39.0
@@ -712,22 +711,22 @@ disabled = true
 button_pressed = true
 text = "Flashing lights"
 
-[node name="Music" type="AudioStreamPlayer" parent="Options"]
+[node name="Music" type="AudioStreamPlayer" parent="Options" unique_id=1114312950]
 stream = ExtResource("5_w1iyi")
 autoplay = true
 bus = &"Pause Music"
 
-[node name="sfxSlider" type="AudioStreamPlayer" parent="Options"]
+[node name="sfxSlider" type="AudioStreamPlayer" parent="Options" unique_id=167237996]
 unique_name_in_owner = true
 stream = ExtResource("6_pld1e")
 bus = &"Gun"
 
-[node name="SFXTimer" type="Timer" parent="Options"]
+[node name="SFXTimer" type="Timer" parent="Options" unique_id=2092982376]
 unique_name_in_owner = true
 wait_time = 0.2
 one_shot = true
 
-[node name="backButton" type="Button" parent="Options"]
+[node name="backButton" type="Button" parent="Options" unique_id=1673466200]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -743,7 +742,7 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 40
 text = "Back"
 
-[node name="Wipe" type="ColorRect" parent="."]
+[node name="Wipe" type="ColorRect" parent="." unique_id=1032569044]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -753,7 +752,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.44, 0.44, 0.44, 1)
 
-[node name="Fade" type="ColorRect" parent="."]
+[node name="Fade" type="ColorRect" parent="." unique_id=1694430422]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -764,12 +763,10 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_u7v65")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=914511675]
+libraries/ = SubResource("AnimationLibrary_u7v65")
 
-[node name="SceneTransition" parent="." instance=ExtResource("3_ud5ar")]
+[node name="SceneTransition" parent="." unique_id=152666615 instance=ExtResource("3_ud5ar")]
 layout_mode = 1
 
 [connection signal="button_down" from="mainMenu/playButton" to="." method="Play"]
